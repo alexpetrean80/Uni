@@ -1,0 +1,258 @@
+% Created 2021-08-31 Tue 15:08
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Alex Petrean}
+\date{\today}
+\title{Logical and Functional Programming}
+\hypersetup{
+ pdfauthor={Alex Petrean},
+ pdftitle={Logical and Functional Programming},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Index}
+\label{sec:org348d112}
+\begin{enumerate}
+\item \ref{sec:org05efcd8}
+\begin{enumerate}
+\item \ref{sec:org8a11219}
+\item \ref{sec:org2cc9a0b}
+\end{enumerate}
+\item \ref{sec:orgefc0e4b}
+\item \ref{sec:orgee3074d}
+\end{enumerate}
+
+\section{Introduction}
+\label{sec:org05efcd8}
+\subsection{Programming and programming languages}
+\label{sec:org8a11219}
+\subsubsection{Imperative programming vs. declarative programming}
+\label{sec:org7f62409}
+\begin{enumerate}
+\item Imperative languages
+\label{sec:org358fa51}
+\begin{itemize}
+\item examples: Fortran, Cobol, Algol, Pascal, C
+\item a program is considered to be a sequence of instructions:
+\begin{itemize}
+\item assignment
+\item control structures
+\item branching of instructions
+\item looping of instructions
+\end{itemize}
+\item role of the programmer: WHAT and HOW
+\begin{enumerate}
+\item describe what computation needs to be executed
+\item organize the computation
+\item organize the memory management
+\end{enumerate}
+\item the assignment instruction is considered to be dangerous in high level languages
+\end{itemize}
+\item Declarative languages
+\label{sec:orgd17f99b}
+\begin{itemize}
+\item based on expressions
+\item programs can be seen as declarations of intel about values, rather than instructions which
+determine the values
+\item give up on instructions, which in turn protects user from making errors
+\item the instructions are generated based on mathematical principles
+\item role of the programmer: WHAT (and not HOW)
+\item two classes of declarative languages:
+\begin{enumerate}
+\item functional languages:
+\begin{itemize}
+\item examples: LISP, ML, Haskell, Erlang
+\item focused on data described through expressions(definitions and applications of functions) with automatic evaluation of expressions
+\end{itemize}
+\item logical languages:
+\begin{itemize}
+\item examples: Prolog, Datalog
+\item focused on logical assertions which describe relations between data and automatic derivations of answers from questions, starting from the initial assertions
+\end{itemize}
+\end{enumerate}
+\item applications in AI
+\begin{enumerate}
+\item automatical demonstrations
+\item natural language processing
+\item speech recognition
+\item machine learning etc.
+\end{enumerate}
+\end{itemize}
+\end{enumerate}
+\subsection{Recursion}
+\label{sec:org2cc9a0b}
+\begin{itemize}
+\item general mechanism of writing programs
+\item appeared out of the necessity for directly translating recursive mathematical formulae (e.g. Ackermann's formula)
+\item is the means of a subroutine(function, procedure) to call itself
+\end{itemize}
+\subsubsection{Types of recursion:}
+\label{sec:org248ea01}
+\begin{enumerate}
+\item direct recursion
+\item indirect recursion
+\end{enumerate}
+\subsubsection{Basic structure:}
+\label{sec:org39d85ca}
+\begin{itemize}
+\item recursion rule
+\item stopping condition
+\end{itemize}
+\subsubsection{Advantages of recursion}
+\label{sec:org8342913}
+\begin{itemize}
+\item short and clear source code
+\end{itemize}
+\subsubsection{Disadvantages of recursion}
+\label{sec:org2e65bd3}
+\begin{itemize}
+\item overflowing of the call stack when the number of calls is too large
+\begin{itemize}
+\item there are specific recursion optimization mechanisms in declarative languages (e.g. tail recursion in Prolog)
+\end{itemize}
+\end{itemize}
+\section{Logic Programming. The Prolog programming language}
+\label{sec:orgefc0e4b}
+\subsection{The Prolog language}
+\label{sec:orgaa1061c}
+\begin{itemize}
+\item elaborated at the University of Marseille in 1970, as a tool for programming and solving of problems which involved symbolic representations of objects and relations between them
+\item it has a very wide field of applications: RDBMS, AI, mathematical logic, theorem proofs, expert systems, symbolic equations, etc
+\item ISO-Prolog is the language standard
+\item there is no OO standard for Prolog, just two extensions
+\begin{enumerate}
+\item TrincProlog
+\item SWI-Prolog
+\end{enumerate}
+\end{itemize}
+\subsection{Programming in Prolog}
+\label{sec:org2d73b8f}
+\begin{itemize}
+\item descriptive character:
+\begin{itemize}
+\item a collection of definitions describing relations or functions to be computer
+\item symbolic representatinos of objects and relations between them
+\item the solutions doesn't look like a step-by-step execution of a sequence of instructions
+\end{itemize}
+\item a program contains
+\begin{itemize}
+\item a collection of logical declarations, each being a Horn clause: p, p -> q, p1 ∧ p2\ldots{}\^{} pn -> q
+\item a conclusion to be proved: p1 \^{} p2\ldots{}\^{} pn
+\end{itemize}
+\item control structure used by the Prolog interpreter:
+\begin{itemize}
+\item based on logical declarations called clauses:
+\begin{enumerate}
+\item fact -> that which is known to be true
+\item rule -> that which can be deducted from facts
+\end{enumerate}
+\item the conclusion(goal) which needs to be proved:
+\begin{itemize}
+\item Prolog uses liniar resolution to prove if the conclusion(theorem) is true or not, starting from the hypothesis based on the defined facts and rules
+\item the rationale is applied back to prove the conclusion
+\item the code is read from top to bottom, from right to left
+\item the searching used is depth-first and based on backtracking
+\end{itemize}
+\item p -> q is translated in Prolog as q:-p.(read q if p.)
+\item p1 ∧ p2\ldots{}∧ pn is translated in Prolog as q :- p1,p2,\ldots{},pn
+\end{itemize}
+\item rules:
+\begin{enumerate}
+\item ∧ is translated in Prolog using ``,''
+\item ∨ is translated in Prolog using ``;'' or using a separate clause
+\end{enumerate}
+\end{itemize}
+-examples
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Logic & Prolog & \\
+\hline
+∀x p(x) ∧ q(x) -> r(x) & r(X) :- p(X), q(X). & H1\\
+\hline
+∀x w(x) ∨ s(x) -> p(x) & p(X) :- w(X). & H2\\
+ & p(X) :- s(X). & \\
+\hline
+∀x t(x) -> s(x) ∧ q(x) & s(X) :- t(X). & H3\\
+ & q(X) :- t(X). & \\
+\hline
+t(a) & t(a). & H4\\
+\hline
+w(b) & w(b). & H5\\
+\hline
+r(a) & r(a). & C\\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Elements of the Prolog language}
+\label{sec:orge9f406e}
+\subsubsection{Term}
+\label{sec:orgf442dac}
+\begin{enumerate}
+\item Simple
+\label{sec:org7a92bbd}
+\begin{enumerate}
+\item constants
+\begin{itemize}
+\item starts with a lower-case letter
+\item types:
+\begin{enumerate}
+\item symbols (chars, digits)
+\item strings
+\item number (integer, float)
+\end{enumerate}
+\end{itemize}
+\item variables
+\begin{itemize}
+\item starts with a upper-case letter
+\item anonymous (\_)
+\end{itemize}
+\end{enumerate}
+ATOM = SYMBOL + STRING + SPECIAL CHARACTER STRING(<\_\_\_>, ===>)+ []
+\item Composite
+\label{sec:orgd8d57d9}
+\begin{itemize}
+\item lists
+\begin{itemize}
+\item special class of composite terms
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\subsubsection{Comments}
+\label{sec:org796bd4d}
+\begin{enumerate}
+\item Single lined
+\label{sec:orgd837998}
+\begin{itemize}
+\item example: \% this is a comment
+\end{itemize}
+\item Multi lined
+\label{sec:org5722ffe}
+\begin{itemize}
+\item example: \emph{* this is a comment
+spanning multiple lines *}
+\end{itemize}
+\end{enumerate}
+\section{Functional Programming. The LISP programming language}
+\label{sec:orgee3074d}
+\end{document}

@@ -1,0 +1,201 @@
+#+title: Logical and Functional Programming
+#+author: Alex Petrean
+
+* Index
+1. [[Introduction]]
+   a. [[Programming and programming languages]]
+   b. [[Recursion]]
+2. [[Logic Programming. The Prolog programming language]]
+   a. [[The Prolog language]]
+   b. [[Programming in Prolog]]
+   c. [[Elements of the Prolog language]]
+   d. [[Matching. How are variables assigned values?]]
+   e. [[Flux models]]
+   f. [[Rule syntax]]
+* Introduction
+** Programming and programming languages
+*** Imperative programming vs. declarative programming
+**** Imperative languages
+- examples: Fortran, Cobol, Algol, Pascal, C
+- a program is considered to be a sequence of instructions:
+  - assignment
+  - control structures
+  - branching of instructions
+  - looping of instructions
+- role of the programmer: WHAT and HOW
+  1. describe what computation needs to be executed
+  2. organize the computation
+  3. organize the memory management
+- the assignment instruction is considered to be dangerous in high level languages
+**** Declarative languages
+- based on expressions
+- programs can be seen as declarations of intel about values, rather than instructions which
+  determine the values
+- give up on instructions, which in turn protects user from making errors
+- the instructions are generated based on mathematical principles
+- role of the programmer: WHAT (and not HOW)
+- two classes of declarative languages:
+  1. functional languages:
+     * examples: LISP, ML, Haskell, Erlang
+     * focused on data described through expressions(definitions and applications of functions) with automatic evaluation of expressions
+  2. logical languages:
+     * examples: Prolog, Datalog
+     * focused on logical assertions which describe relations between data and automatic derivations of answers from questions, starting from the initial assertions
+- applications in AI
+  1. automatical demonstrations
+  2. natural language processing
+  3. speech recognition
+  4. machine learning etc.
+** Recursion
+- general mechanism of writing programs
+- appeared out of the necessity for directly translating recursive mathematical formulae (e.g. Ackermann's formula)
+- is the means of a subroutine(function, procedure) to call itself
+*** Types of recursion:
+  1. direct recursion
+  2. indirect recursion
+*** Basic structure:
+  * recursion rule
+  * stopping condition
+*** Advantages of recursion
+- short and clear source code
+*** Disadvantages of recursion
+- overflowing of the call stack when the number of calls is too large
+  * there are specific recursion optimization mechanisms in declarative languages (e.g. tail recursion in Prolog)
+* Logic Programming. The Prolog programming language
+** The Prolog language
+- elaborated at the University of Marseille in 1970, as a tool for programming and solving of problems which involved symbolic representations of objects and relations between them
+- it has a very wide field of applications: RDBMS, AI, mathematical logic, theorem proofs, expert systems, symbolic equations, etc
+- ISO-Prolog is the language standard
+- there is no OO standard for Prolog, just two extensions
+  1. TrincProlog
+  2. SWI-Prolog
+** Programming in Prolog
+- descriptive character:
+  * a collection of definitions describing relations or functions to be computer
+  * symbolic representatinos of objects and relations between them
+  * the solutions doesn't look like a step-by-step execution of a sequence of instructions
+- a program contains
+  * a collection of logical declarations, each being a Horn clause: p, p -> q, p1 ∧ p2...^ pn -> q
+  * a conclusion to be proved: p1 ^ p2...^ pn
+- control structure used by the Prolog interpreter:
+  * based on logical declarations called clauses:
+    1. fact -> that which is known to be true
+    2. rule -> that which can be deducted from facts
+  * the conclusion(goal) which needs to be proved:
+    - Prolog uses liniar resolution to prove if the conclusion(theorem) is true or not, starting from the hypothesis based on the defined facts and rules
+    - the rationale is applied back to prove the conclusion
+    - the code is read from top to bottom, from right to left
+    - the searching used is depth-first and based on backtracking
+  * p -> q is translated in Prolog as q:-p.(read q if p.)
+  * p1 ∧ p2...∧ pn is translated in Prolog as q :- p1,p2,...,pn
+- rules:
+  1. ∧ is translated in Prolog using ","
+  2. ∨ is translated in Prolog using ";" or using a separate clause
+-examples
+|------------------------+---------------------+----|
+| Logic                  | Prolog              |    |
+|------------------------+---------------------+----|
+| ∀x p(x) ∧ q(x) -> r(x) | r(X) :- p(X), q(X). | H1 |
+|------------------------+---------------------+----|
+| ∀x w(x) ∨ s(x) -> p(x) | p(X) :- w(X).       | H2 |
+|                        | p(X) :- s(X).       |    |
+|------------------------+---------------------+----|
+| ∀x t(x) -> s(x) ∧ q(x) | s(X) :- t(X).       | H3 |
+|                        | q(X) :- t(X).       |    |
+|------------------------+---------------------+----|
+| t(a)                   | t(a).               | H4 |
+|------------------------+---------------------+----|
+| w(b)                   | w(b).               | H5 |
+|------------------------+---------------------+----|
+| r(a)                   | r(a).               | C  |
+|------------------------+---------------------+----|
+** Elements of the Prolog language
+*** Terms
+**** Simple
+a. constants
+ * starts with a lower-case letter
+ * types:
+   1. symbols (chars, digits)
+   2. strings
+   3. number (integer, float)
+b. variables
+ * starts with a upper-case letter
+ * anonymous (_)
+ATOM = SYMBOL + STRING + SPECIAL CHARACTER STRING(<___>, ===>)+ []
+**** Composite
+- lists
+   * special class of composite terms
+*** Comments
+**** Single lined
+- example: % this is a comment
+**** Multi lined
+- example: /* this is a comment
+              spanning multiple lines */
+*** Predicates
+**** Standard
+- e.g. fail, number, etc
+**** Defined by user
+- <predicate_name>[(object[,object...)]
+- data types:
+  1. number(integer, float)
+  2. atom(symbol, string, special char string)
+  3. list
+     * homogenous
+     * heterougenous
+    ! empty list([]) is considered an atom
+*** Clause
+- fact
+  * relation between objects
+- rule
+  * allows deduction of facts from other facts
+*** Interogation
+- is of form predicate1[(object,[,object)], predicate2[(object,[,object)]... .
+** Matching. How are variables assigned values?
+- Prolog doesn't have an assignment instruction
+- variables are assigned values through matching with constants from facts or rules
+- until a variable is assigned a value, it is free
+- when a variable received a value, it becomes bound
+- the variable remains bound until a solution is found
+- then, the variable is freed, and alternative solutions are found through backtracking
+*** What is matching
+- rules explaining matching
+  1. p(a, b) matches p(a, b)
+  2. if X is free
+     * p(a, X) matches p(a, b)
+     * X becomes bound to b
+  3. if X is bound, it behaves as a constant
+     * p(a, X) matches with p(a, b)
+     * p(a, X) DOESN'T match with p(a, c)
+  4. if X and Y are free
+     * p(a, X) matches p(a, Y)
+*** Observations
+1. variables are used as part of a matching process, not as a storage type
+2. the mechanism through which Prolog tries to match the part of the question which it wants to solve with a given predicate is called UNIFYING
+** Flux models
+- in Prolog, variable binding is achieved in two ways
+  1. on clause entry
+  2. on clause exit
+- the binding direction is called a FLUX MODEL
+- when a variable is given on clause entry, it is an entry parameter
+- when a variable is given on clause exit, it is an exit parameter
+- certain clauses may have more than one flux model
+  * e.g. factorial(N, F) can have 3 flux models:
+    1. (i, i) -> check whether N != F
+    2. (i, o) -> assigns to F the value of N!
+    3. (o, i) -> finds the N for which N! = F
+*** Observation
+- the property of a predicate which allows it to work with more than one flux model depends on the ability of the programmer to write the predicate accordingly
+** Rule syntax
+- rules are used in Prolog when a fact depends on the success of other facts or chains of facts
+- a rule has three parts:
+  1. head of the rule
+  2. body of the rule
+  3. the IF symbol(:-) which separates the first two
+- generic syntax of a rule: head :- subgoal,
+                                    subgoal,
+                                    subgoal,
+                                    ...
+                                    subgoal.
+  where each subgoal is a call to another predicate
+- to successfully find a rule, each subgoal must be satisfied
+- if a subgoal fails, the process backtracks to the preceding subgoal and finds other variable bindings, continuing from there

@@ -1,0 +1,275 @@
+* Theory
+** Introduction
+*** Programming and programming languages
+**** Imperative programming vs. declarative programming
+**** Introduction
+**** The importance of functional programming
+** Logic Programming. The Prolog programming language
+*** Basic elements of Prolog
+**** Facts and rules
+**** Goals
+**** The control strategy
+**** Variables and composed propositions
+**** Anonymous variables
+**** Rules for matching
+**** The flux model
+**** Sections of a Prolog program
+*** The Prolog program
+**** Predefined domains
+**** Internal and external goals
+**** Multiple arity predicates
+**** IF in prolog and IF in other languages
+**** Compiler directives
+**** Arithmetic expressions and comparisons
+**** I/O operations
+**** Strings
+*** Backtracking
+**** The backtracking control
+**** The "fail" and "!" (cut) predicates
+**** Using the "!" predicate
+**** Types of cuts
+**** The "not" predicate
+**** Lists in Prolog
+**** Recursion
+**** Examples of backtracking in Prolog
+**** Finding all the solutions in the same time
+**** Examples of predicates in Prolog
+**** Non-deterministic predicates
+*** Composed objects and functors
+**** Unifying composed objects
+**** Arguments of multiple types -> heterogeneous lists
+**** Comparisons for composed objects
+**** Backtracking with cycles
+**** Examples of recursive procedures
+**** The stack frame
+**** Optimization using tail recursion
+**** Using the "!" predicate to keep tail recursion
+*** Recursive data structures
+**** Trees as data structures
+**** Creating and transversing a tree
+**** Search trees
+**** The internal database of Prolog
+**** The database section
+**** Declaration of the internal database
+**** Predicates concering operations with the internal database
+*** Advanced issues on backtracking and efficiency in Prolog
+*** File management in Prolog
+*** Elements of graphics in Prolog
+** Functional Programming. The LISP programming language
+*** Basic elements of LISP
+**** Dynamic data structures
+**** Syntactic and semantic rules
+**** Functions' classification
+**** Primitive functions
+**** Basic predicates
+**** Predicates for lists
+**** Predicates for numbers
+**** Logic and arithmetic functions
+**** Defining user functions
+**** The conditional form
+**** The collecting variable method
+**** Examples
+*** Symbols management
+**** Other functions for lists' accessing
+**** OBLIST and ALIST
+**** Destructive functinos
+**** Comparisons
+**** Other interesting functions
+**** Examples
+*** Definitional mechanisms
+**** The EVAL form
+**** Functional forms
+**** FUNCALL and APPLY
+**** Lambda expressions
+**** LABEL expressions
+**** Generators
+**** Functional arguments
+**** MAP functions
+**** Iterative forms
+**** Examples
+*** Other elements
+**** Data structures
+**** Macro definitions
+**** Optional arguments
+**** Examples
+* Practice
+** Recursive programming
+Write a recursive program (Python or C++ programming language) for next requirements. You can use and
+extend for implementation the C++/Python model available in /Lab/R1, this model already containing recursive
+implementations for creating, printing and destroying of a List.
+
+*** Implementation of a linked list in C-style C++
+#+name: linked_list.h
+#+begin_src C++ :main no :includes <iostream> :exports code
+Typedef int TElem;
+
+Struct Node {
+    TElem e;
+    Node *next;
+};
+
+struct List{
+    Node *first;
+};
+
+typedef Set List;
+
+List create() {
+    List l;
+    l.first = create_rec();
+    return l;
+}
+
+Node *create_rec() {
+    TElem x;
+    std::cout << "X = ";
+    std::cin >> x;
+    if (x == 0) {
+        return nullptr;
+    }
+
+    auto n = new Node();
+    n->e = x;
+    n->next = create_rec();
+
+    return n;
+}
+
+void print(List l) {
+    print_rec(l.first);
+}
+
+void print_rec(Node *n) {
+    if (n == nullptr) {
+       return
+    }
+
+    std::cout << p->e;
+    std::cout << ' ';
+
+    print_rec(n->next);
+}
+
+void destroy(List l) {
+    destroy_rec(l.first);
+}
+
+void destroy_rec(Node *n) {
+    if (n == nullptr) {
+        return;
+    }
+
+    destroy_rec(n->next);
+
+    delete n;
+}
+
+bool does_elem_exist_rec(TElem e, Node *n) {
+    if (n == nullptr) {
+        return false;
+    }
+
+    if (e == n->e) {
+        return true;
+    }
+
+    return does_elem_exist_rec(e, n->next;);
+}
+#+end_src
+
+It is mandatory to work with a structure/class List.
+1.
+   a. Transform a list in a set.
+#+name transformation.h
+#+begin_src C++ :includes linked_list.h :main no
+
+
+Node *list_to_set_rec(Node *n) {
+    if (does_elem_exist_rec(n->e, n->next)) {
+        return list_to_set_rec(n->next);
+    }
+    auto sn = new Node();
+    sn->e = n->e;
+    sn->next = list_to_set_rec(n->next);
+    return sn;
+}
+
+Set list_to_set(List l) {
+    Set s;
+    auto n = l.first;
+    s.first = list_to_set_rec(l.first)
+    return s;
+}
+      #+end_src
+   b. Determine the union of two sets. The sets are represented as lists.
+#+name: set_union.h
+#+begin_src C++ :includes linked_list.h :main no
+Set get_union(Set s1, Set s2) {
+    Set result;
+    result.first = get_union_rec(s1.first,s2.first);
+    return result;
+}
+#+end_src
+
+2.
+   a. Substitute the i-th element from a list, with a value v.
+   b. Determine difference of two sets represented as lists.  '
+
+3.
+   a. Check if a list is a set.
+   b. Determine the number of distinct elements from a list.
+
+4.
+   a. Determine if a list has even number of elements, without computing the length of the list.
+   b. Delete all occurrences of an element e from a list.
+
+5.
+   a. Determine the greatest common divisors of elements from a list.
+   b. Insert an element on the n-position in a list.
+
+6.
+   a. Add an element at the end of a list.
+   b. Concatenate two lists.
+
+7.
+   a. Test the equality of two lists.
+   b. Determine the intersection of two sets represented as lists.
+
+8.
+   a. Determine the lowest common multiple of the elements from a list.
+   b. Substitute in a list, all occurrence of a value e with a value e1.
+
+9.
+   a. Invert a list
+   b. Determine the maximum element of a numerical list.
+
+10.
+    a. Determine the number formed by adding all even elements and subtracting all odd numbers of the list.
+    b. Determine difference of two sets represented as lists.
+
+11.
+    a. Determine if a certain element is member in a list.
+    b. Determine the length of a list.
+
+12.
+    a. Test the inclusion of two lists
+    b. Insert in a list, after value e, a new value e1.
+
+13.
+    a. Test the inclusion of two sets, represented as lists.
+    b. Eliminate all occurrences of an element from a list.
+
+14.
+    a. Determine the last element of a list.
+    b. Delete elements from a list, from position n to n.
+
+15.
+    a. Substitute all occurrences of an element from a list with another list.
+    b. Determine the element from the n-th position in a list. .
+** Prolog
+*** Prolog Lists (I)
+*** Prolog Lists(II)
+** Lisp
+*** Recursive programming in Lisp (I)
+*** Recursive programming in Lisp (II)
+*** Using map functions in Lisp
