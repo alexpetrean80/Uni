@@ -1,0 +1,146 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/service.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\service.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\service.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Dan on 4/18/2020.
+        -:    3://
+        -:    4:
+        -:    5:#include "service.h"
+        -:    6:
+        -:    7:/*
+        -:    8: * \brief creates a new service object with default mode "A"
+        -:    9: */
+       12:   10:Service::Service() {
+       12:   10-block  0
+    $$$$$:   10-block  1
+    $$$$$:   10-block  2
+       12:   11:    mode_ = "A";
+       12:   12:}
+       12:   12-block  0
+        -:   13:
+        -:   14:/*
+        -:   15: * \brief sets a new mode of execution
+        -:   16: * \param new_mode new mode of execution
+        -:   17: */
+       10:   18:void Service::set_mode(const std::string& new_mode) {
+       10:   19:    mode_ = new_mode;
+       10:   19-block  0
+       10:   20:}
+        -:   21:
+        -:   22:/*
+        -:   23: * \brief creates a new statue and adds it to the repo; throws an exception if the mode is inappropriate
+        -:   24: * \param power_word_name power word name of the statue
+        -:   25: * \param material material of the statue
+        -:   26: * \param age age of the statue
+        -:   27: * \param corporeal_form corporeal form of the statue
+        -:   28: */
+       11:   29:void Service::add_statue(const std::string &power_word_name, const std::string &material, int age, const std::string &corporeal_form) {
+       11:   30:    if (mode_ == "A") {
+       11:   30-block  0
+       10:   31:        auto* statue = new GuardianStatue(power_word_name, material, age, corporeal_form);
+       10:   31-block  0
+       10:   31-block  1
+       10:   31-block  2
+       10:   31-block  3
+       10:   31-block  4
+    $$$$$:   31-block  5
+    $$$$$:   31-block  6
+    $$$$$:   31-block  7
+    $$$$$:   31-block  8
+    $$$$$:   31-block  9
+    $$$$$:   31-block 10
+       10:   32:        repo_.add(*statue);
+       10:   33:        delete statue;
+       10:   33-block  0
+        -:   34:    } else {
+        1:   35:        throw std::exception();
+        1:   35-block  0
+        -:   36:    }
+       10:   37:}
+       10:   37-block  0
+        -:   38:
+        -:   39:/*
+        -:   40: * \brief deletes a statue by its power word name; if on inappropriate mode throws error
+        -:   41: * \param power_word_name power word name of the statue to be deleted passed as a const reference
+        -:   42: */
+        2:   43:void Service::delete_statue(const std::string &power_word_name) {
+        2:   44:    if (mode_ == "A") {
+        2:   44-block  0
+        1:   45:        repo_.remove(power_word_name);
+        1:   45-block  0
+        -:   46:    } else {
+        1:   47:        throw std::exception();
+        1:   47-block  0
+        -:   48:    }
+        1:   49:}
+        -:   50:
+        -:   51:/**
+        -:   52: * \brief creates a new statue and updates the old one from the repo; throws an exception if inappropriate mode
+        -:   53: * \param power_word_name power word name of the new statue
+        -:   54: * \param material material of the new statue
+        -:   55: * \param age age of the new statue
+        -:   56: * \param corporeal_form corporeal form of the new statue
+        -:   57: */
+        2:   58:void Service::update_statue(const std::string& power_word_name, const std::string& material, const int age, const std::string& corporeal_form) {
+        2:   59:    if (mode_ == "A") {
+        2:   59-block  0
+        1:   60:        auto *statue = new GuardianStatue(power_word_name, material, age, corporeal_form);
+        1:   60-block  0
+        1:   60-block  1
+        1:   60-block  2
+        1:   60-block  3
+        1:   60-block  4
+    $$$$$:   60-block  5
+    $$$$$:   60-block  6
+    $$$$$:   60-block  7
+    $$$$$:   60-block  8
+    $$$$$:   60-block  9
+    $$$$$:   60-block 10
+        1:   61:        repo_.update(*statue);
+        1:   62:        delete statue;
+        1:   62-block  0
+        -:   63:    } else {
+        1:   64:        throw std::exception();
+        1:   64-block  0
+        -:   65:    }
+        1:   66:}
+        1:   66-block  0
+        -:   67:
+        -:   68:/**
+        -:   69: * \brief returns the elements from the repo
+        -:   70: * \return elements from the repo
+        -:   71: */
+       10:   72:DynamicVector<GuardianStatue> const &Service::get_statues() const {
+       10:   73:    return repo_.get_statues();
+       10:   73-block  0
+        -:   74:}
+        2:   75:GuardianStatue const &Service::next() {
+        2:   76:    if (mode_ == "B") {
+        2:   76-block  0
+        1:   77:        return repo_.next();
+        1:   77-block  0
+        -:   78:    }
+        1:   79:    throw std::exception();
+        1:   79-block  0
+        -:   80:}
+        2:   81:void Service::save(const std::string &power_word_name) {
+        2:   82:    if (mode_ == "B") {
+        2:   82-block  0
+        1:   83:        repo_.save(power_word_name);
+        1:   83-block  0
+        1:   84:        return;
+        -:   85:    }
+        1:   86:    throw std::exception();
+        1:   86-block  0
+        -:   87:}
+        1:   88:DynamicVector<GuardianStatue> const &Service::get_currently_in_animation() const {
+        1:   89:    if (mode_ == "B") {
+        1:   89-block  0
+        1:   90:        return repo_.get_currently_in_animation();
+        1:   90-block  0
+        -:   91:    }
+    #####:   92:    throw std::exception();
+    %%%%%:   92-block  0
+        -:   93:}

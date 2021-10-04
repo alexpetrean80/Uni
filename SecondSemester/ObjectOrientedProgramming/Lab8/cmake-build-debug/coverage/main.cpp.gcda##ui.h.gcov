@@ -1,0 +1,32 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/ui/ui.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\main.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#ifndef LAB8_UI_H
+        -:    2:#define LAB8_UI_H
+        -:    3:
+        -:    4:#include "../service/service.h"
+        -:    5:
+        -:    6:class UI {
+        -:    7:private:
+        -:    8:    Service service_;
+        -:    9:    static std::vector<std::string> read_command();
+        -:   10:    void mode_ui(const std::vector<std::string> &command);
+        -:   11:    void add_ui(const std::vector<std::string> &command);
+        -:   12:    void update_ui(const std::vector<std::string> &command);
+        -:   13:    void delete_ui(const std::vector<std::string> &command);
+        -:   14:    void list_ui(const std::vector<std::string> &command);
+        -:   15:    void my_list_ui(const std::vector<std::string> &command);
+        -:   16:    void save_ui(const std::vector<std::string> &command);
+        -:   17:    void next_ui(const std::vector<std::string> &command);
+        -:   18:    void set_repo_file(const std::vector<std::string> &command);
+        -:   19:    void set_my_list_file(const std::vector<std::string> &command);
+        -:   20:
+        -:   21:public:
+        1:   22:    UI() = default;
+        1:   22-block  0
+        -:   23:    void run_console();
+        -:   24:};
+        -:   25:
+        -:   26:#endif//LAB8_UI_H

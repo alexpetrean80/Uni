@@ -1,0 +1,31 @@
+//
+// Created by Dan on 4/23/2020.
+//
+
+#ifndef LAB8_TESTS_REPOSITORY_H
+#define LAB8_TESTS_REPOSITORY_H
+
+#include "../repository/repository.h"
+#include <cassert>
+
+void test__set_repo_file__valid_file__repo_file_is_modified();
+void test__set_my_list_file__valid_file__my_list_file_is_modified();
+void test__add_guardian_statue__guardian_statue_does_not_exist__guardian_statue_added();
+void test__add_guardian_statue__guardian_statue_exists__exception_is_thrown();
+void test__delete_guardian_statue__guardian_statue_exists__guardian_statue_removed();
+void test__delete_guardian_statue__guardian_statue_does_not_exist__exception_is_thrown();
+void test__update_guardian_statue__guardian_statue_exists__guardian_statue_updated();
+void test__update_guardian_statue__guardian_statue_does_not_exist__exception_is_thrown();
+void test__next__index_in_range__guardian_statue_on_index_is_returned();
+void test__next__index_out_of_range__guardian_statue_on_first_position_is_returned();
+void test__save__csv_file__guardian_statue_saved();
+void test__save__html_file__guardian_statue_saved();
+void test__save__wrong_file_type__exception_is_thrown();
+void test__save__no_file_type__exception_is_thrown();
+void test__save__guardian_statue_already_exists_in_my_file__exception_is_thrown();
+void test__save__guardian_statue_does_not_exist_in_repo__exception_is_thrown();
+void test__my_list__wrong_file_type__exception_is_thrown();
+void test__my_list__no_file_type__exception_is_thrown();
+
+#endif//LAB8_TESTS_REPOSITORY_H
+

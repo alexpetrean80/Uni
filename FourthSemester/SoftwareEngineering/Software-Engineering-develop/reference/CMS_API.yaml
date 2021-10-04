@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: CMS_API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /helloworld:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                Szia:
+                  value: string
+        '500':
+          $ref: '#/components/responses/ErrorResponse'
+      operationId: get-helloworld
+      description: Says hi to everybody
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: the name of the person to say hi to
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+    Users:
+      title: Users
+      type: object
+      properties:
+        U:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+      x-examples:
+        example-1:
+          U:
+            - id: 0
+              firstName: string
+              lastName: string
+              email: user@example.com
+              dateOfBirth: '1997-10-31'
+              emailVerified: true
+              createDate: '2019-08-24'
+  responses:
+    ErrorResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ErrorName:
+                type: string
+              ErrorMessage:
+                type: string
+          examples:
+            example-1:
+              value:
+                ErrorName: RandomError
+                ErrorMessage: Ooops

@@ -1,0 +1,30 @@
+#pragma once
+#include "GuardianStatue.h"
+
+void testCreateGuardianStatue_GuardianStatueCreated_Success()
+{
+  GuardianStatue* statue = new GuardianStatue()
+}
+
+void testsGuardianStatue() {
+	
+}
+
+void testsDynamicVector() {
+	
+}
+
+void testsRepo() {
+	
+}
+
+void testsService() {
+	
+}
+
+void tests() {
+  testsGuardianStatue();
+  testsDynamicVector();
+  testsRepo();
+  testsService();
+}

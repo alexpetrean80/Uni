@@ -1,0 +1,533 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/tests/tests_domain.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests_domain.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests_domain.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "tests_domain.h"
+        -:    2:
+        1:    3:void test__create_guardian_statue__default_constructor__empty_statue_created() {
+        1:    4:    auto *guardian_statue = new GuardianStatue();
+        1:    4-block  0
+       1*:    5:    assert(guardian_statue->get_power_word_name().empty() && guardian_statue->get_material().empty() && guardian_statue->get_age() == 0 && guardian_statue->get_corporeal_form().empty());
+        1:    5-block  0
+        1:    5-block  1
+        1:    5-block  2
+    %%%%%:    5-block  3
+        1:    5-block  4
+        1:    6:    delete guardian_statue;
+        1:    6-block  0
+        1:    6-block  1
+        1:    7:}
+        -:    8:
+        1:    9:void test__create_guardian_statue__explicit_constructor__statue_created() {
+        1:   10:    auto *guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   10-block  0
+        1:   10-block  1
+        1:   10-block  2
+        1:   10-block  3
+        1:   10-block  4
+        1:   10-block  5
+    $$$$$:   10-block  6
+    $$$$$:   10-block  7
+    $$$$$:   10-block  8
+    $$$$$:   10-block  9
+    $$$$$:   10-block 10
+    $$$$$:   10-block 11
+    $$$$$:   10-block 12
+    $$$$$:   10-block 13
+    $$$$$:   10-block 14
+    $$$$$:   10-block 15
+    $$$$$:   10-block 16
+    $$$$$:   10-block 17
+       1*:   11:    assert(guardian_statue->get_power_word_name() == "aa" && guardian_statue->get_material() == "bb" && guardian_statue->get_age() == 1 && guardian_statue->get_corporeal_form() == "cc");
+        1:   11-block  0
+        1:   11-block  1
+        1:   11-block  2
+    %%%%%:   11-block  3
+        1:   11-block  4
+        1:   12:    delete guardian_statue;
+        1:   12-block  0
+        1:   12-block  1
+        1:   13:}
+        1:   13-block  0
+        -:   14:
+        1:   15:void test__create_guardian_statue__copy_constructor__copy_statue_created() {
+        1:   16:    auto *guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   16-block  0
+        1:   16-block  1
+        1:   16-block  2
+        1:   16-block  3
+        1:   16-block  4
+        1:   16-block  5
+    $$$$$:   16-block  6
+    $$$$$:   16-block  7
+    $$$$$:   16-block  8
+    $$$$$:   16-block  9
+    $$$$$:   16-block 10
+    $$$$$:   16-block 11
+    $$$$$:   16-block 12
+    $$$$$:   16-block 13
+    $$$$$:   16-block 14
+    $$$$$:   16-block 15
+    $$$$$:   16-block 16
+    $$$$$:   16-block 17
+    $$$$$:   16-block 18
+        1:   17:    auto *new_guardian_statue = new GuardianStatue(*guardian_statue);
+    $$$$$:   17-block  0
+       1*:   18:    assert(new_guardian_statue->get_power_word_name() == "aa" && new_guardian_statue->get_material() == "bb" && new_guardian_statue->get_age() == 1 && new_guardian_statue->get_corporeal_form() == "cc");
+        1:   18-block  0
+        1:   18-block  1
+        1:   18-block  2
+        1:   18-block  3
+    %%%%%:   18-block  4
+        1:   18-block  5
+        1:   19:    delete guardian_statue;
+        1:   19-block  0
+        1:   19-block  1
+        1:   20:    delete new_guardian_statue;
+        1:   20-block  0
+        1:   20-block  1
+        1:   21:}
+        1:   21-block  0
+        -:   22:
+        1:   23:void test__set_power_word_name__valid_power_word_name__power_word_name_set() {
+        1:   24:    auto *guardian_statue = new GuardianStatue();
+        1:   24-block  0
+        1:   25:    guardian_statue->set_power_word_name("aaa");
+        1:   25-block  0
+        1:   25-block  1
+    $$$$$:   25-block  2
+    $$$$$:   25-block  3
+    $$$$$:   25-block  4
+       1*:   26:    assert(guardian_statue->get_power_word_name() == "aaa");
+    %%%%%:   26-block  0
+        1:   26-block  1
+        1:   27:    delete guardian_statue;
+        1:   27-block  0
+        1:   27-block  1
+        1:   28:}
+        1:   28-block  0
+        -:   29:
+        1:   30:void test__set_material__valid_material__material_set() {
+        1:   31:    auto *guardian_statue = new GuardianStatue();
+        1:   31-block  0
+        1:   32:    guardian_statue->set_material("aaa");
+        1:   32-block  0
+        1:   32-block  1
+    $$$$$:   32-block  2
+    $$$$$:   32-block  3
+    $$$$$:   32-block  4
+       1*:   33:    assert(guardian_statue->get_material() == "aaa");
+    %%%%%:   33-block  0
+        1:   33-block  1
+        1:   34:    delete guardian_statue;
+        1:   34-block  0
+        1:   34-block  1
+        1:   35:}
+        1:   35-block  0
+        -:   36:
+        1:   37:void test__set_age__valid_age__age_set() {
+        1:   38:    auto *guardian_statue = new GuardianStatue();
+        1:   38-block  0
+        1:   39:    guardian_statue->set_age(1);
+       1*:   40:    assert(guardian_statue->get_age() == 1);
+    %%%%%:   40-block  0
+        1:   40-block  1
+        1:   41:    delete guardian_statue;
+        1:   41-block  0
+        1:   41-block  1
+        1:   42:}
+        -:   43:
+        1:   44:void test__set_corporeal_form__valid_corporeal_form__corporeal_form_set() {
+        1:   45:    auto *guardian_statue = new GuardianStatue();
+        1:   45-block  0
+        1:   46:    guardian_statue->set_corporeal_form("aa");
+        1:   46-block  0
+        1:   46-block  1
+    $$$$$:   46-block  2
+    $$$$$:   46-block  3
+    $$$$$:   46-block  4
+       1*:   47:    assert(guardian_statue->get_corporeal_form() == "aa");
+    %%%%%:   47-block  0
+        1:   47-block  1
+        1:   48:    delete guardian_statue;
+        1:   48-block  0
+        1:   48-block  1
+        1:   49:}
+        1:   49-block  0
+        -:   50:
+        1:   51:void test__equality__equal_statues__returns_true() {
+        1:   52:    auto *first_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   52-block  0
+        1:   52-block  1
+        1:   52-block  2
+        1:   52-block  3
+        1:   52-block  4
+        1:   52-block  5
+    $$$$$:   52-block  6
+    $$$$$:   52-block  7
+    $$$$$:   52-block  8
+    $$$$$:   52-block  9
+    $$$$$:   52-block 10
+    $$$$$:   52-block 11
+    $$$$$:   52-block 12
+    $$$$$:   52-block 13
+    $$$$$:   52-block 14
+    $$$$$:   52-block 15
+    $$$$$:   52-block 16
+    $$$$$:   52-block 17
+    $$$$$:   52-block 18
+        1:   53:    auto *second_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   53-block  0
+        1:   53-block  1
+        1:   53-block  2
+        1:   53-block  3
+        1:   53-block  4
+    $$$$$:   53-block  5
+    $$$$$:   53-block  6
+    $$$$$:   53-block  7
+    $$$$$:   53-block  8
+    $$$$$:   53-block  9
+    $$$$$:   53-block 10
+    $$$$$:   53-block 11
+    $$$$$:   53-block 12
+    $$$$$:   53-block 13
+    $$$$$:   53-block 14
+    $$$$$:   53-block 15
+    $$$$$:   53-block 16
+       1*:   54:    assert(*first_guardian_statue == *second_guardian_statue);
+    %%%%%:   54-block  0
+        1:   54-block  1
+        1:   55:    delete first_guardian_statue;
+        1:   55-block  0
+        1:   55-block  1
+        1:   56:    delete second_guardian_statue;
+        1:   56-block  0
+        1:   56-block  1
+        1:   57:}
+        1:   57-block  0
+        -:   58:
+        1:   59:void test__equality__not_equal_statues__returns_false() {
+        1:   60:    auto *first_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   60-block  0
+        1:   60-block  1
+        1:   60-block  2
+        1:   60-block  3
+        1:   60-block  4
+        1:   60-block  5
+    $$$$$:   60-block  6
+    $$$$$:   60-block  7
+    $$$$$:   60-block  8
+    $$$$$:   60-block  9
+    $$$$$:   60-block 10
+    $$$$$:   60-block 11
+    $$$$$:   60-block 12
+    $$$$$:   60-block 13
+    $$$$$:   60-block 14
+    $$$$$:   60-block 15
+    $$$$$:   60-block 16
+    $$$$$:   60-block 17
+    $$$$$:   60-block 18
+        1:   61:    auto *second_guardian_statue = new GuardianStatue("ab", "bc", 2, "cd");
+        1:   61-block  0
+        1:   61-block  1
+        1:   61-block  2
+        1:   61-block  3
+        1:   61-block  4
+    $$$$$:   61-block  5
+    $$$$$:   61-block  6
+    $$$$$:   61-block  7
+    $$$$$:   61-block  8
+    $$$$$:   61-block  9
+    $$$$$:   61-block 10
+    $$$$$:   61-block 11
+    $$$$$:   61-block 12
+    $$$$$:   61-block 13
+    $$$$$:   61-block 14
+    $$$$$:   61-block 15
+    $$$$$:   61-block 16
+       1*:   62:    assert(!(*first_guardian_statue == *second_guardian_statue));
+    %%%%%:   62-block  0
+        1:   62-block  1
+        1:   63:    delete first_guardian_statue;
+        1:   63-block  0
+        1:   63-block  1
+        1:   64:    delete second_guardian_statue;
+        1:   64-block  0
+        1:   64-block  1
+        1:   65:}
+        1:   65-block  0
+        -:   66:
+        1:   67:void test__not_equality__not_equal_statues__returns_true() {
+        1:   68:    auto *first_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   68-block  0
+        1:   68-block  1
+        1:   68-block  2
+        1:   68-block  3
+        1:   68-block  4
+        1:   68-block  5
+    $$$$$:   68-block  6
+    $$$$$:   68-block  7
+    $$$$$:   68-block  8
+    $$$$$:   68-block  9
+    $$$$$:   68-block 10
+    $$$$$:   68-block 11
+    $$$$$:   68-block 12
+    $$$$$:   68-block 13
+    $$$$$:   68-block 14
+    $$$$$:   68-block 15
+    $$$$$:   68-block 16
+    $$$$$:   68-block 17
+    $$$$$:   68-block 18
+        1:   69:    auto *second_guardian_statue = new GuardianStatue("ab", "bc", 2, "cd");
+        1:   69-block  0
+        1:   69-block  1
+        1:   69-block  2
+        1:   69-block  3
+        1:   69-block  4
+    $$$$$:   69-block  5
+    $$$$$:   69-block  6
+    $$$$$:   69-block  7
+    $$$$$:   69-block  8
+    $$$$$:   69-block  9
+    $$$$$:   69-block 10
+    $$$$$:   69-block 11
+    $$$$$:   69-block 12
+    $$$$$:   69-block 13
+    $$$$$:   69-block 14
+    $$$$$:   69-block 15
+    $$$$$:   69-block 16
+       1*:   70:    assert(*first_guardian_statue != *second_guardian_statue);
+    %%%%%:   70-block  0
+        1:   70-block  1
+        1:   71:    delete first_guardian_statue;
+        1:   71-block  0
+        1:   71-block  1
+        1:   72:    delete second_guardian_statue;
+        1:   72-block  0
+        1:   72-block  1
+        1:   73:}
+        1:   73-block  0
+        -:   74:
+        1:   75:void test__not_equality__equal_statues__returns_false() {
+        1:   76:    auto *first_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   76-block  0
+        1:   76-block  1
+        1:   76-block  2
+        1:   76-block  3
+        1:   76-block  4
+        1:   76-block  5
+    $$$$$:   76-block  6
+    $$$$$:   76-block  7
+    $$$$$:   76-block  8
+    $$$$$:   76-block  9
+    $$$$$:   76-block 10
+    $$$$$:   76-block 11
+    $$$$$:   76-block 12
+    $$$$$:   76-block 13
+    $$$$$:   76-block 14
+    $$$$$:   76-block 15
+    $$$$$:   76-block 16
+    $$$$$:   76-block 17
+    $$$$$:   76-block 18
+        1:   77:    auto *second_guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   77-block  0
+        1:   77-block  1
+        1:   77-block  2
+        1:   77-block  3
+        1:   77-block  4
+    $$$$$:   77-block  5
+    $$$$$:   77-block  6
+    $$$$$:   77-block  7
+    $$$$$:   77-block  8
+    $$$$$:   77-block  9
+    $$$$$:   77-block 10
+    $$$$$:   77-block 11
+    $$$$$:   77-block 12
+    $$$$$:   77-block 13
+    $$$$$:   77-block 14
+    $$$$$:   77-block 15
+    $$$$$:   77-block 16
+       1*:   78:    assert(!(*first_guardian_statue != *second_guardian_statue));
+    %%%%%:   78-block  0
+        1:   78-block  1
+        1:   79:    delete first_guardian_statue;
+        1:   79-block  0
+        1:   79-block  1
+        1:   80:    delete second_guardian_statue;
+        1:   80-block  0
+        1:   80-block  1
+        1:   81:}
+        1:   81-block  0
+        -:   82:
+        1:   83:void test__to_string__valid_guardian_statue__returns_statue_as_string() {
+        1:   84:    auto *guardian_statue = new GuardianStatue("aa", "bb", 1, "cc");
+        1:   84-block  0
+        1:   84-block  1
+        1:   84-block  2
+        1:   84-block  3
+        1:   84-block  4
+        1:   84-block  5
+    $$$$$:   84-block  6
+    $$$$$:   84-block  7
+    $$$$$:   84-block  8
+    $$$$$:   84-block  9
+    $$$$$:   84-block 10
+    $$$$$:   84-block 11
+    $$$$$:   84-block 12
+    $$$$$:   84-block 13
+    $$$$$:   84-block 14
+    $$$$$:   84-block 15
+    $$$$$:   84-block 16
+    $$$$$:   84-block 17
+    $$$$$:   84-block 18
+       1*:   85:    assert(guardian_statue->to_string() == "aa bb 1 cc");
+        1:   85-block  0
+    %%%%%:   85-block  1
+        1:   85-block  2
+    %%%%%:   85-block  3
+        1:   85-block  4
+        1:   85-block  5
+    $$$$$:   85-block  6
+    $$$$$:   85-block  7
+        1:   86:    delete guardian_statue;
+        1:   86-block  0
+        1:   86-block  1
+        1:   87:}
+        1:   87-block  0
+        -:   88:
+        1:   89:void test__validate__valid_input__guardian_statue_validated() {
+        3:   90:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   90-block  0
+        1:   90-block  1
+        1:   90-block  2
+        1:   90-block  3
+        1:   90-block  4
+    $$$$$:   90-block  5
+    $$$$$:   90-block  6
+    $$$$$:   90-block  7
+    $$$$$:   90-block  8
+    $$$$$:   90-block  9
+    $$$$$:   90-block 10
+    $$$$$:   90-block 11
+        1:   91:    GuardianStatueValidator::validate(statue);
+        -:   92:    assert(true);
+        1:   93:}
+        -:   94:
+        1:   95:void test__to_csv__valid_guardian_statue__returns_statue_as_csv() {
+        2:   96:    GuardianStatue statue {"aa", "bb", 1, "cc"};
+        1:   96-block  0
+        1:   96-block  1
+        1:   96-block  2
+        1:   96-block  3
+    $$$$$:   96-block  4
+    $$$$$:   96-block  5
+    $$$$$:   96-block  6
+    $$$$$:   96-block  7
+    $$$$$:   96-block  8
+    $$$$$:   96-block  9
+    $$$$$:   96-block 10
+       1*:   97:    assert(statue.to_csv() == "aa,bb,1,cc");
+        1:   97-block  0
+    %%%%%:   97-block  1
+        1:   97-block  2
+    %%%%%:   97-block  3
+        1:   97-block  4
+        1:   97-block  5
+        1:   97-block  6
+    $$$$$:   97-block  7
+    $$$$$:   97-block  8
+    $$$$$:   97-block  9
+        1:   98:}
+        -:   99:
+        1:  100:void test__to_html__valid_guardian_statue__returns_statue_as_html_table_row() {
+        2:  101:    GuardianStatue statue {"aa", "bb", 1, "cc"};
+        1:  101-block  0
+        1:  101-block  1
+        1:  101-block  2
+        1:  101-block  3
+    $$$$$:  101-block  4
+    $$$$$:  101-block  5
+    $$$$$:  101-block  6
+    $$$$$:  101-block  7
+    $$$$$:  101-block  8
+    $$$$$:  101-block  9
+    $$$$$:  101-block 10
+       1*:  102:    assert(statue.to_html() == "<tr>\n<td>aa</td><td>bb</td><td>1</td><td>cc</td>\n</tr>");
+        1:  102-block  0
+    %%%%%:  102-block  1
+        1:  102-block  2
+    %%%%%:  102-block  3
+        1:  102-block  4
+        1:  102-block  5
+        1:  102-block  6
+    $$$$$:  102-block  7
+    $$$$$:  102-block  8
+    $$$$$:  102-block  9
+        1:  103:}
+        -:  104:
+        1:  105:void test__validate__invalid_input__exception_is_thrown() {
+        -:  106:    try {
+       3*:  107:        GuardianStatue statue {"aa", "bb", -1, "cc"};
+        1:  107-block  0
+        1:  107-block  1
+        1:  107-block  2
+        1:  107-block  3
+    %%%%%:  107-block  4
+    $$$$$:  107-block  5
+    $$$$$:  107-block  6
+    $$$$$:  107-block  7
+    $$$$$:  107-block  8
+    $$$$$:  107-block  9
+    $$$$$:  107-block 10
+        1:  107-block 11
+        1:  108:        GuardianStatueValidator::validate(statue);
+    #####:  109:        assert(false);
+    %%%%%:  109-block  0
+        1:  110:    } catch (ValidatorException& exception) {
+        1:  110-block  0
+        -:  111:    }
+        1:  112:}
+        1:  112-block  0
+        -:  113:
+        1:  114:void test__validator_exception_what__valid_message__message_is_returned() {
+        3:  115:    ValidatorException exception{"test"};
+        1:  115-block  0
+        1:  115-block  1
+        1:  115-block  2
+    $$$$$:  115-block  3
+    $$$$$:  115-block  4
+    $$$$$:  115-block  5
+       1*:  116:    assert(!strcmp(exception.what(), "test"));
+    %%%%%:  116-block  0
+        1:  116-block  1
+    %%%%%:  116-block  2
+        1:  117:}
+        -:  118:
+        1:  119:void test__repository_exception_what__valid_message__message_is_returned() {
+        3:  120:    RepositoryException exception{"test"};
+        1:  120-block  0
+        1:  120-block  1
+        1:  120-block  2
+    $$$$$:  120-block  3
+    $$$$$:  120-block  4
+    $$$$$:  120-block  5
+       1*:  121:    assert(!strcmp(exception.what(), "test"));
+    %%%%%:  121-block  0
+        1:  121-block  1
+    %%%%%:  121-block  2
+        1:  122:}
+        -:  123:
+        1:  124:void test__service_exception_what__valid_message__message_is_returned() {
+        3:  125:    ServiceException exception{"test"};
+        1:  125-block  0
+        1:  125-block  1
+        1:  125-block  2
+    $$$$$:  125-block  3
+    $$$$$:  125-block  4
+    $$$$$:  125-block  5
+       1*:  126:    assert(!strcmp(exception.what(), "test"));
+    %%%%%:  126-block  0
+        1:  126-block  1
+    %%%%%:  126-block  2
+        1:  127:}

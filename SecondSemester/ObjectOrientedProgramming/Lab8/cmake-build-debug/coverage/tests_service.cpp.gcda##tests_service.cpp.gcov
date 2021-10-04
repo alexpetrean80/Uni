@@ -1,0 +1,759 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/tests/tests_service.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests_service.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests_service.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "tests_service.h"
+        -:    2:
+        -:    3:
+        1:    4:void test__set_mode__valid_mode__mode_is_set() {
+        2:    5:        Service service{};
+        1:    5-block  0
+        1:    5-block  1
+    $$$$$:    5-block  2
+        1:    6:        service.set_mode('A');
+        1:    6-block  0
+       1*:    7:        assert(service.get_mode() == 'A');
+        1:    7-block  0
+        1:    7-block  1
+    %%%%%:    7-block  2
+        1:    7-block  3
+    %%%%%:    7-block  4
+        1:    8:}
+        -:    9:
+        1:   10:void test__set_repo_file_name__valid_file_name__file_name_is_set() {
+        1:   11:    Service service{};
+        1:   11-block  0
+    $$$$$:   11-block  1
+        1:   12:    service.set_repo_file("test.txt");
+        1:   12-block  0
+        1:   12-block  1
+        1:   12-block  2
+    $$$$$:   12-block  3
+    $$$$$:   12-block  4
+    $$$$$:   12-block  5
+    $$$$$:   12-block  6
+       1*:   13:    assert(service.get_repo_file() == "test.txt");
+        1:   13-block  0
+    %%%%%:   13-block  1
+        1:   13-block  2
+    %%%%%:   13-block  3
+        1:   13-block  4
+        1:   13-block  5
+        1:   13-block  6
+    $$$$$:   13-block  7
+    $$$$$:   13-block  8
+    $$$$$:   13-block  9
+        1:   14:}
+        -:   15:
+        1:   16:void test__set_my_list_file_name__valid_file_name__file_name_is_set() {
+        1:   17:    Service service{};
+        1:   17-block  0
+    $$$$$:   17-block  1
+        1:   18:    service.set_my_list_file("test.csv");
+        1:   18-block  0
+        1:   18-block  1
+        1:   18-block  2
+    $$$$$:   18-block  3
+    $$$$$:   18-block  4
+    $$$$$:   18-block  5
+    $$$$$:   18-block  6
+       1*:   19:    assert(service.get_my_list_file() == "test.csv");
+        1:   19-block  0
+    %%%%%:   19-block  1
+        1:   19-block  2
+    %%%%%:   19-block  3
+        1:   19-block  4
+        1:   19-block  5
+        1:   19-block  6
+    $$$$$:   19-block  7
+    $$$$$:   19-block  8
+    $$$$$:   19-block  9
+        1:   20:}
+        -:   21:
+        1:   22:void test__add_guardian_statue__mode_A__guardian_statue_added() {
+        2:   23:    Service service{};
+        1:   23-block  0
+        1:   23-block  1
+    $$$$$:   23-block  2
+        1:   24:    service.set_mode('A');
+        1:   24-block  0
+        1:   25:    service.set_repo_file("test.txt");
+        1:   25-block  0
+        1:   25-block  1
+        1:   25-block  2
+    $$$$$:   25-block  3
+    $$$$$:   25-block  4
+    $$$$$:   25-block  5
+    $$$$$:   25-block  6
+        1:   26:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   26-block  0
+        1:   26-block  1
+        1:   26-block  2
+        1:   26-block  3
+    $$$$$:   26-block  4
+    $$$$$:   26-block  5
+    $$$$$:   26-block  6
+    $$$$$:   26-block  7
+    $$$$$:   26-block  8
+    $$$$$:   26-block  9
+    $$$$$:   26-block 10
+    $$$$$:   26-block 11
+    $$$$$:   26-block 12
+    $$$$$:   26-block 13
+    $$$$$:   26-block 14
+    $$$$$:   26-block 15
+       1*:   27:    assert((service.get_guardian_statues().at(0) == GuardianStatue{"aa", "bb", 1, "cc"}));
+        1:   27-block  0
+        1:   27-block  1
+        1:   27-block  2
+        1:   27-block  3
+        1:   27-block  4
+        1:   27-block  5
+        1:   27-block  6
+    %%%%%:   27-block  7
+        1:   27-block  8
+    %%%%%:   27-block  9
+        1:   27-block 10
+        1:   27-block 11
+        1:   27-block 12
+        1:   27-block 13
+        1:   27-block 14
+        1:   27-block 15
+        1:   27-block 16
+        1:   27-block 17
+        1:   27-block 18
+        1:   27-block 19
+        1:   27-block 20
+        1:   27-block 21
+        1:   27-block 22
+        1:   27-block 23
+        1:   27-block 24
+        1:   27-block 25
+    $$$$$:   27-block 26
+    $$$$$:   27-block 27
+    $$$$$:   27-block 28
+    $$$$$:   27-block 29
+    $$$$$:   27-block 30
+    $$$$$:   27-block 31
+    $$$$$:   27-block 32
+    $$$$$:   27-block 33
+    $$$$$:   27-block 34
+    $$$$$:   27-block 35
+    $$$$$:   27-block 36
+    $$$$$:   27-block 37
+    $$$$$:   27-block 38
+    $$$$$:   27-block 39
+    $$$$$:   27-block 40
+    $$$$$:   27-block 41
+    $$$$$:   27-block 42
+    $$$$$:   27-block 43
+    $$$$$:   27-block 44
+    $$$$$:   27-block 45
+    $$$$$:   27-block 46
+    $$$$$:   27-block 47
+    $$$$$:   27-block 48
+    $$$$$:   27-block 49
+        1:   28:    std::remove("test.txt");
+        1:   28-block  0
+        1:   29:}
+        -:   30:
+        1:   31:void test__add_guardian_statue__mode_B__exception_is_thrown() {
+        2:   32:    Service service{};
+        1:   32-block  0
+        1:   32-block  1
+    $$$$$:   32-block  2
+        1:   33:    service.set_mode('B');
+        1:   33-block  0
+        1:   34:    service.set_repo_file("test.txt");
+        1:   34-block  0
+        1:   34-block  1
+        1:   34-block  2
+    $$$$$:   34-block  3
+    $$$$$:   34-block  4
+    $$$$$:   34-block  5
+    $$$$$:   34-block  6
+        -:   35:    try {
+       7*:   36:        service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   36-block  0
+        1:   36-block  1
+        1:   36-block  2
+    %%%%%:   36-block  3
+        1:   36-block  4
+        1:   36-block  5
+        1:   36-block  6
+        1:   36-block  7
+        1:   36-block  8
+        1:   36-block  9
+        1:   36-block 10
+        1:   36-block 11
+        1:   36-block 12
+        1:   36-block 13
+        1:   36-block 14
+        1:   36-block 15
+    #####:   37:        assert(false);
+        1:   38:    } catch (ServiceException& exception) {
+        1:   38-block  0
+        -:   39:    }
+        1:   40:}
+        -:   41:
+        1:   42:void test__delete_guardian_statue__mode_A__guardian_statue_deleted() {
+        2:   43:    Service service{};
+        1:   43-block  0
+        1:   43-block  1
+    $$$$$:   43-block  2
+        1:   44:    service.set_mode('A');
+        1:   44-block  0
+        1:   45:    service.set_repo_file("test.txt");
+        1:   45-block  0
+        1:   45-block  1
+        1:   45-block  2
+    $$$$$:   45-block  3
+    $$$$$:   45-block  4
+    $$$$$:   45-block  5
+    $$$$$:   45-block  6
+        1:   46:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   46-block  0
+        1:   46-block  1
+        1:   46-block  2
+        1:   46-block  3
+    $$$$$:   46-block  4
+    $$$$$:   46-block  5
+    $$$$$:   46-block  6
+    $$$$$:   46-block  7
+    $$$$$:   46-block  8
+    $$$$$:   46-block  9
+    $$$$$:   46-block 10
+    $$$$$:   46-block 11
+    $$$$$:   46-block 12
+    $$$$$:   46-block 13
+    $$$$$:   46-block 14
+    $$$$$:   46-block 15
+        1:   47:    service.delete_guardian_statue("aa");
+        1:   47-block  0
+        1:   47-block  1
+    $$$$$:   47-block  2
+    $$$$$:   47-block  3
+    $$$$$:   47-block  4
+    $$$$$:   47-block  5
+       1*:   48:    assert(service.get_guardian_statues().empty());
+        1:   48-block  0
+    %%%%%:   48-block  1
+        1:   48-block  2
+    %%%%%:   48-block  3
+        1:   48-block  4
+        1:   48-block  5
+    $$$$$:   48-block  6
+    $$$$$:   48-block  7
+    $$$$$:   48-block  8
+        1:   49:    std::remove("test.txt");
+        1:   49-block  0
+        1:   50:}
+        -:   51:
+        1:   52:void test__delete_guardian_statue__mode_B__exception_is_thrown() {
+        2:   53:    Service service{};
+        1:   53-block  0
+        1:   53-block  1
+    $$$$$:   53-block  2
+        1:   54:    service.set_mode('A');
+        1:   54-block  0
+        1:   55:    service.set_repo_file("test.txt");
+        1:   55-block  0
+        1:   55-block  1
+        1:   55-block  2
+    $$$$$:   55-block  3
+    $$$$$:   55-block  4
+    $$$$$:   55-block  5
+    $$$$$:   55-block  6
+        1:   56:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   56-block  0
+        1:   56-block  1
+        1:   56-block  2
+        1:   56-block  3
+    $$$$$:   56-block  4
+    $$$$$:   56-block  5
+    $$$$$:   56-block  6
+    $$$$$:   56-block  7
+    $$$$$:   56-block  8
+    $$$$$:   56-block  9
+    $$$$$:   56-block 10
+    $$$$$:   56-block 11
+    $$$$$:   56-block 12
+    $$$$$:   56-block 13
+    $$$$$:   56-block 14
+    $$$$$:   56-block 15
+        1:   57:    service.set_mode('B');
+        -:   58:    try {
+       3*:   59:        service.delete_guardian_statue("aa");
+        1:   59-block  0
+        1:   59-block  1
+    %%%%%:   59-block  2
+        1:   59-block  3
+        1:   59-block  4
+        1:   59-block  5
+        1:   59-block  6
+    #####:   60:        assert(false);
+        1:   61:    } catch (ServiceException& exception) {
+        1:   61-block  0
+        -:   62:    }
+        1:   63:    std::remove("test.txt");
+        1:   63-block  0
+        1:   64:}
+        -:   65:
+        1:   66:void test__update_guardian_statue__mode_A__guardian_statue_updated() {
+        2:   67:    Service service{};
+        1:   67-block  0
+        1:   67-block  1
+    $$$$$:   67-block  2
+        1:   68:    service.set_mode('A');
+        1:   68-block  0
+        1:   69:    service.set_repo_file("test.txt");
+        1:   69-block  0
+        1:   69-block  1
+        1:   69-block  2
+    $$$$$:   69-block  3
+    $$$$$:   69-block  4
+    $$$$$:   69-block  5
+    $$$$$:   69-block  6
+        1:   70:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   70-block  0
+        1:   70-block  1
+        1:   70-block  2
+        1:   70-block  3
+    $$$$$:   70-block  4
+    $$$$$:   70-block  5
+    $$$$$:   70-block  6
+    $$$$$:   70-block  7
+    $$$$$:   70-block  8
+    $$$$$:   70-block  9
+    $$$$$:   70-block 10
+    $$$$$:   70-block 11
+    $$$$$:   70-block 12
+    $$$$$:   70-block 13
+    $$$$$:   70-block 14
+    $$$$$:   70-block 15
+        1:   71:    service.update_guardian_statue("aa", "bc", 2, "cd");
+        1:   71-block  0
+        1:   71-block  1
+        1:   71-block  2
+        1:   71-block  3
+    $$$$$:   71-block  4
+    $$$$$:   71-block  5
+    $$$$$:   71-block  6
+    $$$$$:   71-block  7
+    $$$$$:   71-block  8
+    $$$$$:   71-block  9
+    $$$$$:   71-block 10
+    $$$$$:   71-block 11
+    $$$$$:   71-block 12
+    $$$$$:   71-block 13
+    $$$$$:   71-block 14
+    $$$$$:   71-block 15
+       1*:   72:    assert((service.get_guardian_statues().at(0) == GuardianStatue{"aa", "bc", 2, "cd"}));
+        1:   72-block  0
+        1:   72-block  1
+        1:   72-block  2
+        1:   72-block  3
+        1:   72-block  4
+        1:   72-block  5
+        1:   72-block  6
+    %%%%%:   72-block  7
+        1:   72-block  8
+    %%%%%:   72-block  9
+        1:   72-block 10
+        1:   72-block 11
+        1:   72-block 12
+        1:   72-block 13
+        1:   72-block 14
+        1:   72-block 15
+        1:   72-block 16
+        1:   72-block 17
+        1:   72-block 18
+        1:   72-block 19
+        1:   72-block 20
+        1:   72-block 21
+        1:   72-block 22
+        1:   72-block 23
+        1:   72-block 24
+        1:   72-block 25
+    $$$$$:   72-block 26
+    $$$$$:   72-block 27
+    $$$$$:   72-block 28
+    $$$$$:   72-block 29
+    $$$$$:   72-block 30
+    $$$$$:   72-block 31
+    $$$$$:   72-block 32
+    $$$$$:   72-block 33
+    $$$$$:   72-block 34
+    $$$$$:   72-block 35
+    $$$$$:   72-block 36
+    $$$$$:   72-block 37
+    $$$$$:   72-block 38
+    $$$$$:   72-block 39
+    $$$$$:   72-block 40
+    $$$$$:   72-block 41
+    $$$$$:   72-block 42
+    $$$$$:   72-block 43
+    $$$$$:   72-block 44
+    $$$$$:   72-block 45
+    $$$$$:   72-block 46
+    $$$$$:   72-block 47
+    $$$$$:   72-block 48
+    $$$$$:   72-block 49
+        1:   73:    std::remove("test.txt");
+        1:   73-block  0
+        1:   74:}
+        -:   75:
+        1:   76:void test__update_guardian_statue__mode_B__exception_is_thrown() {
+        2:   77:    Service service{};
+        1:   77-block  0
+        1:   77-block  1
+    $$$$$:   77-block  2
+        1:   78:    service.set_mode('A');
+        1:   78-block  0
+        1:   79:    service.set_repo_file("test.txt");
+        1:   79-block  0
+        1:   79-block  1
+        1:   79-block  2
+    $$$$$:   79-block  3
+    $$$$$:   79-block  4
+    $$$$$:   79-block  5
+    $$$$$:   79-block  6
+        1:   80:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   80-block  0
+        1:   80-block  1
+        1:   80-block  2
+        1:   80-block  3
+    $$$$$:   80-block  4
+    $$$$$:   80-block  5
+    $$$$$:   80-block  6
+    $$$$$:   80-block  7
+    $$$$$:   80-block  8
+    $$$$$:   80-block  9
+    $$$$$:   80-block 10
+    $$$$$:   80-block 11
+    $$$$$:   80-block 12
+    $$$$$:   80-block 13
+    $$$$$:   80-block 14
+    $$$$$:   80-block 15
+        1:   81:    service.set_mode('B');
+        -:   82:    try {
+       7*:   83:        service.update_guardian_statue("aa", "bc", 2, "cd");
+        1:   83-block  0
+        1:   83-block  1
+        1:   83-block  2
+        1:   83-block  3
+    %%%%%:   83-block  4
+        1:   83-block  5
+        1:   83-block  6
+        1:   83-block  7
+        1:   83-block  8
+        1:   83-block  9
+        1:   83-block 10
+        1:   83-block 11
+        1:   83-block 12
+        1:   83-block 13
+        1:   83-block 14
+        1:   83-block 15
+        1:   83-block 16
+    #####:   84:        assert(false);
+        1:   85:    } catch (ServiceException& exception) {
+        1:   85-block  0
+        -:   86:    }
+        1:   87:    std::remove("test.txt");
+        1:   87-block  0
+        1:   88:}
+        -:   89:
+        1:   90:void test__next__mode_B__guardian_statue_returned() {
+        2:   91:    Service service{};
+        1:   91-block  0
+        1:   91-block  1
+    $$$$$:   91-block  2
+        1:   92:    service.set_mode('A');
+        1:   92-block  0
+        1:   93:    service.set_repo_file("test.txt");
+        1:   93-block  0
+        1:   93-block  1
+        1:   93-block  2
+    $$$$$:   93-block  3
+    $$$$$:   93-block  4
+    $$$$$:   93-block  5
+    $$$$$:   93-block  6
+        1:   94:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:   94-block  0
+        1:   94-block  1
+        1:   94-block  2
+        1:   94-block  3
+    $$$$$:   94-block  4
+    $$$$$:   94-block  5
+    $$$$$:   94-block  6
+    $$$$$:   94-block  7
+    $$$$$:   94-block  8
+    $$$$$:   94-block  9
+    $$$$$:   94-block 10
+    $$$$$:   94-block 11
+    $$$$$:   94-block 12
+    $$$$$:   94-block 13
+    $$$$$:   94-block 14
+    $$$$$:   94-block 15
+        1:   95:    service.set_mode('B');
+       1*:   96:    assert((service.next() == GuardianStatue{"aa", "bb", 1, "cc"}));
+        1:   96-block  0
+        1:   96-block  1
+        1:   96-block  2
+        1:   96-block  3
+        1:   96-block  4
+        1:   96-block  5
+        1:   96-block  6
+    %%%%%:   96-block  7
+        1:   96-block  8
+    %%%%%:   96-block  9
+        1:   96-block 10
+        1:   96-block 11
+        1:   96-block 12
+        1:   96-block 13
+        1:   96-block 14
+        1:   96-block 15
+        1:   96-block 16
+        1:   96-block 17
+        1:   96-block 18
+        1:   96-block 19
+        1:   96-block 20
+        1:   96-block 21
+        1:   96-block 22
+        1:   96-block 23
+        1:   96-block 24
+        1:   96-block 25
+    $$$$$:   96-block 26
+    $$$$$:   96-block 27
+    $$$$$:   96-block 28
+    $$$$$:   96-block 29
+    $$$$$:   96-block 30
+    $$$$$:   96-block 31
+    $$$$$:   96-block 32
+    $$$$$:   96-block 33
+    $$$$$:   96-block 34
+    $$$$$:   96-block 35
+    $$$$$:   96-block 36
+    $$$$$:   96-block 37
+    $$$$$:   96-block 38
+    $$$$$:   96-block 39
+    $$$$$:   96-block 40
+    $$$$$:   96-block 41
+    $$$$$:   96-block 42
+    $$$$$:   96-block 43
+    $$$$$:   96-block 44
+    $$$$$:   96-block 45
+    $$$$$:   96-block 46
+    $$$$$:   96-block 47
+    $$$$$:   96-block 48
+    $$$$$:   96-block 49
+        1:   97:    std::remove("test.txt");
+        1:   97-block  0
+        1:   98:}
+        -:   99:
+        1:  100:void test__next__mode_A__exception_is_thrown() {
+        2:  101:    Service service{};
+        1:  101-block  0
+        1:  101-block  1
+    $$$$$:  101-block  2
+        1:  102:    service.set_mode('A');
+        1:  102-block  0
+        1:  103:    service.set_repo_file("test.txt");
+        1:  103-block  0
+        1:  103-block  1
+        1:  103-block  2
+    $$$$$:  103-block  3
+    $$$$$:  103-block  4
+    $$$$$:  103-block  5
+    $$$$$:  103-block  6
+        1:  104:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:  104-block  0
+        1:  104-block  1
+        1:  104-block  2
+        1:  104-block  3
+    $$$$$:  104-block  4
+    $$$$$:  104-block  5
+    $$$$$:  104-block  6
+    $$$$$:  104-block  7
+    $$$$$:  104-block  8
+    $$$$$:  104-block  9
+    $$$$$:  104-block 10
+    $$$$$:  104-block 11
+    $$$$$:  104-block 12
+    $$$$$:  104-block 13
+    $$$$$:  104-block 14
+    $$$$$:  104-block 15
+        -:  105:    try {
+       1*:  106:        service.next();
+    %%%%%:  106-block  0
+    #####:  107:        assert(false);
+        1:  108:    } catch (ServiceException& exception) {
+        1:  108-block  0
+        -:  109:    }
+        1:  110:    std::remove("test.txt");
+        1:  110-block  0
+        1:  111:}
+        -:  112:
+        1:  113:void test__save__mode_B__guardian_statue_saved() {
+        2:  114:    Service service{};
+        1:  114-block  0
+        1:  114-block  1
+    $$$$$:  114-block  2
+        1:  115:    service.set_mode('A');
+        1:  115-block  0
+        1:  116:    service.set_repo_file("test.txt");
+        1:  116-block  0
+        1:  116-block  1
+        1:  116-block  2
+    $$$$$:  116-block  3
+    $$$$$:  116-block  4
+    $$$$$:  116-block  5
+    $$$$$:  116-block  6
+        1:  117:    service.set_my_list_file("test.csv");
+        1:  117-block  0
+        1:  117-block  1
+    $$$$$:  117-block  2
+    $$$$$:  117-block  3
+    $$$$$:  117-block  4
+    $$$$$:  117-block  5
+        1:  118:    service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:  118-block  0
+        1:  118-block  1
+        1:  118-block  2
+        1:  118-block  3
+    $$$$$:  118-block  4
+    $$$$$:  118-block  5
+    $$$$$:  118-block  6
+    $$$$$:  118-block  7
+    $$$$$:  118-block  8
+    $$$$$:  118-block  9
+    $$$$$:  118-block 10
+    $$$$$:  118-block 11
+    $$$$$:  118-block 12
+    $$$$$:  118-block 13
+    $$$$$:  118-block 14
+    $$$$$:  118-block 15
+        1:  119:    service.set_mode('B');
+        1:  120:    service.save("aa");
+        1:  120-block  0
+        1:  120-block  1
+        1:  120-block  2
+    $$$$$:  120-block  3
+    $$$$$:  120-block  4
+    $$$$$:  120-block  5
+    $$$$$:  120-block  6
+       1*:  121:    assert((service.get_my_list().at(0) == GuardianStatue{"aa", "bb", 1, "cc"}));
+        1:  121-block  0
+        1:  121-block  1
+        1:  121-block  2
+        1:  121-block  3
+        1:  121-block  4
+        1:  121-block  5
+        1:  121-block  6
+    %%%%%:  121-block  7
+        1:  121-block  8
+    %%%%%:  121-block  9
+        1:  121-block 10
+        1:  121-block 11
+        1:  121-block 12
+        1:  121-block 13
+        1:  121-block 14
+        1:  121-block 15
+        1:  121-block 16
+        1:  121-block 17
+        1:  121-block 18
+        1:  121-block 19
+        1:  121-block 20
+        1:  121-block 21
+        1:  121-block 22
+        1:  121-block 23
+        1:  121-block 24
+        1:  121-block 25
+    $$$$$:  121-block 26
+    $$$$$:  121-block 27
+    $$$$$:  121-block 28
+    $$$$$:  121-block 29
+    $$$$$:  121-block 30
+    $$$$$:  121-block 31
+    $$$$$:  121-block 32
+    $$$$$:  121-block 33
+    $$$$$:  121-block 34
+    $$$$$:  121-block 35
+    $$$$$:  121-block 36
+    $$$$$:  121-block 37
+    $$$$$:  121-block 38
+    $$$$$:  121-block 39
+    $$$$$:  121-block 40
+    $$$$$:  121-block 41
+    $$$$$:  121-block 42
+    $$$$$:  121-block 43
+    $$$$$:  121-block 44
+    $$$$$:  121-block 45
+    $$$$$:  121-block 46
+    $$$$$:  121-block 47
+    $$$$$:  121-block 48
+    $$$$$:  121-block 49
+        1:  122:    std::remove("test.txt");
+        1:  122-block  0
+        1:  123:    std::remove("test.csv");
+        1:  123-block  0
+        1:  124:}
+        -:  125:
+        1:  126:void test__save__mode_A__exception_is_thrown() {
+        2:  127:        Service service{};
+        1:  127-block  0
+        1:  127-block  1
+    $$$$$:  127-block  2
+        1:  128:        service.set_mode('A');
+        1:  128-block  0
+        1:  129:        service.set_repo_file("test.txt");
+        1:  129-block  0
+        1:  129-block  1
+        1:  129-block  2
+    $$$$$:  129-block  3
+    $$$$$:  129-block  4
+    $$$$$:  129-block  5
+    $$$$$:  129-block  6
+        1:  130:        service.set_my_list_file("test.csv");
+        1:  130-block  0
+        1:  130-block  1
+    $$$$$:  130-block  2
+    $$$$$:  130-block  3
+    $$$$$:  130-block  4
+    $$$$$:  130-block  5
+        1:  131:        service.add_guardian_statue("aa", "bb", 1, "cc");
+        1:  131-block  0
+        1:  131-block  1
+        1:  131-block  2
+        1:  131-block  3
+    $$$$$:  131-block  4
+    $$$$$:  131-block  5
+    $$$$$:  131-block  6
+    $$$$$:  131-block  7
+    $$$$$:  131-block  8
+    $$$$$:  131-block  9
+    $$$$$:  131-block 10
+    $$$$$:  131-block 11
+    $$$$$:  131-block 12
+    $$$$$:  131-block 13
+    $$$$$:  131-block 14
+    $$$$$:  131-block 15
+        -:  132:        try {
+       3*:  133:            service.save("aa");
+        1:  133-block  0
+    %%%%%:  133-block  1
+        1:  133-block  2
+        1:  133-block  3
+        1:  133-block  4
+        1:  133-block  5
+    #####:  134:            assert(false);
+        1:  135:        } catch (ServiceException& exception) {
+        1:  135-block  0
+        -:  136:        }
+        1:  137:        std::remove("test.txt");
+        1:  137-block  0
+        1:  138:        std::remove("test.csv");
+        1:  138-block  0
+        1:  139:}
+        -:  140:

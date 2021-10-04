@@ -1,0 +1,19 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/main.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\main.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "tests.h"
+        -:    2:#include "ui.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    tests();
+        1:    5-block  0
+       1*:    6:    UI ui;
+        1:    6-block  0
+    $$$$$:    6-block  1
+        1:    7:    ui.run_console();
+        1:    7-block  0
+    #####:    8:    return 0;
+    %%%%%:    8-block  0
+        -:    9:}

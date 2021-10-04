@@ -1,0 +1,26 @@
+services:
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+    links:
+      - client
+      - droid
+      - purchase
+      - receipt
+  client:
+    build: ./client
+    ports:
+      - "4000:4000"
+  droid:
+    build: ./droid
+    ports:
+      - "4001:4001"
+  purchase:
+    build: ./purchase
+    ports:
+      - "4002:4002"
+  receipt:
+    build: ./receipt
+    ports:
+      - "4003:4003"

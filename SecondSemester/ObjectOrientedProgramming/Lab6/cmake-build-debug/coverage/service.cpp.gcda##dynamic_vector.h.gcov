@@ -1,0 +1,158 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/dynamic_vector.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\service.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\service.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Dan on 4/18/2020.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef LAB6_DYNAMIC_VECTOR_H
+        -:    6:#define LAB6_DYNAMIC_VECTOR_H
+        -:    7:#define INITIAL_CAPACITY 10
+        -:    8:
+        -:    9:#include <stdexcept>
+        -:   10:
+        -:   11:#include "guardian_statue.h"
+        -:   12:
+        -:   13:template <class T>
+        -:   14:class DynamicVector {
+        -:   15:private:
+        -:   16:    T* elements_;
+        -:   17:    int size_, capacity_;
+        -:   18:    void resize();
+        -:   19:public:
+        -:   20:    DynamicVector();
+        -:   21:    DynamicVector(DynamicVector<T> const &dynamic_vector);
+        -:   22:    ~DynamicVector();
+        -:   23:    void push_back(T const &element);
+        -:   24:    void pop_back(int position);
+        -:   25:    T &at(int position) const;
+        -:   26:    void insert(T const &element, int position);
+        -:   27:    int get_size() const;
+        -:   28:};
+        -:   29:
+        -:   30:/**
+        -:   31: * \brief creates a new DynamicVector of capacity 10
+        -:   32: */
+        -:   33:template<class T>
+        -:   34:inline DynamicVector<T>::DynamicVector() {
+        -:   35:    size_ = 0;
+        -:   36:    capacity_ = INITIAL_CAPACITY;
+        -:   37:    elements_ = new T[INITIAL_CAPACITY];
+        -:   38:}
+        -:   39:
+        -:   40:/**
+        -:   41: * \brief resizes the vector, doubling its capacity
+        -:   42: */
+        -:   43:template<class T>
+        -:   44:inline void DynamicVector<T>::resize() {
+        -:   45:    capacity_ *= 2;
+        -:   46:    T *newElements = new T[capacity_];
+        -:   47:    int index = 0;
+        -:   48:    for (int i = 0; i < size_; i++) {
+        -:   49:        newElements[i] = elements_[i];
+        -:   50:    }
+        -:   51:    delete[] elements_;
+        -:   52:    elements_ = newElements;
+        -:   53:}
+        -:   54:
+        -:   55:/**
+        -:   56: * \brief creates a new DynamicVector as a copy of a given one
+        -:   57: * \param dynamic_vector given DynamicVector
+        -:   58: */
+        -:   59:template<class T>
+        -:   60:inline DynamicVector<T>::DynamicVector(DynamicVector<T> const &dynamic_vector) {
+        -:   61:    size_ = dynamic_vector.size_;
+        -:   62:    capacity_ = dynamic_vector.capacity_;
+        -:   63:    elements_ = new T[capacity_];
+        -:   64:    for (int i = 0; i < size_; i++) {
+        -:   65:        elements_[i] = dynamic_vector.elements_[i];
+        -:   66:    }
+        -:   67:}
+        -:   68:
+        -:   69:/**
+        -:   70: * \brief deallocates the memory of the DynamicVector
+        -:   71: */
+        -:   72:template<class T>
+    #####:   73:inline DynamicVector<T>::~DynamicVector() {
+    #####:   74:    delete[] elements_;
+    %%%%%:   74-block  0
+    %%%%%:   74-block  1
+    %%%%%:   74-block  2
+    %%%%%:   74-block  3
+    %%%%%:   74-block  4
+    #####:   75:}
+        -:   76:
+        -:   77:/**
+        -:   78: * \brief adds a new element at the end of the DynamicVector
+        -:   79: * \param element the new element
+        -:   80: */
+        -:   81:template<class T>
+        -:   82:inline void DynamicVector<T>::push_back(T const& element) {
+        -:   83:    if (size_ == capacity_) {
+        -:   84:        resize();
+        -:   85:    }
+        -:   86:    elements_[size_++] = element;
+        -:   87:}
+        -:   88:
+        -:   89:/**
+        -:   90: * \brief deletes the element on the given position if it exists, else throws error
+        -:   91: * \param position the given position
+        -:   92: */
+        -:   93:template<class T>
+        -:   94:void DynamicVector<T>::pop_back(const int position) {
+        -:   95:    if (position < size_ && position > -1) {
+        -:   96:        for (auto i = position; i < size_; i++) {
+        -:   97:            elements_[i] = elements_[i + 1];
+        -:   98:        }
+        -:   99:        size_--;
+        -:  100:    } else {
+        -:  101:        throw std::invalid_argument("value out of bounds");
+        -:  102:    }
+        -:  103:}
+        -:  104:
+        -:  105:/**
+        -:  106: * \brief returns the element on the given position if it exists, else throws error
+        -:  107: * \param position given position
+        -:  108: * \return element on the given position
+        -:  109: */
+        -:  110:template<class T>
+        -:  111:inline T& DynamicVector<T>::at(int position) const {
+        -:  112:    if (position < size_ && position > -1) {
+        -:  113:        return elements_[position];
+        -:  114:    }
+        -:  115:    throw std::invalid_argument("value out of bounds");
+        -:  116:}
+        -:  117:
+        -:  118:/**
+        -:  119: * \brief inserts an element on a given position, if it exists, else throws error
+        -:  120: * \param element the element to be inserted
+        -:  121: * \param position the position on which the element is to be inserted
+        -:  122: */
+        -:  123:template<class T>
+        -:  124:inline void DynamicVector<T>::insert(T const &element, int position) {
+        -:  125:    if (position < size_ && position > -1) {
+        -:  126:        if (size_ == capacity_) {
+        -:  127:            resize();
+        -:  128:        }
+        -:  129:        size_++;
+        -:  130:        for (int i = size_ - 1; i > position; i--) {
+        -:  131:            elements_[i] = elements_[i - 1];
+        -:  132:        }
+        -:  133:        elements_[position] = element;
+        -:  134:    } else {
+        -:  135:        throw std::invalid_argument("Index out of bounds");
+        -:  136:    }
+        -:  137:}
+        -:  138:
+        -:  139:/**
+        -:  140: * \brief returns the size of the DynamicVector
+        -:  141: * \return the size of the vector
+        -:  142: */
+        -:  143:template<class T>
+        -:  144:inline int DynamicVector<T>::get_size() const {
+        -:  145:    return size_;
+        -:  146:}
+        -:  147:
+        -:  148:#endif//LAB6_DYNAMIC_VECTOR_H

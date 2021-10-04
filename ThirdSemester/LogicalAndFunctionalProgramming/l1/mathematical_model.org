@@ -1,0 +1,44 @@
+# 8.
+# a) Write a function to return the difference of two sets.
+# b) Write a function to reverse a list with its all sublists, on all levels.
+# c) Write a function to return the list of the first elements of all list elements of a given list with an odd number of elements at superficial level.
+# d)Write a function to return the sum of all numerical atoms in a list at superficial level.
+
+* a)
+*  doesElemExist(e, s1..sn) =
+    **  false, if n is 0
+    **  true, if s1 is e
+    **  doesElemExist(e, s2..sn), otherwise
+
+*  diff(s1..sn, s'1..s'm) =
+    **  [], if n is 0
+    **  s1..sn, if m is 0
+    **  s1 U diff(s2..sn, s'1..s'm), if doesElemExist(s1, s'1..s'm) is false
+    **  diff(s2..sn, s'1..s'm), otherwise
+
+* b)
+*  reverse(l1..ln, col) =
+    **  col, if n is 0
+    **  reverse(l2..ln,reverse(l1,  col), if l1 is list
+    **  reverse(l2..ln, l1 U col), otherwise   
+
+* c)
+*  getFirstElement(l1..ln) =
+    **  nil, if n is 0
+    **  l1, otherwise
+
+*  isListOdd(l1..ln) = 
+    **  true, if n is 1   
+    **  false, if n is 0
+    **  isListOdd(l3..ln), otherwise
+
+*  getFirstElementsInList(l1..ln) =
+    **  nil, if n is 0
+    **  getFirstElement(l1) U getFirstElementsInList(l2..ln), if l1 is list and isListOdd(l1) is true
+    **  getFirstElementsInList(l2..ln), otherwise
+
+* d)
+*   sum(l1..ln) = 
+    **  0, if n = 0 
+    **  l1 + sum(l2..ln), if l1 is atom
+    **  sum(l2..ln), otherwise

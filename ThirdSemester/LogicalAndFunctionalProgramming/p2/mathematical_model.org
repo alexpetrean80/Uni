@@ -1,0 +1,24 @@
+# a. Define a predicate to every element from a list, the divisors of that number.
+# b. For a heterogeneous list, formed from integer numbers 
+# and list of numbers, define a predicate to add in every sublist the divisors of every element.
+
+# a
+getDivisor(Num, Div) =
+*   [], if Num = Div
+*   Div U getDivisor(Num, Div + 1), if Num % Div = 0
+*   getDivisor(Num, Div + 1), otherwise
+
+
+concatList(l1..ln, l'1..l'm) =
+*   l'1..l'm, if n = 0
+*   l1 U concatList(l2..ln)
+
+procList(l1..ln) =
+*   [], if n = 0 
+*   l1 U getDivisor(l1, 1) U procList(l2..ln), otherwise
+
+# b
+procHetList(l1..ln) =
+*   [], if n = 0
+*   procList(l1) U procHetList(l2..ln), if isList(l1)
+*   l1 U procHetList(l2..ln), otherwise

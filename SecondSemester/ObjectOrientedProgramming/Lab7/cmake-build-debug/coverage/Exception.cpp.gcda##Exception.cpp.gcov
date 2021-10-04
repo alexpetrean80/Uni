@@ -1,0 +1,14 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab7/domain/Exception.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\domain\Exception.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\domain\Exception.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "Exception.h"
+        -:    2:
+       11:    3:Exception::Exception(std::string message) : message_(std::move(message)) {}
+       11:    3-block  0
+        -:    4:
+        7:    5:std::string Exception::what() {
+        7:    6:    return message_;
+        7:    6-block  0
+        -:    7:}

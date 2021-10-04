@@ -1,0 +1,197 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/guardian_statue.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\guardian_statue.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\guardian_statue.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "guardian_statue.h"
+        -:    2:
+        -:    3:#include <utility>
+        -:    4:
+        -:    5:/**
+        -:    6: * \brief creates a new GuardianStatue object with empty values
+        -:    7: */
+      380:    8:GuardianStatue::GuardianStatue() {
+      380:    8-block  0
+    $$$$$:    8-block  1
+    $$$$$:    8-block  2
+    $$$$$:    8-block  3
+        -:    9:
+      380:   10:    this->power_word_name_ = "";
+      380:   11:    this->material_ = "";
+      380:   11-block  0
+      380:   12:    this->age_ = 0;
+      380:   13:    this->corporeal_form_ = "";
+      380:   13-block  0
+      380:   14:}
+      380:   14-block  0
+        -:   15:
+        -:   16:/**
+        -:   17: * \brief creates a GuardianStatue object from the given parameters
+        -:   18: * \param power_word_name the power word name of the GuardianStatue
+        -:   19: * \param material the material of the GuardianStatue
+        -:   20: * \param age the age of the GuardianStatue
+        -:   21: * \param corporeal_form the corporeal form of the GuardianStatue
+        -:   22: */
+       31:   23:GuardianStatue::GuardianStatue(std::string power_word_name, std::string material, int age, std::string corporeal_form) {
+       31:   23-block  0
+       31:   24:    this->power_word_name_ = std::move(power_word_name);
+       31:   25:    this->material_ = std::move(material);
+       31:   26:    this->age_ = age;
+       31:   27:    this->corporeal_form_ = std::move(corporeal_form);
+       31:   28:}
+        -:   29:
+        -:   30:
+        -:   31:/**
+        -:   32: * \brief creates a new GuardianStatue object as a copy from the given one
+        -:   33: * \param guardian the given GuardianStatue object passed as a constant reference
+        -:   34: */
+        1:   35:GuardianStatue::GuardianStatue(GuardianStatue const& guardian) {
+        1:   35-block  0
+    $$$$$:   35-block  1
+    $$$$$:   35-block  2
+    $$$$$:   35-block  3
+        1:   36:    *this = guardian;
+        1:   37:}
+        1:   37-block  0
+        -:   38:
+        -:   39:/**
+        -:   40: * \brief returns the power word name of the object
+        -:   41: * \return the power word name of the object
+        -:   42: */
+       11:   43:std::string GuardianStatue::get_power_word_name() const {
+       11:   44:    return this->power_word_name_;
+       11:   44-block  0
+        -:   45:}
+        -:   46:
+        -:   47:/**
+        -:   48: * \brief sets a new value for the power word name of the object
+        -:   49: * \param power_word_name the new power word name
+        -:   50: */
+    #####:   51:void GuardianStatue::set_power_word_name(std::string power_word_name) {
+    #####:   52:    this->power_word_name_ = std::move(power_word_name);
+    %%%%%:   52-block  0
+    #####:   53:}
+        -:   54:
+        -:   55:/**
+        -:   56: * \brief returns the material of the object
+        -:   57: * \return the material of the object
+        -:   58: */
+        3:   59:std::string GuardianStatue::get_material() const {
+        3:   60:    return this->material_;
+        3:   60-block  0
+        -:   61:}
+        -:   62:
+        -:   63:/**
+        -:   64: * \brief sets a new value for the material of the object
+        -:   65: * \param material the new value for the material of the object
+        -:   66: */
+    #####:   67:void GuardianStatue::set_material(std::string material) {
+    #####:   68:    this->material_ = std::move(material);
+    %%%%%:   68-block  0
+    #####:   69:}
+        -:   70:
+        -:   71:/**
+        -:   72: * \brief return the age of the object
+        -:   73: * \return the age of the object
+        -:   74: */
+        3:   75:int GuardianStatue::get_age() const {
+        3:   76:    return this->age_;
+        3:   76-block  0
+        -:   77:}
+        -:   78:
+        -:   79:/**
+        -:   80: * \brief sets a new value for the age of the object
+        -:   81: * \param age the new value for the age of the object
+        -:   82: */
+    #####:   83:void GuardianStatue::set_age(int age) {
+    #####:   84:    this->age_ = age;
+    #####:   85:}
+        -:   86:
+        -:   87:/**
+        -:   88: * \brief returns the corporeal form of the object
+        -:   89: * \return the corporeal form of the object
+        -:   90: */
+        3:   91:std::string GuardianStatue::get_corporeal_form() const {
+        3:   92:    return this->corporeal_form_;
+        3:   92-block  0
+        -:   93:}
+        -:   94:
+        -:   95:/**
+        -:   96: * \brief sets a new value for the corporeal form of the object
+        -:   97: * \param corporeal_form the new value for the corporeal form of the object
+        -:   98: */
+    #####:   99:void GuardianStatue::set_corporeal_form(std::string corporeal_form) {
+    #####:  100:    this->corporeal_form_ = std::move(corporeal_form);
+    %%%%%:  100-block  0
+    #####:  101:}
+        -:  102:
+        -:  103:/**
+        -:  104: * \brief creates a string object containing all the attributes of the object
+        -:  105: * \return the resulted string
+        -:  106: */
+        1:  107:std::string GuardianStatue::to_string() const {
+        2:  108:    std::stringstream result;
+        1:  108-block  0
+        1:  108-block  1
+    $$$$$:  108-block  2
+        1:  109:    result << power_word_name_ << " ";
+        1:  109-block  0
+        1:  109-block  1
+        1:  110:    result << material_ << " ";
+        1:  110-block  0
+        1:  110-block  1
+        1:  111:    result << age_ << " ";
+        1:  111-block  0
+        1:  111-block  1
+        1:  112:    result << corporeal_form_;
+        1:  112-block  0
+        2:  113:    return result.str();
+        1:  113-block  0
+        1:  113-block  1
+        1:  113-block  2
+        -:  114:}
+        -:  115:
+        -:  116:/**
+        -:  117: * \brief compares the object to a given object of the same type
+        -:  118: * \param other_statue the second object passed as a const reference
+        -:  119: * \return true if equal, else false
+        -:  120: */
+       11:  121:bool GuardianStatue::operator==(GuardianStatue const&other_statue) const {
+       11:  122:    return power_word_name_ == other_statue.power_word_name_ && material_ == other_statue.material_ && age_ == other_statue.age_ && corporeal_form_ == other_statue.corporeal_form_;
+       11:  122-block  0
+        9:  122-block  1
+        9:  122-block  2
+        9:  122-block  3
+        9:  122-block  4
+        2:  122-block  5
+       11:  122-block  6
+        -:  123:}
+        -:  124:
+        -:  125:/**
+        -:  126: * \brief compares the object to a given object of the same type
+        -:  127: * \param other_statue the second object passed as a const reference
+        -:  128: * \return true if not equal, else false
+        -:  129: */
+        2:  130:bool GuardianStatue::operator!=(GuardianStatue const &other_statue) const {
+        2:  131:    return !(other_statue == *this);
+        2:  131-block  0
+        -:  132:}
+        -:  133:
+        -:  134:/**
+        -:  135: * \brief assigns a new value to the entire object
+        -:  136: * \param other_statue the new value of the object
+        -:  137: * \return reference to this
+        -:  138: */
+       23:  139:GuardianStatue& GuardianStatue::operator=(GuardianStatue const &other_statue) {
+       23:  140:    if (this == &other_statue) {
+       23:  140-block  0
+    #####:  141:        return *this;
+    %%%%%:  141-block  0
+        -:  142:    }
+       23:  143:    power_word_name_ = other_statue.power_word_name_;
+       23:  143-block  0
+       23:  144:    material_ = other_statue.material_;
+       23:  145:    age_ = other_statue.age_;
+       23:  146:    corporeal_form_ = other_statue.corporeal_form_;
+       23:  147:    return *this;
+        -:  148:}

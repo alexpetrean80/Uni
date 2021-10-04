@@ -1,0 +1,10 @@
+# 9. Convert a tree of type (1) to type (2).
+
+# (1) (node no-subtrees list-subtree-1 list-subtree-2 ...)
+# (2) (node (list-subtree-1) (list-subtree-2) ...)
+
+* convert(t1..n) =
+**   nil, if t is empty
+**   t1, if t2 is 0
+**   t1 U convert(t3..n), if t2 is 1
+**   t1 U convert(t3..n) U convert(t5..n), if t2 is 2

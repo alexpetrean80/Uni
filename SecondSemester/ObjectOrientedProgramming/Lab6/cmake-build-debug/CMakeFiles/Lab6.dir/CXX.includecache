@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/dynamic_vector.h
+stdexcept
+-
+guardian_statue.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/guardian_statue.h
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/guardian_statue.h
+string
+-
+sstream
+-
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/repository.h
+guardian_statue.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/guardian_statue.h
+dynamic_vector.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/dynamic_vector.h
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/service.h
+repository.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/repository.h
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/ui.cpp
+ui.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/ui.h
+
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/ui.h
+iostream
+-
+sstream
+-
+algorithm
+-
+Service.h
+C:/Users/Dan/Desktop/Uni/OOP/Lab6/service.h
+

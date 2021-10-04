@@ -1,0 +1,41 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab7/repository/file_repository.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\tests\tests_file_repository.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\tests\tests_file_repository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#ifndef LAB7_FILE_REPOSITORY_H
+        -:    2:#define LAB7_FILE_REPOSITORY_H
+        -:    3:
+        -:    4:#include "../domain/Exception.h"
+        -:    5:#include "../domain/guardian_statue.h"
+        -:    6:#include <fstream>
+        -:    7:#include <string>
+        -:    8:#include <vector>
+        -:    9:
+        -:   10:class FileRepository{
+        -:   11:private:
+        -:   12:    int index_;
+        -:   13:    std::vector<GuardianStatue> my_list_;
+        -:   14:    std::string file_name_;
+        -:   15:    std::ifstream input;
+        -:   16:    std::ofstream output;
+        -:   17:    std::vector<GuardianStatue> read();
+        -:   18:    void write(const std::vector<GuardianStatue>& guardian_statues);
+        -:   19:public:
+        -:   20:    explicit FileRepository(const std::string& file_name);
+        -:   21:    FileRepository();
+    #####:   22:    ~FileRepository() = default;
+    %%%%%:   22-block  0
+        -:   23:    void add_guardian_statue(GuardianStatue const &guardian_statue);
+        -:   24:    void delete_guardian_statue(const std::string& power_word_name);
+        -:   25:    void update_guardian_statue(GuardianStatue const &new_guardian_statue);
+        -:   26:    std::vector<GuardianStatue> get_all_guardian_statues();
+        -:   27:    void set_file_name(const std::string& file_name);
+        -:   28:    std::string get_file_name();
+        -:   29:    GuardianStatue next();
+        -:   30:    void save();
+        -:   31:    std::vector<GuardianStatue> get_my_list();
+        -:   32:};
+        -:   33:
+        -:   34:
+        -:   35:#endif//LAB7_FILE_REPOSITORY_H

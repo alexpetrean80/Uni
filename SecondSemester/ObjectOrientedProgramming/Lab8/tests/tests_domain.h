@@ -1,0 +1,32 @@
+#ifndef LAB7_TESTS_DOMAIN_H
+#define LAB7_TESTS_DOMAIN_H
+
+#include <cassert>
+#include <cstring>
+
+#include "../domain/guardian_statue.h"
+#include "../domain/guardian_statue_validator.h"
+
+void test__create_guardian_statue__default_constructor__empty_statue_created();
+void test__create_guardian_statue__explicit_constructor__statue_created();
+void test__create_guardian_statue__copy_constructor__copy_statue_created();
+void test__set_power_word_name__valid_power_word_name__power_word_name_set();
+void test__set_material__valid_material__material_set();
+void test__set_age__valid_age__age_set();
+void test__set_corporeal_form__valid_corporeal_form__corporeal_form_set();
+void test__equality__equal_statues__returns_true();
+void test__equality__not_equal_statues__returns_false();
+void test__not_equality__not_equal_statues__returns_true();
+void test__not_equality__equal_statues__returns_false();
+void test__to_string__valid_guardian_statue__returns_statue_as_string();
+void test__to_csv__valid_guardian_statue__returns_statue_as_csv();
+void test__to_html__valid_guardian_statue__returns_statue_as_html_table_row();
+
+void test__validate__valid_input__guardian_statue_validated();
+void test__validate__invalid_input__exception_is_thrown();
+
+void test__validator_exception_what__valid_message__message_is_returned();
+void test__repository_exception_what__valid_message__message_is_returned();
+void test__service_exception_what__valid_message__message_is_returned();
+
+#endif//LAB7_TESTS_DOMAIN_H

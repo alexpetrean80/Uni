@@ -1,0 +1,75 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/tests/tests.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\tests\tests.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "tests.h"
+        -:    2:
+        1:    3:void domain_tests() {
+        1:    4:    test__create_guardian_statue__default_constructor__empty_statue_created();
+        1:    4-block  0
+        1:    5:    test__create_guardian_statue__explicit_constructor__statue_created();
+        1:    6:    test__create_guardian_statue__copy_constructor__copy_statue_created();
+        1:    7:    test__set_power_word_name__valid_power_word_name__power_word_name_set();
+        1:    8:    test__set_material__valid_material__material_set();
+        1:    9:    test__set_age__valid_age__age_set();
+        1:   10:    test__set_corporeal_form__valid_corporeal_form__corporeal_form_set();
+        1:   11:    test__equality__equal_statues__returns_true();
+        1:   12:    test__equality__not_equal_statues__returns_false();
+        1:   13:    test__not_equality__not_equal_statues__returns_true();
+        1:   14:    test__not_equality__equal_statues__returns_false();
+        1:   15:    test__to_string__valid_guardian_statue__returns_statue_as_string();
+        1:   16:    test__to_csv__valid_guardian_statue__returns_statue_as_csv();
+        1:   17:    test__to_html__valid_guardian_statue__returns_statue_as_html_table_row();
+        1:   18:    test__validate__valid_input__guardian_statue_validated();
+        1:   19:    test__validate__invalid_input__exception_is_thrown();
+        1:   20:    test__validator_exception_what__valid_message__message_is_returned();
+        1:   21:    test__repository_exception_what__valid_message__message_is_returned();
+        1:   22:    test__service_exception_what__valid_message__message_is_returned();
+        1:   23:}
+        -:   24:
+        1:   25:void file_repo_tests() {
+        1:   26:    test__set_repo_file__valid_file__repo_file_is_modified();
+        1:   26-block  0
+        1:   27:    test__set_my_list_file__valid_file__my_list_file_is_modified();
+        1:   28:    test__add_guardian_statue__guardian_statue_does_not_exist__guardian_statue_added();
+        1:   29:    test__add_guardian_statue__guardian_statue_exists__exception_is_thrown();
+        1:   30:    test__delete_guardian_statue__guardian_statue_exists__guardian_statue_removed();
+        1:   31:    test__delete_guardian_statue__guardian_statue_does_not_exist__exception_is_thrown();
+        1:   32:    test__update_guardian_statue__guardian_statue_exists__guardian_statue_updated();
+        1:   33:    test__update_guardian_statue__guardian_statue_does_not_exist__exception_is_thrown();
+        1:   34:    test__next__index_in_range__guardian_statue_on_index_is_returned();
+        1:   35:    test__next__index_out_of_range__guardian_statue_on_first_position_is_returned();
+        1:   36:    test__save__csv_file__guardian_statue_saved();
+        1:   37:    test__save__html_file__guardian_statue_saved();
+        1:   38:    test__save__wrong_file_type__exception_is_thrown();
+        1:   39:    test__save__no_file_type__exception_is_thrown();
+        1:   40:    test__save__guardian_statue_already_exists_in_my_file__exception_is_thrown();
+        1:   41:    test__save__guardian_statue_does_not_exist_in_repo__exception_is_thrown();
+        1:   42:    test__my_list__no_file_type__exception_is_thrown();
+        1:   43:    test__my_list__wrong_file_type__exception_is_thrown();
+        1:   44:}
+        -:   45:
+        1:   46:void service_tests() {
+        1:   47:    test__set_mode__valid_mode__mode_is_set();
+        1:   47-block  0
+        1:   48:    test__set_repo_file_name__valid_file_name__file_name_is_set();
+        1:   49:    test__set_my_list_file_name__valid_file_name__file_name_is_set();
+        1:   50:    test__add_guardian_statue__mode_A__guardian_statue_added();
+        1:   51:    test__add_guardian_statue__mode_B__exception_is_thrown();
+        1:   52:    test__delete_guardian_statue__mode_A__guardian_statue_deleted();
+        1:   53:    test__delete_guardian_statue__mode_B__exception_is_thrown();
+        1:   54:    test__update_guardian_statue__mode_A__guardian_statue_updated();
+        1:   55:    test__update_guardian_statue__mode_B__exception_is_thrown();
+        1:   56:    test__next__mode_B__guardian_statue_returned();
+        1:   57:    test__next__mode_A__exception_is_thrown();
+        1:   58:    test__save__mode_B__guardian_statue_saved();
+        1:   59:    test__save__mode_A__exception_is_thrown();
+        1:   60:}
+        -:   61:
+        1:   62:void tests() {
+        1:   63:    domain_tests();
+        1:   63-block  0
+        1:   64:    file_repo_tests();
+        1:   65:    service_tests();
+        1:   66:}

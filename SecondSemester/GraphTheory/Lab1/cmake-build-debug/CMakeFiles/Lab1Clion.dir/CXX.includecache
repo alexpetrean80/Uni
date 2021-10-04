@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/directed_graph.h
+vector
+-
+string
+-
+random
+-
+fstream
+-
+vertex.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/vertex.h
+edge.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/edge.h
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/edge.h
+vertex.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/vertex.h
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/main.cpp
+iostream
+-
+directed_graph.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/directed_graph.h
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab1Clion/vertex.h
+vector
+-
+

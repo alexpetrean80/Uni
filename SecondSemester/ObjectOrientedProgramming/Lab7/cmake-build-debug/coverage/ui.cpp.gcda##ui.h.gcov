@@ -1,0 +1,39 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab7/ui/ui.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\ui\ui.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\ui\ui.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#ifndef LAB7_UI_H
+        -:    2:#define LAB7_UI_H
+        -:    3:
+        -:    4:#include "../service/service.h"
+        -:    5:#include <algorithm>
+        -:    6:#include <iostream>
+        -:    7:#include <sstream>
+        1:    8:class UI {
+        1:    8-block  0
+        1:    8-block  1
+        1:    8-block  2
+    $$$$$:    8-block  3
+    $$$$$:    8-block  4
+    $$$$$:    8-block  5
+        -:    9:private:
+        -:   10:    Service service_;
+        -:   11:    static std::vector<std::string> read_command();
+        -:   12:    void mode_ui(const std::vector<std::string> &command);
+        -:   13:    void add_ui(const std::vector<std::string> &command);
+        -:   14:    void update_ui(const std::vector<std::string> &command);
+        -:   15:    void delete_ui(const std::vector<std::string> &command);
+        -:   16:    void list_ui(const std::vector<std::string> &command);
+        -:   17:    void set_file_ui(const std::vector<std::string> &command);
+        -:   18:    void save_ui(const std::vector<std::string> &command);
+        -:   19:    void next_ui(const std::vector<std::string> &command);
+        -:   20:    void my_list_ui(const std::vector<std::string> &command);
+        -:   21:
+        -:   22:public:
+        -:   23:    UI();
+        -:   24:    void run_console();
+        -:   25:};
+        -:   26:
+        -:   27:
+        -:   28:#endif//LAB7_UI_H

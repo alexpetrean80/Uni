@@ -1,0 +1,39 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/guardian_statue.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\tests.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\tests.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#ifndef LAB6_GUARDIAN_STATUE_H
+        -:    2:#define LAB6_GUARDIAN_STATUE_H
+        -:    3:
+        -:    4:#include <string>
+        -:    5:#include <sstream>
+        -:    6:
+        -:    7:class GuardianStatue {
+        -:    8:private:
+        -:    9:    std::string power_word_name_;
+        -:   10:    std::string material_;
+        -:   11:    int age_{};
+        -:   12:    std::string corporeal_form_;
+        -:   13:
+        -:   14:public:
+        -:   15:    GuardianStatue();
+        -:   16:    GuardianStatue(std::string power_word_name, std::string material, int age, std::string corporeal_form);
+        -:   17:    GuardianStatue(GuardianStatue const &guardian_statue);
+    #####:   18:    ~GuardianStatue() = default;
+    %%%%%:   18-block  0
+        -:   19:    std::string get_power_word_name() const;
+        -:   20:    void set_power_word_name(std::string power_word_name);
+        -:   21:    std::string get_material() const;
+        -:   22:    void set_material(std::string material);
+        -:   23:    int get_age() const;
+        -:   24:    void set_age(int age);
+        -:   25:    std::string get_corporeal_form() const;
+        -:   26:    void set_corporeal_form(std::string material);
+        -:   27:    std::string to_string() const;
+        -:   28:    bool operator==(GuardianStatue const &other_statue) const;
+        -:   29:    bool operator!=(GuardianStatue const &other_statue) const;
+        -:   30:    GuardianStatue& operator=(GuardianStatue const &other_statue);
+        -:   31:};
+        -:   32:
+        -:   33:#endif//LAB6_GUARDIAN_STATUE_H

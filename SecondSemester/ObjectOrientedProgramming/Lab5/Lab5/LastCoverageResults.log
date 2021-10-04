@@ -1,0 +1,190 @@
+[2020-04-09 10:42:50] [info] Start Program:
+Path:"C:\\Users\\Dan\\Desktop\\Uni\\OOP\\Lab5\\x64\\Debug\\Lab5.exe"
+Arguments:
+Working directory: "C:\\Users\\Dan\\Desktop\\Uni\\OOP\\Lab5\\Lab5\\"
+Modules: Selected: C:\Users\Dan\Desktop\Uni\OOP\Lab5\x64\Debug\Lab5.exe Excluded: 
+Sources: Selected: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5 Excluded: 
+Log Level: Verbose
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\Dan\AppData\Local\Temp\1yazarrk.bfh 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2020-04-09 10:42:50] [debug] Create Process:736
+[2020-04-09 10:42:50] [info] Module: C:\Users\Dan\Desktop\Uni\OOP\Lab5\x64\Debug\Lab5.exe is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\x64\Debug\Lab5.exe
+[2020-04-09 10:42:50] [debug] Try to load pdb from C:\Users\Dan\Desktop\Uni\OOP\Lab5\x64\Debug\Lab5.pdb: Success
+[2020-04-09 10:42:50] [debug] Filename: C:\Users\Dan\AppData\Local\Temp\lnk{BC5B1374-E3E9-4AC5-8903-1E09FCCCAFD3}.tmp is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xlocale is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vcruntime_exception.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\typeinfo is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vcruntime_typeinfo.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\streambuf is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xiosbase is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\system_error is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xmemory is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xutility is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\utility is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_wtime.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\stdexcept is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\exception is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\UI.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:50] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\UI.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:50] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\UI.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:50] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\UI.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:50] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\UI.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\type_traits is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstddef is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\vcruntime_new.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\limits is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_wio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\sstream is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\string is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\algorithm is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\malloc.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:50] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\DynamicVector.h is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\istream is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\ostream is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\ios is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xlocnum is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xfacet is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\cmath is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_wstdio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_stdio_config.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\wchar.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_wconio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\cstdlib is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_wstring.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xstring is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\iosfwd is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xlocinfo is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_memory.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xcall_once.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_memcpy_s.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\ctype.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\sys\stat.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\xatomic.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.h is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Repo.h is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\tests.cpp line 16707566 does not exist, skipped
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Service.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Repo.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Repo.cpp line 45 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Repo.cpp line 45 does not exist, skipped
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\Lab5.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] Filename: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.cpp is selected because it matches selected pattern: C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.cpp line 154 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.cpp line 154 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.cpp line 154 does not exist, skipped
+[2020-04-09 10:42:51] [debug] C:\Users\Dan\Desktop\Uni\OOP\Lab5\Lab5\GuardianStatue.cpp line 154 does not exist, skipped
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\gs\amd64\amdsecgs.asm is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\ksamd64.inc is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\kxamd64.inc is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\macamd64.inc is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\misc\amd64\guard_dispatch.asm is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\basetsd.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\string.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_memcpy_s.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\processthreadsapi.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_wstring.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\stralign.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\winnt.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\ctype.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\winbase.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\winerror.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\malloc.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\evntprov.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\vcruntime_internal.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\gs\gs_report.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\internal_shared.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\gs\gs_support.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\misc\debugger_jmc.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\misc\guard_support.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\dyn_tls_dtor.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_math.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\dyn_tls_init.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\matherr_detection.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\ucrt_detection.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\misc\amd64\cpu_disp.c is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\argv_mode.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\commit_mode.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\inc\vcstartup_internal.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\vcruntime_new.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\guiddef.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\default_local_stdio_options.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_memory.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\stdlib.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\stdio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_wstdio.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\Windows\10\sdk\inc\winuser.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\ExternalAPIs\UnifiedCRT\inc\corecrt_stdio_config.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\denormal_control.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\env_mode.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\file_mode.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\invalid_parameter_handler.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\matherr.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\new_mode.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\defaults\thread_locale.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\eh\ehvecctr.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\eh\ehvecdtr.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\trnsctrl.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\vcruntime_typeinfo.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcruntime\inc\vcruntime_exception.h is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\eh\std_type_info_static.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\eh\tncleanup.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\delete_array.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\delete_array_size.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\delete_scalar.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\delete_scalar_size.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\new_array.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\new_scalar.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\heap\throw_bad_alloc.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_common.inl is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\startup\exe_main.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\utility.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\ucrt_stubs.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\utility\utility_desktop.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\error.cpp is skipped because it matches no selected patterns
+[2020-04-09 10:42:51] [debug] FiFilename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\init.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\initsect.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\pdblkup.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\langapi\include\pdb.h is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\langapi\include\cvinfo.h is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\stack.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\rtc\userapi.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\gs\amd64\gshandler.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Filename: d:\agent\_work\4\s\src\vctools\crt\vcstartup\src\gs\amd64\gshandlereh4.cpp is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Create Thread:6176
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\ntdll.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\kernel32.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\KernelBase.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Create Thread:14260
+[2020-04-09 09:57:38] [debug] Create Thread:12972
+[2020-04-09 09:57:38] [debug] Create Thread:12744
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\vcruntime140_1d.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\vcruntime140d.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\msvcp140d.dll is skipped because it matches no selected patterns
+[2020-04-09 09:57:38] [debug] Module: C:\Windows\System32\ucrtbased.dll is skipped because it matches no selected patterns
+[2020-04-09 09:58:38] [debug] Exit thread:12744
+[2020-04-09 09:58:38] [debug] Exit thread:12972
+[2020-04-09 09:58:38] [debug] Exit thread:14260
+[2020-04-09 17:54:59] [debug] Create Thread:4280
+[2020-04-09 18:07:38] [debug] Exit thread:4280
+[2020-04-09 20:34:30] [debug] Create Thread:12044
+[2020-04-09 20:51:00] [debug] Exit thread:12044
+[2020-04-09 23:35:38] [debug] Create Thread:1388

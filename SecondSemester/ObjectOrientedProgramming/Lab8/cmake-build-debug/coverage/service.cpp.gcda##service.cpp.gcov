@@ -1,0 +1,154 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/service/service.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\service\service.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\service\service.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by Dan on 4/23/2020.
+        -:    3://
+        -:    4:
+        -:    5:#include "service.h"
+        -:    6:
+       15:    7:void Service::set_mode(char mode) {
+       15:    8:    mode_ = mode;
+       15:    9:}
+        -:   10:
+        -:   11:
+        -:   12:
+       11:   13:void Service::set_repo_file(const std::string& file) {
+       11:   14:   repo_.set_repo_file(file);
+       11:   14-block  0
+       11:   15:}
+        -:   16:
+        -:   17:
+        3:   18:void Service::set_my_list_file(const std::string& file) {
+        3:   19:    repo_.set_my_list_file(file);
+        3:   19-block  0
+        3:   20:}
+        -:   21:
+       10:   22:void Service::add_guardian_statue(const std::string& power_word_name, const std::string& material, int age,
+        -:   23:                                  const std::string& corporeal_form) {
+       10:   24:    if (mode_ == 'A') {
+       10:   24-block  0
+       18:   25:        GuardianStatue temporary_statue{power_word_name, material, age, corporeal_form};
+        9:   25-block  0
+        9:   25-block  1
+    $$$$$:   25-block  2
+        9:   26:        GuardianStatueValidator::validate(temporary_statue);
+        9:   26-block  0
+        9:   27:        repo_.add_guardian_statue(temporary_statue);
+        9:   27-block  0
+        -:   28:    } else {
+        1:   29:        throw ServiceException("Invalid mode.");
+        1:   29-block  0
+        1:   29-block  1
+        1:   29-block  2
+    $$$$$:   29-block  3
+    $$$$$:   29-block  4
+    $$$$$:   29-block  5
+    $$$$$:   29-block  6
+    $$$$$:   29-block  7
+        -:   30:    }
+        9:   31:}
+        9:   31-block  0
+        -:   32:
+        2:   33:void Service::delete_guardian_statue(const std::string& power_word_name) {
+        2:   34:    if (mode_ == 'A') {
+        2:   34-block  0
+        1:   35:        repo_.delete_guardian_statue(power_word_name);
+        1:   35-block  0
+        -:   36:    } else {
+        1:   37:        throw ServiceException("Invalid mode.");
+        1:   37-block  0
+        1:   37-block  1
+        1:   37-block  2
+    $$$$$:   37-block  3
+    $$$$$:   37-block  4
+    $$$$$:   37-block  5
+    $$$$$:   37-block  6
+    $$$$$:   37-block  7
+        -:   38:    }
+        1:   39:}
+        -:   40:
+        2:   41:void Service::update_guardian_statue(const std::string& power_word_name, const std::string& material, int age,
+        -:   42:                                     const std::string& corporeal_form) {
+        2:   43:    if (mode_ == 'A') {
+        2:   43-block  0
+        2:   44:        GuardianStatue temporary_statue{power_word_name, material, age, corporeal_form};
+        1:   44-block  0
+        1:   44-block  1
+    $$$$$:   44-block  2
+        1:   45:        GuardianStatueValidator::validate(temporary_statue);
+        1:   45-block  0
+        1:   46:        repo_.update_guardian_statue(temporary_statue);
+        1:   46-block  0
+        -:   47:    }
+        -:   48:    else {
+        1:   49:        throw ServiceException("Invalid mode.");
+        1:   49-block  0
+        1:   49-block  1
+        1:   49-block  2
+    $$$$$:   49-block  3
+    $$$$$:   49-block  4
+    $$$$$:   49-block  5
+    $$$$$:   49-block  6
+    $$$$$:   49-block  7
+        -:   50:    }
+        1:   51:}
+        1:   51-block  0
+        -:   52:
+        3:   53:std::vector<GuardianStatue> Service::get_guardian_statues() {
+        3:   54:    return repo_.get_guardian_statues();
+        3:   54-block  0
+        -:   55:}
+        -:   56:
+        2:   57:GuardianStatue Service::next() {
+        2:   58:    if (mode_ == 'B') {
+        2:   58-block  0
+        1:   59:        return repo_.next();
+        1:   59-block  0
+        -:   60:    }
+        1:   61:    throw ServiceException("Invalid mode.");
+        1:   61-block  0
+        1:   61-block  1
+        1:   61-block  2
+    $$$$$:   61-block  3
+    $$$$$:   61-block  4
+    $$$$$:   61-block  5
+    $$$$$:   61-block  6
+    $$$$$:   61-block  7
+        -:   62:}
+        -:   63:
+        1:   64:std::vector<GuardianStatue> Service::get_my_list() {
+        1:   65:    return repo_.get_my_list();
+        1:   65-block  0
+        -:   66:}
+        2:   67:void Service::save(const std::string& power_word_name) {
+        2:   68:    if (mode_ == 'B') {
+        2:   68-block  0
+        1:   69:        repo_.save(power_word_name);
+        1:   69-block  0
+        -:   70:    } else {
+        1:   71:        throw ServiceException("Invalid mode.");
+        1:   71-block  0
+        1:   71-block  1
+        1:   71-block  2
+    $$$$$:   71-block  3
+    $$$$$:   71-block  4
+    $$$$$:   71-block  5
+    $$$$$:   71-block  6
+    $$$$$:   71-block  7
+        -:   72:    }
+        1:   73:}
+        1:   74:char Service::get_mode() const {
+        1:   75:    return mode_;
+        1:   75-block  0
+        -:   76:}
+        1:   77:std::string Service::get_repo_file() {
+        1:   78:    return repo_.get_repo_file();
+        1:   78-block  0
+        -:   79:}
+        1:   80:std::string Service::get_my_list_file() {
+        1:   81:    return repo_.get_my_list_file();
+        1:   81-block  0
+        -:   82:}

@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/directed_graph.h
+vector
+-
+string
+-
+random
+-
+fstream
+-
+memory
+-
+vertex.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/vertex.h
+edge.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/edge.h
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/edge.h
+vertex.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/vertex.h
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/main.cpp
+directed_graph.h
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/directed_graph.h
+iostream
+-
+queue
+-
+vector
+-
+
+C:/Users/Dan/Desktop/Uni/Graphs/Lab2/vertex.h
+vector
+-
+exception
+-
+

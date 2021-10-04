@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# CodeStream ignored files
+/../../Lab5\.idea/codestream.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Users\silvi\OneDrive\Desktop\JARJAR\lab5x-jarjarbinks\Lab5\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

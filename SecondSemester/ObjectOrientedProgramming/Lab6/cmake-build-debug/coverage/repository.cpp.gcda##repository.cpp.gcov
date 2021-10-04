@@ -1,0 +1,102 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/repository.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\repository.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\repository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "repository.h"
+        -:    2:
+       19:    3:Repo::Repo() {
+       19:    3-block  0
+    $$$$$:    3-block  1
+       19:    4:    position_ = 0;
+       19:    5:}
+       19:    5-block  0
+        -:    6:
+        -:    7:/**
+        -:    8: * \brief adds a new GuardianStatue to the repository
+        -:    9: * \param guardian_statue new GuardianStatue passed as a const reference
+        -:   10: */
+       16:   11:void Repo::add(GuardianStatue const &guardian_statue) {
+       16:   12:    guardian_statues_.push_back(guardian_statue);
+       16:   12-block  0
+       16:   13:}
+        -:   14:
+        -:   15:/**
+        -:   16: * \brief removes a GuardianStatue from the repo by its power word name
+        -:   17: * \param power_word_name power word name of the GuardianStatue
+        -:   18: */
+        2:   19:void Repo::remove(const std::string &power_word_name) {
+        4:   20:    for (int i = 0; i < guardian_statues_.get_size(); i++) {
+        2:   20-block  0
+        4:   20-block  1
+        2:   20-block  2
+        2:   21:        if (guardian_statues_.at(i).get_power_word_name() == power_word_name) {
+        2:   21-block  0
+        2:   22:            guardian_statues_.pop_back(i);
+        2:   22-block  0
+        -:   23:        }
+        -:   24:    }
+        2:   25:}
+        -:   26:
+        -:   27:/**
+        -:   28: * \brief updates a GuardianStatue having the same power word name as the given one
+        -:   29: * \param guardian_statue the new GuardianStatue which will replace the old one
+        -:   30: */
+        2:   31:void Repo::update(GuardianStatue &guardian_statue) {
+       2*:   32:    for (auto i = 0; i < guardian_statues_.get_size(); i++) {
+        2:   32-block  0
+        2:   32-block  1
+    %%%%%:   32-block  2
+        2:   33:        if (guardian_statues_.at(i).get_power_word_name() == guardian_statue.get_power_word_name()) {
+        2:   33-block  0
+        2:   33-block  1
+        2:   33-block  2
+    $$$$$:   33-block  3
+        2:   34:            guardian_statues_.at(i) = guardian_statue;
+        2:   34-block  0
+        2:   35:            return;
+        -:   36:        }
+        -:   37:    }
+        -:   38:}
+        -:   39:
+        -:   40:/**
+        -:   41: * \brief returns a const reference to the DynamicVector containing the elements in the repo
+        -:   42: * \return container with the elements of the repo inside
+        -:   43: */
+       16:   44:DynamicVector<GuardianStatue> const &Repo::get_statues() const {
+       16:   45:    return guardian_statues_;
+       16:   45-block  0
+        -:   46:}
+        2:   47:GuardianStatue const &Repo::next() {
+        2:   48:    if (guardian_statues_.get_size() == 0) {
+        2:   48-block  0
+    #####:   49:        throw std::exception();
+    %%%%%:   49-block  0
+        -:   50:    }
+        2:   51:    if (position_ == guardian_statues_.get_size()) {
+        2:   51-block  0
+    #####:   52:        position_ = 0;
+    %%%%%:   52-block  0
+        -:   53:    }
+        2:   54:    return guardian_statues_.at(position_++);
+        2:   54-block  0
+        -:   55:}
+        3:   56:void Repo::save(const std::string &power_word_name) {
+       3*:   57:    for (auto i = 0; i < guardian_statues_.get_size(); i++) {
+        3:   57-block  0
+        3:   57-block  1
+    %%%%%:   57-block  2
+        2:   58:        if (power_word_name == get_statues().at(i).get_power_word_name()) {
+        2:   58-block  0
+        2:   59:            currently_in_animation_.push_back(guardian_statues_.at(i));
+        2:   59-block  0
+        2:   60:            return;
+        -:   61:        }
+        -:   62:    }
+        1:   63:    throw std::exception();
+        1:   63-block  0
+        -:   64:}
+        2:   65:const DynamicVector<GuardianStatue> &Repo::get_currently_in_animation() const {
+        2:   66:    return currently_in_animation_;
+        2:   66-block  0
+        -:   67:}

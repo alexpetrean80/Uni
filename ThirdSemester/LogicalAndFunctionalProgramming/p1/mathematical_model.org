@@ -1,0 +1,22 @@
+8.a. Write a predicate to determine if a list has even numbers of elements 
+without counting the elements from the list.
+
+isEven(l1..ln) = 
+* true, if n = 0
+* false, if n = 1
+* isEven(l3..ln) otherwise
+
+8.b. Write a predicate to delete first occurrence of the minimum number from a list.
+
+findMin(m, n) =
+* m, if m <= n
+* n, if n < m
+
+findMinList(l1..ln) = 
+* l1, if n == 1
+* findMin(l1, findMinList(l2..ln)), otherwise
+
+deleteMinElem(l1..ln, min) = 
+* (), if n == 0
+* deleteMinElem(l2..ln), if min == l1
+* l1 U deleteMinElem(l2..ln) otherwise 

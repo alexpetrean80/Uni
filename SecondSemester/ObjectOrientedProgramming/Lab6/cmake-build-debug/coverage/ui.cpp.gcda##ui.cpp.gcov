@@ -1,0 +1,237 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab6/ui.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\ui.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab6\cmake-build-debug\CMakeFiles\Lab6.dir\ui.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#define COMMAND_INDEX 0
+        -:    2:#define POWER_WORD_NAME_INDEX 1
+        -:    3:#define MODE_INDEX 1
+        -:    4:#define MATERIAL_INDEX 2
+        -:    5:#define AGE_INDEX 3
+        -:    6:#define CORPOREAL_FORM_INDEX 4
+        -:    7:#define MODE_COMMAND_SIZE 2
+        -:    8:#define ADD_COMMAND_SIZE 5
+        -:    9:#define DELETE_COMMAND_SIZE 2
+        -:   10:#define UPDATE_COMMAND_SIZE 5
+        -:   11:#define LIST_COMMAND_SIZE 1
+        -:   12:#define NEXT_COMMAND_SIZE 1
+        -:   13:#define SAVE_COMMAND_SIZE 2
+        -:   14:#define EXIT_COMMAND_SIZE 1
+        -:   15:
+        -:   16:#include "ui.h"
+        -:   17:
+        -:   18:/**
+        -:   19: * \brief reads a command from the console and puts it into a DynamicArray of strings
+        -:   20: * \param command DynamicArray in which the command will reside
+        -:   21: */
+        1:   22:void UI::read_command(DynamicVector<std::string> &command) {
+       1*:   23:    while (command.get_size() != 0) {
+        1:   23-block  0
+    %%%%%:   23-block  1
+    #####:   24:        command.pop_back(command.get_size() - 1);
+    %%%%%:   24-block  0
+        -:   25:    }
+       1*:   26:    std::string input, token;
+        1:   26-block  0
+    $$$$$:   26-block  1
+    $$$$$:   26-block  2
+        1:   27:    std::getline(std::cin, input);
+    #####:   28:    std::stringstream input_stream(input);
+    %%%%%:   28-block  0
+    %%%%%:   28-block  1
+    $$$$$:   28-block  2
+    #####:   29:    std::getline(input_stream, token, ' ');
+    %%%%%:   29-block  0
+    #####:   30:    command.push_back(token);
+    %%%%%:   30-block  0
+    #####:   31:    while (std::getline(input_stream, token, ',')) {
+    %%%%%:   31-block  0
+    %%%%%:   31-block  1
+    %%%%%:   31-block  2
+    %%%%%:   31-block  3
+    #####:   32:        token.erase(std::remove(token.begin(), token.end(), ' '), token.end());
+    %%%%%:   32-block  0
+    %%%%%:   32-block  1
+    $$$$$:   32-block  2
+    $$$$$:   32-block  3
+    $$$$$:   32-block  4
+    $$$$$:   32-block  5
+    $$$$$:   32-block  6
+    #####:   33:        command.push_back(token);
+    %%%%%:   33-block  0
+        -:   34:    }
+    #####:   35:}
+        -:   36:
+        -:   37:/**
+        -:   38: * \brief runs the app in the console
+        -:   39: */
+        1:   40:void UI::run_console() {
+       1*:   41:    DynamicVector<std::string> command;
+        1:   41-block  0
+    $$$$$:   41-block  1
+        -:   42:    while (true) {
+        1:   43:        read_command(command);
+        1:   43-block  0
+    #####:   44:        if (command.at(COMMAND_INDEX) == "mode") {
+    %%%%%:   44-block  0
+    %%%%%:   44-block  1
+    #####:   45:            if (command.get_size() == MODE_COMMAND_SIZE) {
+    %%%%%:   45-block  0
+    #####:   46:                if (command.at(MODE_INDEX) == "A" || command.at(MODE_INDEX) == "B") {
+    %%%%%:   46-block  0
+    %%%%%:   46-block  1
+    %%%%%:   46-block  2
+    %%%%%:   46-block  3
+    %%%%%:   46-block  4
+    %%%%%:   46-block  5
+    %%%%%:   46-block  6
+    #####:   47:                    service_.set_mode(command.at(MODE_INDEX));
+    %%%%%:   47-block  0
+    %%%%%:   47-block  1
+        -:   48:                } else {
+    #####:   49:                    std::cout << "Invalid mode.\n";
+    %%%%%:   49-block  0
+        -:   50:                }
+        -:   51:            } else {
+    #####:   52:                std::cout << "Invalid arguments.\n";
+    %%%%%:   52-block  0
+        -:   53:            }
+    #####:   54:        } else if (command.at(COMMAND_INDEX) == "add") {
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+    #####:   55:            if (command.get_size() == ADD_COMMAND_SIZE) {
+    %%%%%:   55-block  0
+        -:   56:                try {
+    #####:   57:                    service_.add_statue(command.at(POWER_WORD_NAME_INDEX), command.at(MATERIAL_INDEX), std::stoi(command.at(AGE_INDEX)),
+    %%%%%:   57-block  0
+    %%%%%:   57-block  1
+    %%%%%:   57-block  2
+    %%%%%:   57-block  3
+    #####:   58:                                        command.at(CORPOREAL_FORM_INDEX));
+    %%%%%:   58-block  0
+    %%%%%:   58-block  1
+    =====:   59:                } catch (...) {
+    $$$$$:   59-block  0
+    $$$$$:   59-block  1
+    $$$$$:   59-block  2
+    =====:   60:                    std::cout << "An error has occurred.\n";
+        -:   61:                }
+        -:   62:            } else {
+    #####:   63:                std::cout << "Invalid arguments.\n";
+    %%%%%:   63-block  0
+        -:   64:            }
+    #####:   65:        } else if (command.at(COMMAND_INDEX) == "update") {
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+    #####:   66:            if (command.get_size() == UPDATE_COMMAND_SIZE) {
+    %%%%%:   66-block  0
+        -:   67:                try {
+    #####:   68:                    service_.update_statue(command.at(POWER_WORD_NAME_INDEX), command.at(MATERIAL_INDEX),
+    %%%%%:   68-block  0
+    %%%%%:   68-block  1
+    %%%%%:   68-block  2
+    #####:   69:                                           std::stoi(command.at(AGE_INDEX)), command.at(CORPOREAL_FORM_INDEX));
+    %%%%%:   69-block  0
+    %%%%%:   69-block  1
+    %%%%%:   69-block  2
+    =====:   70:                } catch (...) {
+    $$$$$:   70-block  0
+    $$$$$:   70-block  1
+    $$$$$:   70-block  2
+    =====:   71:                    std::cout << "An error has occurred.\n";
+        -:   72:                }
+        -:   73:            } else {
+    #####:   74:                std::cout << "Invalid arguments.\n";
+    %%%%%:   74-block  0
+        -:   75:            }
+    #####:   76:        } else if (command.at(COMMAND_INDEX) == "delete") {
+    %%%%%:   76-block  0
+    %%%%%:   76-block  1
+    #####:   77:            if (command.get_size() == DELETE_COMMAND_SIZE) {
+    %%%%%:   77-block  0
+        -:   78:                try {
+    #####:   79:                    service_.delete_statue(command.at(POWER_WORD_NAME_INDEX));
+    %%%%%:   79-block  0
+    %%%%%:   79-block  1
+    =====:   80:                } catch (...) {
+    $$$$$:   80-block  0
+    $$$$$:   80-block  1
+    $$$$$:   80-block  2
+    =====:   81:                    std::cout << "An error has occurred.\n";
+        -:   82:                }
+        -:   83:            } else {
+    #####:   84:                std::cout << "Invalid arguments.\n";
+    %%%%%:   84-block  0
+        -:   85:            }
+    #####:   86:        } else if (command.at(COMMAND_INDEX) == "list") {
+    %%%%%:   86-block  0
+    %%%%%:   86-block  1
+    #####:   87:            if (command.get_size() == LIST_COMMAND_SIZE) {
+    %%%%%:   87-block  0
+        -:   88:                try {
+    #####:   89:                    auto statues = service_.get_statues();
+    %%%%%:   89-block  0
+    %%%%%:   89-block  1
+    %%%%%:   89-block  2
+    $$$$$:   89-block  3
+    #####:   90:                    for (auto i = 0; i < statues.get_size(); i++) {
+    %%%%%:   90-block  0
+    %%%%%:   90-block  1
+    #####:   91:                        std::cout << statues.at(i).to_string() << '\n';
+    %%%%%:   91-block  0
+    %%%%%:   91-block  1
+    %%%%%:   91-block  2
+    %%%%%:   91-block  3
+    %%%%%:   91-block  4
+    $$$$$:   91-block  5
+    $$$$$:   91-block  6
+        -:   92:                    }
+    =====:   93:                } catch (...) {
+    $$$$$:   93-block  0
+    $$$$$:   93-block  1
+    $$$$$:   93-block  2
+    =====:   94:                    std::cout << "An error has occurred.\n";
+        -:   95:                }
+        -:   96:            } else {
+    #####:   97:                std::cout << "Invalid arguments.\n";
+    %%%%%:   97-block  0
+        -:   98:            }
+    #####:   99:        } else if (command.at(COMMAND_INDEX) == "next") {
+    %%%%%:   99-block  0
+    %%%%%:   99-block  1
+    #####:  100:            if (command.get_size() == NEXT_COMMAND_SIZE) {
+    %%%%%:  100-block  0
+        -:  101:                try {
+    #####:  102:                    std::cout << service_.next().to_string();
+    %%%%%:  102-block  0
+    %%%%%:  102-block  1
+    %%%%%:  102-block  2
+    %%%%%:  102-block  3
+    $$$$$:  102-block  4
+    $$$$$:  102-block  5
+    =====:  103:                } catch (...) {
+    $$$$$:  103-block  0
+    $$$$$:  103-block  1
+    $$$$$:  103-block  2
+    =====:  104:                    std::cout << "An exception has occurred.\n";
+        -:  105:                }
+        -:  106:            } else {
+    #####:  107:                std::cout << "Invalid arguments.\n";
+    %%%%%:  107-block  0
+        -:  108:            }
+    #####:  109:        } else if (command.at(COMMAND_INDEX) == "exit") {
+    %%%%%:  109-block  0
+    %%%%%:  109-block  1
+    #####:  110:            if (command.get_size() == EXIT_COMMAND_SIZE) {
+    %%%%%:  110-block  0
+    #####:  111:                return;
+    %%%%%:  111-block  0
+    %%%%%:  111-block  1
+        -:  112:            } else {
+    #####:  113:                std::cout << "Invalid arguments.\n";
+    %%%%%:  113-block  0
+        -:  114:            }
+        -:  115:        }
+    #####:  116:    }
+    %%%%%:  116-block  0
+        -:  117:}

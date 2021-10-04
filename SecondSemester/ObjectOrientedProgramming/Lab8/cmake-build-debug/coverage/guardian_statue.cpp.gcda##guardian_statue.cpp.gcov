@@ -1,0 +1,186 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/domain/guardian_statue.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\guardian_statue.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\guardian_statue.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "guardian_statue.h"
+        -:    2:#include <sstream>
+        -:    3:
+       47:    4:GuardianStatue::GuardianStatue(const std::string &power_word_name, const std::string &material, int age,
+       47:    5:                               const std::string &corporeal_form) {
+       47:    5-block  0
+    $$$$$:    5-block  1
+    $$$$$:    5-block  2
+    $$$$$:    5-block  3
+       47:    6:    power_word_name_ = power_word_name;
+       47:    7:    material_ = material;
+       47:    7-block  0
+       47:    8:    age_ = age;
+       47:    9:    corporeal_form_ = corporeal_form;
+       47:    9-block  0
+       47:   10:}
+       47:   10-block  0
+        -:   11:
+       64:   12:GuardianStatue::GuardianStatue(const GuardianStatue &guardian_statue) {
+       64:   12-block  0
+    $$$$$:   12-block  1
+    $$$$$:   12-block  2
+    $$$$$:   12-block  3
+       64:   13:    power_word_name_ = guardian_statue.power_word_name_;
+       64:   14:    material_ = guardian_statue.material_;
+       64:   14-block  0
+       64:   15:    age_ = guardian_statue.age_;
+       64:   16:    corporeal_form_ = guardian_statue.corporeal_form_;
+       64:   16-block  0
+       64:   17:}
+       64:   17-block  0
+        -:   18:
+       15:   19:const std::string &GuardianStatue::get_power_word_name() const {
+       15:   20:    return power_word_name_;
+       15:   20-block  0
+        -:   21:}
+        -:   22:
+        1:   23:void GuardianStatue::set_power_word_name(const std::string &power_word_name) {
+        1:   24:    power_word_name_ = power_word_name;
+        1:   24-block  0
+        1:   25:}
+        -:   26:
+        6:   27:const std::string &GuardianStatue::get_material() const {
+        6:   28:    return material_;
+        6:   28-block  0
+        -:   29:}
+        -:   30:
+        3:   31:void GuardianStatue::set_material(const std::string &material) {
+        3:   32:    material_ = material;
+        3:   32-block  0
+        3:   33:}
+        -:   34:
+       18:   35:int GuardianStatue::get_age() const {
+       18:   36:    return age_;
+       18:   36-block  0
+        -:   37:}
+        -:   38:
+        3:   39:void GuardianStatue::set_age(int age) {
+        3:   40:    age_ = age;
+        3:   41:}
+        -:   42:
+        6:   43:const std::string &GuardianStatue::get_corporeal_form() const {
+        6:   44:    return corporeal_form_;
+        6:   44-block  0
+        -:   45:}
+        -:   46:
+        3:   47:void GuardianStatue::set_corporeal_form(const std::string &corporeal_form) {
+        3:   48:    corporeal_form_ = corporeal_form;
+        3:   48-block  0
+        3:   49:}
+        -:   50:
+       17:   51:bool GuardianStatue::operator==(const GuardianStatue &other) const {
+       31:   52:    return power_word_name_ == other.power_word_name_ && material_ == other.material_ && age_ == other.age_ &&
+       17:   52-block  0
+       14:   52-block  1
+       14:   52-block  2
+       14:   52-block  3
+        3:   52-block  4
+       31:   53:           corporeal_form_ == other.corporeal_form_;
+       14:   53-block  0
+       17:   53-block  1
+        -:   54:}
+        -:   55:
+        2:   56:bool GuardianStatue::operator!=(const GuardianStatue &other) const {
+        2:   57:    return !(other == *this);
+        2:   57-block  0
+        -:   58:}
+        -:   59:
+        1:   60:std::string GuardianStatue::to_string() {
+        2:   61:    std::stringstream result;
+        1:   61-block  0
+        1:   61-block  1
+    $$$$$:   61-block  2
+        1:   62:    result << power_word_name_ << " ";
+        1:   62-block  0
+        1:   62-block  1
+        1:   63:    result << material_ << " ";
+        1:   63-block  0
+        1:   63-block  1
+        1:   64:    result << age_ << " ";
+        1:   64-block  0
+        1:   64-block  1
+        1:   65:    result << corporeal_form_;
+        1:   65-block  0
+        2:   66:    return result.str();
+        1:   66-block  0
+        1:   66-block  1
+        1:   66-block  2
+        -:   67:}
+        -:   68:
+        4:   69:std::string GuardianStatue::to_csv() {
+        8:   70:    std::stringstream result;
+        4:   70-block  0
+        4:   70-block  1
+    $$$$$:   70-block  2
+        4:   71:    result << power_word_name_ << ",";
+        4:   71-block  0
+        4:   71-block  1
+        4:   72:    result << material_ << ",";
+        4:   72-block  0
+        4:   72-block  1
+        4:   73:    result << age_ << ",";
+        4:   73-block  0
+        4:   73-block  1
+        4:   74:    result << corporeal_form_;
+        4:   74-block  0
+        8:   75:    return result.str();
+        4:   75-block  0
+        4:   75-block  1
+        4:   75-block  2
+        -:   76:}
+        -:   77:
+        2:   78:std::string GuardianStatue::to_html() {
+        4:   79:    std::stringstream result;
+        2:   79-block  0
+        2:   79-block  1
+    $$$$$:   79-block  2
+        2:   80:    result << "<tr>\n";
+        2:   80-block  0
+        2:   81:    result << "<td>" << power_word_name_ << "</td>";
+        2:   81-block  0
+        2:   81-block  1
+        2:   81-block  2
+        2:   82:    result << "<td>" << material_ << "</td>";
+        2:   82-block  0
+        2:   82-block  1
+        2:   82-block  2
+        2:   83:    result << "<td>" << age_ << "</td>";
+        2:   83-block  0
+        2:   83-block  1
+        2:   83-block  2
+        2:   84:    result << "<td>" << corporeal_form_ << "</td>\n";
+        2:   84-block  0
+        2:   84-block  1
+        2:   84-block  2
+        2:   85:    result << "</tr>";
+        2:   85-block  0
+        4:   86:    return result.str();
+        2:   86-block  0
+        2:   86-block  1
+        2:   86-block  2
+        -:   87:}
+        -:   88:
+       72:   89:std::istream &operator>>(std::istream &input, GuardianStatue &guardian_statue) {
+       72:   90:    input >> guardian_statue.power_word_name_ >> guardian_statue.material_ >> guardian_statue.age_ >>
+       72:   90-block  0
+       72:   91:            guardian_statue.corporeal_form_;
+       72:   92:    return input;
+        -:   93:}
+        -:   94:
+       24:   95:std::ostream &operator<<(std::ostream &output, const GuardianStatue &guardian_statue) {
+       48:   96:    output << guardian_statue.power_word_name_ << ' ' << guardian_statue.material_ << ' '
+       24:   97:           << std::to_string(guardian_statue.age_) << ' ' << guardian_statue.corporeal_form_;
+       24:   97-block  0
+       24:   97-block  1
+       24:   97-block  2
+       24:   97-block  3
+    $$$$$:   97-block  4
+       24:   98:    return output;
+       24:   98-block  0
+        -:   99:}

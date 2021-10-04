@@ -1,0 +1,44 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/domain/exceptions.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\exceptions.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\exceptions.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "exceptions.h"
+        2:    2:ValidatorException::ValidatorException(const std::string &message) {
+        2:    2-block  0
+    $$$$$:    2-block  1
+    $$$$$:    2-block  2
+        2:    3:    message_ = message;
+        2:    4:}
+        2:    4-block  0
+        -:    5:
+        1:    6:const char *ValidatorException::what() const noexcept {
+        1:    7:    return message_.c_str();
+        1:    7-block  0
+        -:    8:}
+        -:    9:
+       10:   10:RepositoryException::RepositoryException(const std::string &message) {
+       10:   10-block  0
+    $$$$$:   10-block  1
+    $$$$$:   10-block  2
+       10:   11:    message_ = message;
+       10:   12:}
+       10:   12-block  0
+        -:   13:
+        1:   14:const char *RepositoryException::what() const noexcept {
+        1:   15:    return message_.c_str();
+        1:   15-block  0
+        -:   16:}
+        -:   17:
+        6:   18:ServiceException::ServiceException(const std::string &message) {
+        6:   18-block  0
+    $$$$$:   18-block  1
+    $$$$$:   18-block  2
+        6:   19:    message_ = message;
+        6:   20:}
+        6:   20-block  0
+        -:   21:
+        1:   22:const char *ServiceException::what() const noexcept {
+        1:   23:    return message_.c_str();
+        1:   23-block  0
+        -:   24:}

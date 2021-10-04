@@ -1,0 +1,25 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/domain/guardian_statue_validator.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\guardian_statue_validator.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\domain\guardian_statue_validator.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "guardian_statue_validator.h"
+        -:    2:
+       12:    3:void GuardianStatueValidator::validate(const GuardianStatue &statue) {
+       24:    4:    std::string errors{};
+       12:    4-block  0
+       11:    4-block  1
+        1:    4-block  2
+       12:    5:    if (statue.get_age() < 0) {
+       12:    5-block  0
+        1:    6:        errors += "Age can't be negative.\n";
+        1:    6-block  0
+        -:    7:    }
+       12:    8:    if (!errors.empty()) {
+       12:    8-block  0
+        1:    9:        throw ValidatorException(errors);
+        1:    9-block  0
+        1:    9-block  1
+    $$$$$:    9-block  2
+        -:   10:    }
+       11:   11:}

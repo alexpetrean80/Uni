@@ -1,0 +1,468 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab7/tests/tests_file_repository.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\tests\tests_file_repository.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab7\cmake-build-debug\CMakeFiles\Lab7.dir\tests\tests_file_repository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "tests_file_repository.h"
+        -:    2:
+        1:    3:void test__add_guardian_statue_file__guardian_statue_does_not_exist__guardian_statue_added() {
+        1:    4:    std::remove("test.txt");
+        1:    4-block  0
+        3:    5:    FileRepository repository{"test.txt"};
+        1:    5-block  0
+        1:    5-block  1
+    $$$$$:    5-block  2
+    $$$$$:    5-block  3
+    $$$$$:    5-block  4
+        3:    6:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:    6-block  0
+        1:    6-block  1
+        1:    6-block  2
+        1:    6-block  3
+    $$$$$:    6-block  4
+    $$$$$:    6-block  5
+    $$$$$:    6-block  6
+    $$$$$:    6-block  7
+    $$$$$:    6-block  8
+    $$$$$:    6-block  9
+    $$$$$:    6-block 10
+        1:    7:    repository.add_guardian_statue(statue);
+       1*:    8:    assert(repository.get_all_guardian_statues().at(0) == statue);
+        1:    8-block  0
+        1:    8-block  1
+        1:    8-block  2
+        1:    8-block  3
+    %%%%%:    8-block  4
+        1:    8-block  5
+    %%%%%:    8-block  6
+        1:    8-block  7
+        1:    8-block  8
+    $$$$$:    8-block  9
+    $$$$$:    8-block 10
+    $$$$$:    8-block 11
+        1:    9:    std::remove("test.txt");
+        1:    9-block  0
+        1:   10:}
+        -:   11:
+        1:   12:void test__add_guardian_statue_file__guardian_statue_exists__exception_is_thrown() {
+        1:   13:    std::remove("test.txt");
+        1:   13-block  0
+        3:   14:    FileRepository repository{"test.txt"};
+        1:   14-block  0
+        1:   14-block  1
+    $$$$$:   14-block  2
+    $$$$$:   14-block  3
+    $$$$$:   14-block  4
+        3:   15:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   15-block  0
+        1:   15-block  1
+        1:   15-block  2
+        1:   15-block  3
+    $$$$$:   15-block  4
+    $$$$$:   15-block  5
+    $$$$$:   15-block  6
+    $$$$$:   15-block  7
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+    $$$$$:   15-block 10
+        1:   16:    repository.add_guardian_statue(statue);
+        -:   17:    try {
+        1:   18:        repository.add_guardian_statue(statue);
+        1:   18-block  0
+        1:   19:    } catch (Exception& exception) {
+        1:   19-block  0
+    $$$$$:   19-block  1
+        1:   20:        assert(exception.what() == "Guardian statue exists.");
+        1:   20-block  0
+    $$$$$:   20-block  1
+        1:   20-block  2
+    $$$$$:   20-block  3
+        1:   20-block  4
+        1:   20-block  5
+        1:   20-block  6
+    $$$$$:   20-block  7
+    $$$$$:   20-block  8
+    $$$$$:   20-block  9
+        -:   21:    }
+        1:   22:    std::remove("test.txt");
+        1:   22-block  0
+        1:   23:}
+        -:   24:
+        1:   25:void test__delete_guardian_statue_file__guardian_statue_exists__guardian_statue_removed() {
+        1:   26:    std::remove("test.txt");
+        1:   26-block  0
+        3:   27:    FileRepository repository{"test.txt"};
+        1:   27-block  0
+        1:   27-block  1
+    $$$$$:   27-block  2
+    $$$$$:   27-block  3
+    $$$$$:   27-block  4
+        3:   28:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   28-block  0
+        1:   28-block  1
+        1:   28-block  2
+        1:   28-block  3
+    $$$$$:   28-block  4
+    $$$$$:   28-block  5
+    $$$$$:   28-block  6
+    $$$$$:   28-block  7
+    $$$$$:   28-block  8
+    $$$$$:   28-block  9
+    $$$$$:   28-block 10
+        1:   29:    repository.add_guardian_statue(statue);
+        1:   30:    repository.delete_guardian_statue("aa");
+        1:   30-block  0
+        1:   30-block  1
+        1:   30-block  2
+    $$$$$:   30-block  3
+    $$$$$:   30-block  4
+    $$$$$:   30-block  5
+    $$$$$:   30-block  6
+       1*:   31:    assert(repository.get_all_guardian_statues().empty());
+        1:   31-block  0
+    %%%%%:   31-block  1
+        1:   31-block  2
+    %%%%%:   31-block  3
+        1:   31-block  4
+        1:   31-block  5
+    $$$$$:   31-block  6
+    $$$$$:   31-block  7
+    $$$$$:   31-block  8
+        1:   32:    std::remove("test.txt");
+        1:   32-block  0
+        1:   33:}
+        -:   34:
+        1:   35:void test__delete_guardian_statue_file__guardian_statue_does_not_exist__exception_is_thrown() {
+        1:   36:    std::remove("test.txt");
+        1:   36-block  0
+        3:   37:    FileRepository repository{"test.txt"};
+        1:   37-block  0
+        1:   37-block  1
+        1:   37-block  2
+    $$$$$:   37-block  3
+    $$$$$:   37-block  4
+    $$$$$:   37-block  5
+        -:   38:    try {
+       3*:   39:        repository.delete_guardian_statue("aa");
+        1:   39-block  0
+    %%%%%:   39-block  1
+        1:   39-block  2
+        1:   39-block  3
+        1:   39-block  4
+        1:   39-block  5
+        1:   40:    } catch (Exception& exception) {
+        1:   40-block  0
+    $$$$$:   40-block  1
+        1:   41:        assert(exception.what() == "Guardian statue doesn't exist.");
+        1:   41-block  0
+    $$$$$:   41-block  1
+        1:   41-block  2
+    $$$$$:   41-block  3
+        1:   41-block  4
+        1:   41-block  5
+        1:   41-block  6
+    $$$$$:   41-block  7
+    $$$$$:   41-block  8
+    $$$$$:   41-block  9
+        -:   42:    }
+        1:   43:    std::remove("test.txt");
+        1:   43-block  0
+        1:   44:}
+        -:   45:
+        1:   46:void test__update_guardian_statue_file__guardian_statue_exists__guardian_statue_updated() {
+        1:   47:    std::remove("test.txt");
+        1:   47-block  0
+        3:   48:    FileRepository repository{"test.txt"};
+        1:   48-block  0
+        1:   48-block  1
+    $$$$$:   48-block  2
+    $$$$$:   48-block  3
+    $$$$$:   48-block  4
+        3:   49:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   49-block  0
+        1:   49-block  1
+        1:   49-block  2
+    $$$$$:   49-block  3
+    $$$$$:   49-block  4
+    $$$$$:   49-block  5
+    $$$$$:   49-block  6
+    $$$$$:   49-block  7
+    $$$$$:   49-block  8
+    $$$$$:   49-block  9
+        3:   50:    GuardianStatue new_statue{"aa", "bc", 3, "cd"};
+        1:   50-block  0
+        1:   50-block  1
+        1:   50-block  2
+    $$$$$:   50-block  3
+    $$$$$:   50-block  4
+    $$$$$:   50-block  5
+    $$$$$:   50-block  6
+    $$$$$:   50-block  7
+    $$$$$:   50-block  8
+    $$$$$:   50-block  9
+        1:   51:    repository.add_guardian_statue(statue);
+        1:   52:    repository.update_guardian_statue(new_statue);
+        1:   52-block  0
+        2:   53:    auto statues = repository.get_all_guardian_statues();
+        1:   53-block  0
+        1:   53-block  1
+    $$$$$:   53-block  2
+       1*:   54:    assert(statues.at(0) == new_statue);
+        1:   54-block  0
+        1:   54-block  1
+        1:   54-block  2
+    %%%%%:   54-block  3
+        1:   54-block  4
+    %%%%%:   54-block  5
+        1:   55:    std::remove("test.txt");
+        1:   55-block  0
+        1:   56:}
+        -:   57:
+        1:   58:void test__update_guardian_statue_file__guardian_statue_does_not_exist__exception_is_thrown() {
+        1:   59:    std::remove("test.txt");
+        1:   59-block  0
+        3:   60:    FileRepository repository{"test.txt"};
+        1:   60-block  0
+        1:   60-block  1
+        1:   60-block  2
+    $$$$$:   60-block  3
+    $$$$$:   60-block  4
+    $$$$$:   60-block  5
+        -:   61:    try {
+       8*:   62:        repository.update_guardian_statue(GuardianStatue{"aa", "bb", 1, "cc"});
+        1:   62-block  0
+        1:   62-block  1
+        1:   62-block  2
+        1:   62-block  3
+    %%%%%:   62-block  4
+        1:   62-block  5
+        1:   62-block  6
+        1:   62-block  7
+        1:   62-block  8
+        1:   62-block  9
+        1:   62-block 10
+        1:   62-block 11
+        1:   62-block 12
+        1:   62-block 13
+        1:   62-block 14
+        1:   62-block 15
+        1:   62-block 16
+        1:   62-block 17
+        1:   62-block 18
+        1:   63:    } catch (Exception& exception) {
+        1:   63-block  0
+    $$$$$:   63-block  1
+        1:   64:        assert(exception.what() == "Guardian statue doesn't exist.");
+        1:   64-block  0
+    $$$$$:   64-block  1
+        1:   64-block  2
+    $$$$$:   64-block  3
+        1:   64-block  4
+        1:   64-block  5
+        1:   64-block  6
+    $$$$$:   64-block  7
+    $$$$$:   64-block  8
+    $$$$$:   64-block  9
+        -:   65:    }
+        1:   66:    std::remove("test.txt");
+        1:   66-block  0
+        1:   67:}
+        1:   68:void test__set_file_name__valid_name__file_name_updated() {
+        1:   69:    std::remove("test.txt");
+        1:   69-block  0
+        3:   70:    FileRepository repository{"aaaa"};
+        1:   70-block  0
+        1:   70-block  1
+        1:   70-block  2
+    $$$$$:   70-block  3
+    $$$$$:   70-block  4
+    $$$$$:   70-block  5
+        1:   71:    repository.set_file_name("bbb");
+        1:   71-block  0
+        1:   71-block  1
+    $$$$$:   71-block  2
+    $$$$$:   71-block  3
+    $$$$$:   71-block  4
+    $$$$$:   71-block  5
+       1*:   72:    assert(repository.get_file_name() == "bbb");
+        1:   72-block  0
+    %%%%%:   72-block  1
+        1:   72-block  2
+    %%%%%:   72-block  3
+        1:   72-block  4
+        1:   72-block  5
+    $$$$$:   72-block  6
+    $$$$$:   72-block  7
+    $$$$$:   72-block  8
+        1:   73:    std::remove("test.txt");
+        1:   73-block  0
+        1:   74:}
+        1:   75:void test__next__first_guardian_statue__first_guardian_statue_is_returned() {
+        1:   76:    std::remove("test.txt");
+        1:   76-block  0
+        3:   77:    FileRepository repository{"test.txt"};
+        1:   77-block  0
+        1:   77-block  1
+    $$$$$:   77-block  2
+    $$$$$:   77-block  3
+    $$$$$:   77-block  4
+        3:   78:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   78-block  0
+        1:   78-block  1
+        1:   78-block  2
+        1:   78-block  3
+    $$$$$:   78-block  4
+    $$$$$:   78-block  5
+    $$$$$:   78-block  6
+    $$$$$:   78-block  7
+    $$$$$:   78-block  8
+    $$$$$:   78-block  9
+    $$$$$:   78-block 10
+        1:   79:    repository.add_guardian_statue(statue);
+       1*:   80:    assert(repository.next() == statue);
+        1:   80-block  0
+        1:   80-block  1
+        1:   80-block  2
+    %%%%%:   80-block  3
+        1:   80-block  4
+    %%%%%:   80-block  5
+        1:   80-block  6
+        1:   80-block  7
+    $$$$$:   80-block  8
+    $$$$$:   80-block  9
+    $$$$$:   80-block 10
+        1:   81:    std::remove("test.txt");
+        1:   81-block  0
+        1:   82:}
+        1:   83:void test__next__last_guardian_statue__first_guardian_statue_is_returned() {
+        1:   84:    std::remove("test.txt");
+        1:   84-block  0
+        3:   85:    FileRepository repository{"test.txt"};
+        1:   85-block  0
+        1:   85-block  1
+    $$$$$:   85-block  2
+    $$$$$:   85-block  3
+    $$$$$:   85-block  4
+        3:   86:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   86-block  0
+        1:   86-block  1
+        1:   86-block  2
+        1:   86-block  3
+    $$$$$:   86-block  4
+    $$$$$:   86-block  5
+    $$$$$:   86-block  6
+    $$$$$:   86-block  7
+    $$$$$:   86-block  8
+    $$$$$:   86-block  9
+    $$$$$:   86-block 10
+        1:   87:    repository.add_guardian_statue(statue);
+        1:   88:    repository.add_guardian_statue(GuardianStatue{"ab", "cd", 3, "ds"});
+        1:   88-block  0
+        1:   88-block  1
+        1:   88-block  2
+        1:   88-block  3
+        1:   88-block  4
+        1:   88-block  5
+    $$$$$:   88-block  6
+    $$$$$:   88-block  7
+    $$$$$:   88-block  8
+    $$$$$:   88-block  9
+    $$$$$:   88-block 10
+    $$$$$:   88-block 11
+    $$$$$:   88-block 12
+    $$$$$:   88-block 13
+    $$$$$:   88-block 14
+    $$$$$:   88-block 15
+    $$$$$:   88-block 16
+    $$$$$:   88-block 17
+    $$$$$:   88-block 18
+    $$$$$:   88-block 19
+        1:   89:    repository.next();
+        1:   89-block  0
+        1:   90:    repository.next();
+        1:   90-block  0
+       1*:   91:    assert(repository.next() == statue);
+        1:   91-block  0
+        1:   91-block  1
+    %%%%%:   91-block  2
+        1:   91-block  3
+    %%%%%:   91-block  4
+        1:   91-block  5
+        1:   91-block  6
+    $$$$$:   91-block  7
+    $$$$$:   91-block  8
+    $$$$$:   91-block  9
+        1:   92:    std::remove("test.txt");
+        1:   92-block  0
+        1:   93:}
+        1:   94:void test__save__repository_not_empty__guardian_statue_is_saved() {
+        1:   95:    std::remove("test.txt");
+        1:   95-block  0
+        3:   96:    FileRepository repository{"test.txt"};
+        1:   96-block  0
+        1:   96-block  1
+    $$$$$:   96-block  2
+    $$$$$:   96-block  3
+    $$$$$:   96-block  4
+        3:   97:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:   97-block  0
+        1:   97-block  1
+        1:   97-block  2
+        1:   97-block  3
+    $$$$$:   97-block  4
+    $$$$$:   97-block  5
+    $$$$$:   97-block  6
+    $$$$$:   97-block  7
+    $$$$$:   97-block  8
+    $$$$$:   97-block  9
+    $$$$$:   97-block 10
+        1:   98:    repository.add_guardian_statue(statue);
+        1:   99:    repository.save();
+        1:   99-block  0
+       1*:  100:    assert(repository.get_my_list().at(0) == statue);
+        1:  100-block  0
+        1:  100-block  1
+        1:  100-block  2
+        1:  100-block  3
+    %%%%%:  100-block  4
+        1:  100-block  5
+    %%%%%:  100-block  6
+        1:  100-block  7
+        1:  100-block  8
+    $$$$$:  100-block  9
+    $$$$$:  100-block 10
+    $$$$$:  100-block 11
+        1:  101:    std::remove("test.txt");
+        1:  101-block  0
+        1:  102:}
+        1:  103:void test__save__repository_empty__exception_is_thrown() {
+        1:  104:    std::remove("test.txt");
+        1:  104-block  0
+        3:  105:    FileRepository repository{"test.txt"};
+        1:  105-block  0
+        1:  105-block  1
+    $$$$$:  105-block  2
+    $$$$$:  105-block  3
+    $$$$$:  105-block  4
+        3:  106:    GuardianStatue statue{"aa", "bb", 1, "cc"};
+        1:  106-block  0
+        1:  106-block  1
+        1:  106-block  2
+        1:  106-block  3
+    $$$$$:  106-block  4
+    $$$$$:  106-block  5
+    $$$$$:  106-block  6
+    $$$$$:  106-block  7
+    $$$$$:  106-block  8
+    $$$$$:  106-block  9
+    $$$$$:  106-block 10
+        -:  107:    try {
+        1:  108:        repository.save();
+    #####:  109:        assert(false);
+    %%%%%:  109-block  0
+        1:  110:    } catch (Exception& exception) {
+        1:  110-block  0
+        -:  111:    }
+        1:  112:    std::remove("test.txt");
+        1:  112-block  0
+        1:  113:}

@@ -1,0 +1,51 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/domain/guardian_statue.h
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\ui\ui.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\ui\ui.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#ifndef LAB7_GUARDIAN_STATUE_H
+        -:    2:#define LAB7_GUARDIAN_STATUE_H
+        -:    3:
+        -:    4:#include <string>
+        -:    5:
+        -:    6:class GuardianStatue {
+        -:    7:private:
+        -:    8:    std::string power_word_name_;
+        -:    9:    std::string material_;
+        -:   10:    int age_{};
+        -:   11:    std::string corporeal_form_;
+        -:   12:
+        -:   13:public:
+        -:   14:    GuardianStatue() = default;
+        -:   15:    GuardianStatue(const std::string &power_word_name, const std::string &material, int age,
+        -:   16:                   const std::string &corporeal_form);
+        -:   17:    GuardianStatue(GuardianStatue const &guardian_statue);
+    #####:   18:    virtual ~GuardianStatue() = default;
+------------------
+_ZN14GuardianStatueD0Ev:
+    #####:   18:    virtual ~GuardianStatue() = default;
+    %%%%%:   18-block  0
+------------------
+_ZN14GuardianStatueD1Ev:
+    #####:   18:    virtual ~GuardianStatue() = default;
+    %%%%%:   18-block  0
+------------------
+        -:   19:    const std::string &get_power_word_name() const;
+        -:   20:    void set_power_word_name(const std::string &power_word_name);
+        -:   21:    const std::string &get_material() const;
+        -:   22:    void set_material(const std::string &material);
+        -:   23:    int get_age() const;
+        -:   24:    void set_age(int age);
+        -:   25:    const std::string &get_corporeal_form() const;
+        -:   26:    void set_corporeal_form(const std::string &corporeal_form);
+        -:   27:    bool operator==(const GuardianStatue &other) const;
+        -:   28:    bool operator!=(const GuardianStatue &other) const;
+        -:   29:    friend std::istream &operator>>(std::istream &input, GuardianStatue &guardian_statue);
+        -:   30:    friend std::ostream &operator<<(std::ostream &output, const GuardianStatue &guardian_statue);
+        -:   31:    std::string to_string();
+        -:   32:    std::string to_csv();
+        -:   33:    std::string to_html();
+        -:   34:};
+        -:   35:
+        -:   36:
+        -:   37:#endif//LAB7_GUARDIAN_STATUE_H

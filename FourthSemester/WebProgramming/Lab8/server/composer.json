@@ -1,0 +1,12 @@
+{
+    "name": "alexp/lab8",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Petrean",
+            "email": "alex.petrean@outlook.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab6</title>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <button id="btn">Open popup</button>
+    <div id="success" title="Popup" hidden>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
+        quaerat voluptatem explicabo dolores odio modi nulla cum! Vero magnam
+        modi a ex dolorem enim dolore minima, neque porro quas ipsum?.
+      </p>
+    </div>
+    <script>
+      $("#btn").click(() => {
+        $("#success").dialog({
+          height: 50,
+          width: 350,
+          modal: true,
+          resizable: false,
+          dialogClass: "no-close",
+          closeText: "x",
+        });
+      });
+    </script>
+  </body>
+</html>

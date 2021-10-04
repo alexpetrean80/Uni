@@ -1,0 +1,520 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/repository/repository.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\repository\repository.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\repository\repository.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "repository.h"
+        -:    2:
+       32:    3:Repository::Repository() {
+       32:    3-block  0
+       32:    3-block  1
+    $$$$$:    3-block  2
+    $$$$$:    3-block  3
+    $$$$$:    3-block  4
+       32:    4:    index_ = 0;
+       32:    5:}
+       32:    5-block  0
+        -:    6:
+        4:    7:std::vector<std::string> Repository::tokenize(const std::string &statue_as_string, const std::string &separator) {
+        4:    8:    std::vector<std::string> split_statue;
+        4:    8-block  0
+        4:    9:    unsigned long long start_index = 0;
+        4:   10:    unsigned long long end_index = 0;
+       21:   11:    while ((end_index = statue_as_string.find(separator, start_index)) < statue_as_string.size()) {
+       21:   11-block  0
+       17:   12:        std::string value = statue_as_string.substr(start_index, end_index - start_index);
+       17:   12-block  0
+    $$$$$:   12-block  1
+       17:   13:        if (!value.empty()) {
+       17:   13-block  0
+       13:   14:            split_statue.push_back(value);
+       13:   14-block  0
+        -:   15:        }
+       17:   16:        start_index = end_index + separator.size();
+       17:   16-block  0
+        -:   17:    }
+        4:   18:    if (start_index < statue_as_string.size()) {
+        4:   18-block  0
+        6:   19:        std::string value = statue_as_string.substr(start_index);
+        3:   19-block  0
+        3:   19-block  1
+    $$$$$:   19-block  2
+        3:   20:        if (!value.empty()) {
+        3:   20-block  0
+        3:   21:            split_statue.push_back(value);
+        3:   21-block  0
+        -:   22:        }
+        -:   23:    }
+        4:   24:    return split_statue;
+        4:   24-block  0
+        4:   24-block  1
+        -:   25:}
+        -:   26:
+        2:   27:std::string Repository::get_repo_file() {
+        2:   28:    return repo_file_;
+        2:   28-block  0
+        -:   29:}
+        -:   30:
+       26:   31:void Repository::set_repo_file(const std::string &file) {
+       26:   32:    repo_file_ = file;
+       26:   32-block  0
+       26:   33:}
+        -:   34:
+        2:   35:std::string Repository::get_my_list_file() {
+        2:   36:    return my_list_file_;
+        2:   36-block  0
+        -:   37:}
+        -:   38:
+       12:   39:void Repository::set_my_list_file(const std::string &file) {
+       12:   40:    my_list_file_ = file;
+       12:   40-block  0
+       12:   41:}
+        -:   42:
+       47:   43:std::vector<GuardianStatue> Repository::read_from_file() {
+        -:   44:
+       47:   45:    output_.open(repo_file_, std::ios::app);
+       47:   45-block  0
+       47:   46:    output_.close();
+       47:   46-block  0
+       47:   47:    input_.open(repo_file_);
+       47:   47-block  0
+       47:   48:    std::vector<GuardianStatue> guardian_statues;
+       47:   48-block  0
+       94:   49:    GuardianStatue statue{};
+       47:   49-block  0
+    $$$$$:   49-block  1
+       72:   50:    while (input_ >> statue) {
+       72:   50-block  0
+       72:   50-block  1
+       72:   50-block  2
+       25:   50-block  3
+       25:   51:        guardian_statues.emplace_back(statue);
+       25:   51-block  0
+        -:   52:    }
+       47:   53:    input_.close();
+       47:   53-block  0
+       94:   54:    return guardian_statues;
+       47:   54-block  0
+       47:   54-block  1
+        -:   55:}
+        -:   56:
+       25:   57:void Repository::write_to_file(const std::vector<GuardianStatue> &statues) {
+       25:   58:    output_.open(repo_file_, std::ios::trunc);
+       25:   58-block  0
+       49:   59:    for (const auto &statue : statues) {
+       49:   59-block  0
+       24:   59-block  1
+       24:   59-block  2
+       24:   60:        output_ << statue << std::endl;
+       24:   60-block  0
+        -:   61:    }
+       25:   62:    output_.close();
+       25:   62-block  0
+       25:   63:}
+        -:   64:
+        7:   65:std::vector<GuardianStatue> Repository::read_from_csv() {
+        7:   66:    output_.open(my_list_file_, std::ios::app);
+        7:   66-block  0
+        7:   67:    output_.close();
+        7:   67-block  0
+        7:   68:    input_.open(my_list_file_);
+        7:   68-block  0
+       14:   69:    std::string statue_as_csv;
+        7:   69-block  0
+    $$$$$:   69-block  1
+        7:   70:    std::vector<GuardianStatue> statues;
+       14:   71:    std::vector<std::string> statues_as_string;
+        7:   71-block  0
+    $$$$$:   71-block  1
+       10:   72:    while (std::getline(input_, statue_as_csv)) {
+       10:   72-block  0
+       10:   72-block  1
+       10:   72-block  2
+        3:   73:        statues_as_string = tokenize(statue_as_csv, ",");
+        3:   73-block  0
+        3:   73-block  1
+        3:   73-block  2
+    $$$$$:   73-block  3
+    $$$$$:   73-block  4
+    $$$$$:   73-block  5
+    $$$$$:   73-block  6
+        3:   74:        statues.emplace_back(statues_as_string[0], statues_as_string[1], std::stoi(statues_as_string[2]),
+        3:   74-block  0
+        3:   74-block  1
+    $$$$$:   74-block  2
+        3:   75:                             statues_as_string[3]);
+        -:   76:    }
+        7:   77:    input_.close();
+        7:   77-block  0
+       14:   78:    return statues;
+        7:   78-block  0
+        7:   78-block  1
+        -:   79:}
+        -:   80:
+        3:   81:void Repository::write_to_csv(const std::vector<GuardianStatue> &statues) {
+        3:   82:    output_.open(my_list_file_, std::ios::trunc);
+        3:   82-block  0
+        6:   83:    for (auto statue : statues) {
+        6:   83-block  0
+        3:   83-block  1
+    $$$$$:   83-block  2
+        3:   84:        output_ << statue.to_csv() << std::endl;
+        3:   84-block  0
+        3:   84-block  1
+        3:   84-block  2
+        3:   84-block  3
+    $$$$$:   84-block  4
+    $$$$$:   84-block  5
+        -:   85:    }
+        3:   86:    output_.close();
+        3:   86-block  0
+        3:   87:}
+        -:   88:
+        2:   89:std::vector<GuardianStatue> Repository::read_from_html() {
+        2:   90:    output_.open(my_list_file_, std::ios::app);
+        2:   90-block  0
+        2:   91:    output_.close();
+        2:   91-block  0
+        2:   92:    input_.open(my_list_file_);
+        2:   92-block  0
+        2:   93:    std::vector<GuardianStatue> statues;
+        2:   93-block  0
+        4:   94:    std::vector<std::string> split_statue;
+    $$$$$:   94-block  0
+        4:   95:    std::string statue{};
+        2:   95-block  0
+    $$$$$:   95-block  1
+        9:   96:    while (getline(input_, statue)) {
+        9:   96-block  0
+        9:   96-block  1
+        9:   96-block  2
+        7:   96-block  3
+        7:   97:        if (statue.find("<td>") != std::string::npos) {
+        7:   97-block  0
+        1:   98:            statue.erase(std::remove(statue.begin(), statue.end(), '/'), statue.end());
+        1:   98-block  0
+        1:   98-block  1
+    $$$$$:   98-block  2
+    $$$$$:   98-block  3
+    $$$$$:   98-block  4
+    $$$$$:   98-block  5
+    $$$$$:   98-block  6
+        1:   99:            split_statue = tokenize(statue, "<td>");
+        1:   99-block  0
+        1:   99-block  1
+        1:   99-block  2
+    $$$$$:   99-block  3
+    $$$$$:   99-block  4
+    $$$$$:   99-block  5
+    $$$$$:   99-block  6
+        1:  100:            statues.emplace_back(split_statue.at(0), split_statue.at(1), std::stoi(split_statue.at(2)),
+        1:  100-block  0
+        1:  100-block  1
+        1:  100-block  2
+        1:  100-block  3
+        1:  100-block  4
+    $$$$$:  100-block  5
+        1:  101:                                 split_statue.at(3));
+        1:  101-block  0
+        -:  102:        }
+        -:  103:    }
+        2:  104:    input_.close();
+        2:  104-block  0
+        4:  105:    return statues;
+        2:  105-block  0
+        2:  105-block  1
+        -:  106:}
+        -:  107:
+        1:  108:void Repository::write_to_html(const std::vector<GuardianStatue> &statues) {
+        1:  109:    output_.open(my_list_file_, std::ios::trunc);
+        1:  109-block  0
+        -:  110:    output_ << "<!DOCTYPE html>"
+        -:  111:               "<html>"
+        -:  112:               "<head>"
+        -:  113:               "<title>Mylist</title>"
+        -:  114:               "</head>"
+        -:  115:               "<body>"
+        1:  116:               "<table border=\"1\">";
+        2:  117:    for (auto statue : statues) {
+        2:  117-block  0
+        1:  117-block  1
+    $$$$$:  117-block  2
+        1:  118:        output_ << statue.to_html() << std::endl;
+        1:  118-block  0
+        1:  118-block  1
+        1:  118-block  2
+        1:  118-block  3
+    $$$$$:  118-block  4
+    $$$$$:  118-block  5
+        -:  119:    }
+        -:  120:    output_ << "</table>\n"
+        -:  121:               "</body>\n"
+        -:  122:               "\n"
+        1:  123:               "</html>";
+        1:  123-block  0
+        1:  124:    output_.close();
+        1:  125:}
+       22:  126:void Repository::add_guardian_statue(const GuardianStatue &statue) {
+       44:  127:    std::vector<GuardianStatue> statues = read_from_file();
+       22:  127-block  0
+       21:  127-block  1
+        1:  127-block  2
+       23:  128:    for (const auto &guardian_statue : statues) {
+       22:  128-block  0
+       23:  128-block  1
+        2:  128-block  2
+        1:  128-block  3
+        2:  129:        if (guardian_statue == statue) {
+        2:  129-block  0
+        1:  130:            throw RepositoryException("Guardian statue already exists.");
+        1:  130-block  0
+        1:  130-block  1
+        1:  130-block  2
+    $$$$$:  130-block  3
+    $$$$$:  130-block  4
+    $$$$$:  130-block  5
+    $$$$$:  130-block  6
+    $$$$$:  130-block  7
+        -:  131:        }
+        -:  132:    }
+       21:  133:    statues.emplace_back(statue);
+       21:  133-block  0
+       21:  134:    write_to_file(statues);
+       21:  134-block  0
+       21:  135:}
+        -:  136:
+        3:  137:void Repository::delete_guardian_statue(const std::string &power_word_name) {
+        6:  138:    std::vector<GuardianStatue> statues = read_from_file();
+        3:  138-block  0
+        2:  138-block  1
+        1:  138-block  2
+        -:  139:    auto position = std::find_if(statues.begin(), statues.end(), [power_word_name](const GuardianStatue &statue) {
+        -:  140:        return statue.get_power_word_name() == power_word_name;
+        3:  141:    });
+        3:  141-block  0
+        3:  141-block  1
+        3:  141-block  2
+    $$$$$:  141-block  3
+    $$$$$:  141-block  4
+        3:  142:    if (position == statues.end()) {
+        1:  143:        throw RepositoryException("Guardian statue doesn't exist.");
+        1:  143-block  0
+        1:  143-block  1
+        1:  143-block  2
+    $$$$$:  143-block  3
+    $$$$$:  143-block  4
+    $$$$$:  143-block  5
+    $$$$$:  143-block  6
+    $$$$$:  143-block  7
+        -:  144:    }
+        2:  145:    statues.erase(position);
+        2:  145-block  0
+    $$$$$:  145-block  1
+        2:  146:    write_to_file(statues);
+        2:  146-block  0
+        2:  147:}
+        -:  148:
+        3:  149:void Repository::update_guardian_statue(const GuardianStatue &new_statue) {
+        6:  150:    std::vector<GuardianStatue> statues = read_from_file();
+        3:  150-block  0
+        2:  150-block  1
+        1:  150-block  2
+        3:  151:    auto exists = false;
+        5:  152:    for (auto &statue : statues) {
+        3:  152-block  0
+        5:  152-block  1
+        2:  152-block  2
+        2:  152-block  3
+        2:  153:        if (statue.get_power_word_name() == new_statue.get_power_word_name()) {
+        2:  153-block  0
+        2:  153-block  1
+        2:  154:            exists = true;
+        2:  155:            statue.set_material(new_statue.get_material());
+        2:  155-block  0
+        2:  155-block  1
+        2:  156:            statue.set_age(new_statue.get_age());
+        2:  156-block  0
+        2:  156-block  1
+        2:  157:            statue.set_corporeal_form(new_statue.get_corporeal_form());
+        2:  157-block  0
+        2:  157-block  1
+        -:  158:        }
+        -:  159:    }
+        3:  160:    if (!exists) {
+        3:  160-block  0
+        1:  161:        throw RepositoryException("Guardian statue does not exist.");
+        1:  161-block  0
+        1:  161-block  1
+        1:  161-block  2
+    $$$$$:  161-block  3
+    $$$$$:  161-block  4
+    $$$$$:  161-block  5
+    $$$$$:  161-block  6
+    $$$$$:  161-block  7
+        -:  162:    }
+        2:  163:    write_to_file(statues);
+        2:  163-block  0
+        2:  164:}
+        -:  165:
+        6:  166:std::vector<GuardianStatue> Repository::get_guardian_statues() {
+        6:  167:    return read_from_file();
+        6:  167-block  0
+        -:  168:}
+        -:  169:
+        5:  170:GuardianStatue Repository::next() {
+       10:  171:    std::vector<GuardianStatue> statues = read_from_file();
+        5:  171-block  0
+        5:  171-block  1
+    $$$$$:  171-block  2
+        5:  172:    if (index_ == statues.size() - 1) {
+        5:  172-block  0
+        4:  173:        index_ = 0;
+        4:  173-block  0
+        -:  174:    }
+       10:  175:    return statues.at(index_++);
+        5:  175-block  0
+        5:  175-block  1
+        5:  175-block  2
+        5:  175-block  3
+        -:  176:}
+        -:  177:
+        8:  178:void Repository::save(const std::string &power_word_name) {
+       16:  179:    std::vector<GuardianStatue> statues_from_my_list;
+        8:  179-block  0
+        4:  179-block  1
+       16:  180:    std::vector<GuardianStatue> statues_from_repo = read_from_file();
+        4:  180-block  0
+        8:  181:    int position = my_list_file_.find_last_of('.');
+        8:  181-block  0
+        8:  182:    if (position == std::string::npos) {
+        1:  183:        throw RepositoryException("Invalid file format.");
+        1:  183-block  0
+        1:  183-block  1
+        1:  183-block  2
+    $$$$$:  183-block  3
+    $$$$$:  183-block  4
+    $$$$$:  183-block  5
+    $$$$$:  183-block  6
+    $$$$$:  183-block  7
+        -:  184:    }
+       14:  185:    std::string file_extension = my_list_file_.substr(position, my_list_file_.size() - position + 1);
+        7:  185-block  0
+        4:  185-block  1
+        3:  185-block  2
+        7:  186:    if (file_extension == ".csv") {
+        7:  186-block  0
+        5:  187:        statues_from_my_list = read_from_csv();
+        5:  187-block  0
+        5:  187-block  1
+        2:  188:    } else if (file_extension == ".html") {
+        2:  188-block  0
+        1:  189:        statues_from_my_list = read_from_html();
+        1:  189-block  0
+        1:  189-block  1
+        -:  190:    } else {
+        1:  191:        throw RepositoryException("Invalid file format for my list.");
+        1:  191-block  0
+        1:  191-block  1
+        1:  191-block  2
+    $$$$$:  191-block  3
+    $$$$$:  191-block  4
+    $$$$$:  191-block  5
+    $$$$$:  191-block  6
+    $$$$$:  191-block  7
+        -:  192:    }
+        6:  193:    bool found = false;
+       10:  194:    for (const auto &statue : statues_from_repo) {
+        6:  194-block  0
+       10:  194-block  1
+        5:  194-block  2
+        4:  194-block  3
+        5:  195:        if (statue.get_power_word_name() == power_word_name) {
+        5:  195-block  0
+        5:  196:            if (std::find(statues_from_my_list.begin(), statues_from_my_list.end(), statue) ==
+        5:  196-block  0
+       10:  197:                statues_from_my_list.end()) {
+        5:  197-block  0
+    $$$$$:  197-block  1
+        4:  198:                statues_from_my_list.push_back(statue);
+        4:  198-block  0
+        4:  199:                found = true;
+        4:  199-block  0
+        -:  200:            } else {
+        1:  201:                throw RepositoryException("Statue already in my list.");
+        1:  201-block  0
+        1:  201-block  1
+        1:  201-block  2
+    $$$$$:  201-block  3
+    $$$$$:  201-block  4
+    $$$$$:  201-block  5
+    $$$$$:  201-block  6
+    $$$$$:  201-block  7
+        -:  202:            }
+        -:  203:        }
+        -:  204:    }
+        5:  205:    if (!found) {
+        5:  205-block  0
+        1:  206:        throw RepositoryException("Statue does not exist.");
+        1:  206-block  0
+        1:  206-block  1
+        1:  206-block  2
+    $$$$$:  206-block  3
+    $$$$$:  206-block  4
+    $$$$$:  206-block  5
+    $$$$$:  206-block  6
+    $$$$$:  206-block  7
+        -:  207:    }
+        4:  208:    if (file_extension == ".csv") {
+        4:  208-block  0
+        3:  209:        write_to_csv(statues_from_my_list);
+        3:  209-block  0
+        1:  210:    } else if (file_extension == ".html") {
+        1:  210-block  0
+        1:  211:        write_to_html(statues_from_my_list);
+        1:  211-block  0
+        -:  212:    }
+        4:  213:}
+        5:  214:std::vector<GuardianStatue> Repository::get_my_list() {
+       10:  215:    std::vector<GuardianStatue> statues_from_my_list;
+        5:  215-block  0
+        2:  215-block  1
+       10:  216:    std::vector<GuardianStatue> statues_from_repo;
+        2:  216-block  0
+        5:  217:    int position = my_list_file_.find_last_of('.');
+        5:  218:    if (position == std::string::npos) {
+        1:  219:        throw RepositoryException("Invalid file format.");
+        1:  219-block  0
+        1:  219-block  1
+        1:  219-block  2
+    $$$$$:  219-block  3
+    $$$$$:  219-block  4
+    $$$$$:  219-block  5
+    $$$$$:  219-block  6
+    $$$$$:  219-block  7
+        -:  220:    }
+        8:  221:    std::string file_extension = my_list_file_.substr(position, my_list_file_.size() - position + 1);
+        4:  221-block  0
+        3:  221-block  1
+        1:  221-block  2
+        4:  222:    if (file_extension == ".csv") {
+        4:  222-block  0
+        2:  223:        return read_from_csv();
+        2:  223-block  0
+        2:  223-block  1
+        2:  224:    } else if (file_extension == ".html") {
+        2:  224-block  0
+        1:  225:        return read_from_html();
+        1:  225-block  0
+        1:  225-block  1
+        -:  226:    } else {
+        1:  227:        throw RepositoryException("Invalid file format.");
+        1:  227-block  0
+        1:  227-block  1
+        1:  227-block  2
+    $$$$$:  227-block  3
+    $$$$$:  227-block  4
+    $$$$$:  227-block  5
+    $$$$$:  227-block  6
+    $$$$$:  227-block  7
+        -:  228:    }
+        -:  229:}

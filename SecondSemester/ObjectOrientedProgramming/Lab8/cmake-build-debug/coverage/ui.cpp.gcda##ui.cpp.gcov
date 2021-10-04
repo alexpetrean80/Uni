@@ -1,0 +1,440 @@
+        -:    0:Source:C:/Users/Dan/Desktop/Uni/OOP/Lab8/ui/ui.cpp
+        -:    0:Graph:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\ui\ui.cpp.gcno
+        -:    0:Data:C:\Users\Dan\Desktop\Uni\OOP\Lab8\cmake-build-debug\CMakeFiles\Lab8.dir\ui\ui.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#define COMMAND_INDEX 0
+        -:    2:#define POWER_WORD_NAME_INDEX 1
+        -:    3:#define MODE_INDEX 1
+        -:    4:#define MATERIAL_INDEX 2
+        -:    5:#define MATERIAL_APPRENTICE_INDEX 1
+        -:    6:#define AGE_APPRENTICE_INDEX 2
+        -:    7:#define AGE_INDEX 3
+        -:    8:#define CORPOREAL_FORM_INDEX 4
+        -:    9:#define MODE_COMMAND_SIZE 2
+        -:   10:#define ADD_COMMAND_SIZE 5
+        -:   11:#define DELETE_COMMAND_SIZE 2
+        -:   12:#define UPDATE_COMMAND_SIZE 5
+        -:   13:#define LIST_COMMAND_SIZE 1
+        -:   14:#define EXIT_COMMAND_SIZE 1
+        -:   15:#define MODE_FIRST_LETTER 0
+        -:   16:#define SET_FILE_COMMAND_SIZE 2
+        -:   17:#define FILE_INDEX 1
+        -:   18:#define MY_LIST_SIZE 1
+        -:   19:#define LIST_MATERIAL_AND_AGE_SIZE 3
+        -:   20:#define SAVE_COMMAND_SIZE 2
+        -:   21:#define NEXT_COMMAND_SIZE 1
+        -:   22:
+        -:   23:#include "ui.h"
+        -:   24:
+        1:   25:void UI::run_console() {
+        1:   26:    std::vector<std::string> command;
+        1:   26-block  0
+    $$$$$:   26-block  1
+        -:   27:    while (true) {
+       1*:   28:        command = read_command();
+        1:   28-block  0
+        1:   28-block  1
+    %%%%%:   28-block  2
+        1:   29:        if (command.at(COMMAND_INDEX) == "mode") {
+        1:   29-block  0
+    #####:   30:            mode_ui(command);
+    %%%%%:   30-block  0
+        1:   31:        } else if (command.at(COMMAND_INDEX) == "add") {
+        1:   31-block  0
+        1:   31-block  1
+    #####:   32:            add_ui(command);
+    %%%%%:   32-block  0
+        1:   33:        } else if (command.at(COMMAND_INDEX) == "delete") {
+        1:   33-block  0
+        1:   33-block  1
+    #####:   34:            delete_ui(command);
+    %%%%%:   34-block  0
+        1:   35:        } else if (command.at(COMMAND_INDEX) == "update") {
+        1:   35-block  0
+        1:   35-block  1
+    #####:   36:            update_ui(command);
+    %%%%%:   36-block  0
+        1:   37:        } else if (command.at(COMMAND_INDEX) == "list") {
+        1:   37-block  0
+        1:   37-block  1
+    #####:   38:            list_ui(command);
+    %%%%%:   38-block  0
+        1:   39:        } else if (command.at(COMMAND_INDEX) == "fileLocation") {
+        1:   39-block  0
+        1:   39-block  1
+    #####:   40:            set_repo_file(command);
+    %%%%%:   40-block  0
+        1:   41:        } else if (command.at(COMMAND_INDEX) == "mylistLocation") {
+        1:   41-block  0
+        1:   41-block  1
+    #####:   42:            set_my_list_file(command);
+    %%%%%:   42-block  0
+        1:   43:        } else if (command.at(COMMAND_INDEX) == "mylist") {
+        1:   43-block  0
+        1:   43-block  1
+    #####:   44:            my_list_ui(command);
+    %%%%%:   44-block  0
+        1:   45:        } else if (command.at(COMMAND_INDEX) == "save") {
+        1:   45-block  0
+        1:   45-block  1
+    #####:   46:            save_ui(command);
+    %%%%%:   46-block  0
+        1:   47:        } else if (command.at(COMMAND_INDEX) == "next") {
+        1:   47-block  0
+        1:   47-block  1
+    #####:   48:            next_ui(command);
+    %%%%%:   48-block  0
+        1:   49:        } else if (command.at(COMMAND_INDEX) == "exit") {
+        1:   49-block  0
+        1:   49-block  1
+        1:   50:            if (command.size() == EXIT_COMMAND_SIZE) {
+        1:   50-block  0
+        2:   51:                return;
+        1:   51-block  0
+        1:   51-block  1
+        -:   52:            } else {
+    #####:   53:                std::cout << "Invalid arguments.";
+    %%%%%:   53-block  0
+        -:   54:            }
+        -:   55:        } else {
+    #####:   56:            std::cout << "Invalid command.";
+    %%%%%:   56-block  0
+        -:   57:        }
+        -:   58:    }
+        -:   59:}
+        -:   60:
+        1:   61:std::vector<std::string> UI::read_command() {
+        1:   62:    std::vector<std::string> command;
+        1:   62-block  0
+        2:   63:    std::string input, token;
+    $$$$$:   63-block  0
+    $$$$$:   63-block  1
+        1:   64:    std::getline(std::cin, input);
+        2:   65:    std::stringstream input_stream(input);
+        1:   65-block  0
+        1:   65-block  1
+    $$$$$:   65-block  2
+        1:   66:    std::getline(input_stream, token, ' ');
+        1:   66-block  0
+        1:   67:    command.push_back(token);
+        1:   67-block  0
+       1*:   68:    while (std::getline(input_stream, token, ',')) {
+        1:   68-block  0
+        1:   68-block  1
+        1:   68-block  2
+    #####:   69:        auto begin = token.find_first_not_of(' ');
+    %%%%%:   69-block  0
+    #####:   70:        auto end = token.find_last_not_of(' ');
+    #####:   71:        auto range = end - begin + 1;
+    #####:   72:        command.push_back(token.substr(begin, range));
+    %%%%%:   72-block  0
+    %%%%%:   72-block  1
+    $$$$$:   72-block  2
+    $$$$$:   72-block  3
+        -:   73:    }
+        2:   74:    return command;
+        1:   74-block  0
+        1:   74-block  1
+        -:   75:}
+        -:   76:
+    #####:   77:void UI::mode_ui(const std::vector<std::string> &command) {
+    #####:   78:    if (command.size() == MODE_COMMAND_SIZE) {
+    %%%%%:   78-block  0
+    #####:   79:        if (command.at(MODE_INDEX).at(MODE_FIRST_LETTER) == 'A' ||
+    %%%%%:   79-block  0
+    %%%%%:   79-block  1
+    %%%%%:   79-block  2
+    %%%%%:   79-block  3
+    #####:   80:            command.at(MODE_INDEX).at(MODE_FIRST_LETTER) == 'B') {
+    %%%%%:   80-block  0
+    #####:   81:            service_.set_mode(command.at(MODE_INDEX).at(MODE_FIRST_LETTER));
+    %%%%%:   81-block  0
+        -:   82:        } else {
+    #####:   83:            std::cout << "Invalid mode.\n";
+    %%%%%:   83-block  0
+        -:   84:        }
+        -:   85:    } else {
+    #####:   86:        std::cout << "Invalid arguments.\n";
+    %%%%%:   86-block  0
+        -:   87:    }
+    #####:   88:}
+        -:   89:
+    #####:   90:void UI::add_ui(const std::vector<std::string> &command) {
+    #####:   91:    if (command.size() == ADD_COMMAND_SIZE) {
+    %%%%%:   91-block  0
+        -:   92:        try {
+    #####:   93:            service_.add_guardian_statue(command.at(POWER_WORD_NAME_INDEX), command.at(MATERIAL_INDEX),
+    %%%%%:   93-block  0
+    %%%%%:   93-block  1
+    %%%%%:   93-block  2
+    #####:   94:                                         std::stoi(command.at(AGE_INDEX)), command.at(CORPOREAL_FORM_INDEX));
+    %%%%%:   94-block  0
+    %%%%%:   94-block  1
+    %%%%%:   94-block  2
+    =====:   95:        } catch (ValidatorException &validator_exception) {
+    $$$$$:   95-block  0
+    $$$$$:   95-block  1
+    $$$$$:   95-block  2
+    =====:   96:            std::cout << validator_exception.what() << std::endl;
+    $$$$$:   96-block  0
+    =====:   97:        } catch (RepositoryException &repository_exception) {
+    $$$$$:   97-block  0
+    $$$$$:   97-block  1
+    $$$$$:   97-block  2
+    =====:   98:            std::cout << repository_exception.what() << std::endl;
+    $$$$$:   98-block  0
+    =====:   99:        } catch (ServiceException &service_exception) {
+    $$$$$:   99-block  0
+    $$$$$:   99-block  1
+    $$$$$:   99-block  2
+    =====:  100:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  100-block  0
+        -:  101:        }
+        -:  102:    } else {
+    #####:  103:        std::cout << "Invalid arguments.\n";
+    %%%%%:  103-block  0
+        -:  104:    }
+    #####:  105:}
+    %%%%%:  105-block  0
+        -:  106:
+    #####:  107:void UI::update_ui(const std::vector<std::string> &command) {
+    #####:  108:    if (command.size() == UPDATE_COMMAND_SIZE) {
+    %%%%%:  108-block  0
+        -:  109:        try {
+    #####:  110:            service_.update_guardian_statue(command.at(POWER_WORD_NAME_INDEX), command.at(MATERIAL_INDEX),
+    %%%%%:  110-block  0
+    %%%%%:  110-block  1
+    %%%%%:  110-block  2
+    #####:  111:                                            std::stoi(command.at(AGE_INDEX)), command.at(CORPOREAL_FORM_INDEX));
+    %%%%%:  111-block  0
+    %%%%%:  111-block  1
+    %%%%%:  111-block  2
+    =====:  112:        } catch (ValidatorException &validator_exception) {
+    $$$$$:  112-block  0
+    $$$$$:  112-block  1
+    $$$$$:  112-block  2
+    =====:  113:            std::cout << validator_exception.what() << std::endl;
+    $$$$$:  113-block  0
+    =====:  114:        } catch (RepositoryException &repository_exception) {
+    $$$$$:  114-block  0
+    $$$$$:  114-block  1
+    $$$$$:  114-block  2
+    =====:  115:            std::cout << repository_exception.what() << std::endl;
+    $$$$$:  115-block  0
+    =====:  116:        } catch (ServiceException &service_exception) {
+    $$$$$:  116-block  0
+    $$$$$:  116-block  1
+    $$$$$:  116-block  2
+    =====:  117:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  117-block  0
+        -:  118:        }
+        -:  119:    } else {
+    #####:  120:        std::cout << "Invalid arguments.\n";
+    %%%%%:  120-block  0
+        -:  121:    }
+    #####:  122:}
+    %%%%%:  122-block  0
+        -:  123:
+    #####:  124:void UI::delete_ui(const std::vector<std::string> &command) {
+    #####:  125:    if (command.size() == DELETE_COMMAND_SIZE) {
+    %%%%%:  125-block  0
+        -:  126:        try {
+    #####:  127:            service_.delete_guardian_statue(command.at(POWER_WORD_NAME_INDEX));
+    %%%%%:  127-block  0
+    %%%%%:  127-block  1
+    =====:  128:        } catch (RepositoryException &repository_exception) {
+    $$$$$:  128-block  0
+    $$$$$:  128-block  1
+    $$$$$:  128-block  2
+    =====:  129:            std::cout << repository_exception.what() << std::endl;
+    $$$$$:  129-block  0
+    =====:  130:        } catch (ServiceException &service_exception) {
+    $$$$$:  130-block  0
+    $$$$$:  130-block  1
+    $$$$$:  130-block  2
+    =====:  131:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  131-block  0
+        -:  132:        }
+        -:  133:    } else {
+    #####:  134:        std::cout << "Invalid arguments.\n";
+    %%%%%:  134-block  0
+        -:  135:    }
+    #####:  136:}
+    %%%%%:  136-block  0
+        -:  137:
+    #####:  138:void UI::list_ui(const std::vector<std::string> &command) {
+    #####:  139:    if (command.size() == LIST_COMMAND_SIZE) {
+    %%%%%:  139-block  0
+    #####:  140:        auto statues = service_.get_guardian_statues();
+    %%%%%:  140-block  0
+    %%%%%:  140-block  1
+    $$$$$:  140-block  2
+    #####:  141:        for (const auto &statue : statues) {
+    %%%%%:  141-block  0
+    %%%%%:  141-block  1
+    %%%%%:  141-block  2
+    %%%%%:  141-block  3
+    #####:  142:            std::cout << statue << '\n';
+    %%%%%:  142-block  0
+        -:  143:        }
+    #####:  144:    } else if (command.size() == LIST_MATERIAL_AND_AGE_SIZE) {
+    %%%%%:  144-block  0
+        -:  145:        try {
+    #####:  146:            auto statues = service_.get_guardian_statues();
+    %%%%%:  146-block  0
+    %%%%%:  146-block  1
+    $$$$$:  146-block  2
+    #####:  147:            int count = 0;
+    #####:  148:            for (const auto &statue : statues) {
+    %%%%%:  148-block  0
+    %%%%%:  148-block  1
+    %%%%%:  148-block  2
+    %%%%%:  148-block  3
+    #####:  149:                if (statue.get_material() == command.at(MATERIAL_APPRENTICE_INDEX) &&
+    %%%%%:  149-block  0
+    %%%%%:  149-block  1
+    %%%%%:  149-block  2
+    %%%%%:  149-block  3
+    %%%%%:  149-block  4
+    #####:  150:                    statue.get_age() <= std::stoi(command.at(AGE_APPRENTICE_INDEX))) {
+    %%%%%:  150-block  0
+    %%%%%:  150-block  1
+    %%%%%:  150-block  2
+    %%%%%:  150-block  3
+    #####:  151:                    std::cout << statue << '\n';
+    %%%%%:  151-block  0
+    %%%%%:  151-block  1
+    #####:  152:                    count++;
+    %%%%%:  152-block  0
+        -:  153:                }
+        -:  154:            }
+    #####:  155:            if (count == 0) {
+    %%%%%:  155-block  0
+    #####:  156:                for (const auto &statue : statues) {
+    %%%%%:  156-block  0
+    %%%%%:  156-block  1
+    %%%%%:  156-block  2
+    %%%%%:  156-block  3
+    #####:  157:                    std::cout << statue << '\n';
+    %%%%%:  157-block  0
+        -:  158:                }
+        -:  159:            }
+    =====:  160:        } catch (ServiceException &service_exception) {
+    $$$$$:  160-block  0
+    $$$$$:  160-block  1
+    $$$$$:  160-block  2
+    =====:  161:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  161-block  0
+        -:  162:        }
+        -:  163:    } else {
+    #####:  164:        std::cout << "Invalid arguments.\n";
+    %%%%%:  164-block  0
+        -:  165:    }
+    #####:  166:}
+    %%%%%:  166-block  0
+        -:  167:
+    #####:  168:void UI::set_repo_file(const std::vector<std::string> &command) {
+    #####:  169:    if (command.size() == SET_FILE_COMMAND_SIZE) {
+    %%%%%:  169-block  0
+    #####:  170:        service_.set_repo_file(command.at(FILE_INDEX));
+    %%%%%:  170-block  0
+        -:  171:    } else {
+    #####:  172:        std::cout << "Invalid arguments.\n";
+    %%%%%:  172-block  0
+        -:  173:    }
+    #####:  174:}
+        -:  175:
+    #####:  176:void UI::set_my_list_file(const std::vector<std::string> &command) {
+    #####:  177:    if (command.size() == SET_FILE_COMMAND_SIZE) {
+    %%%%%:  177-block  0
+    #####:  178:        service_.set_my_list_file(command.at(FILE_INDEX));
+    %%%%%:  178-block  0
+        -:  179:    } else {
+    #####:  180:        std::cout << "Invalid arguments.\n";
+    %%%%%:  180-block  0
+        -:  181:    }
+    #####:  182:}
+        -:  183:
+    #####:  184:void UI::my_list_ui(const std::vector<std::string> &command) {
+    #####:  185:    if (command.size() == MY_LIST_SIZE) {
+    %%%%%:  185-block  0
+        -:  186:        try {
+    #####:  187:            auto statues = service_.get_my_list();
+    %%%%%:  187-block  0
+    %%%%%:  187-block  1
+    $$$$$:  187-block  2
+    #####:  188:            for (const auto &statue : statues) {
+    %%%%%:  188-block  0
+    %%%%%:  188-block  1
+    %%%%%:  188-block  2
+    %%%%%:  188-block  3
+    #####:  189:                std::cout << statue << std::endl;
+    %%%%%:  189-block  0
+        -:  190:            }
+    =====:  191:        } catch (ServiceException &service_exception) {
+    $$$$$:  191-block  0
+    $$$$$:  191-block  1
+    $$$$$:  191-block  2
+    =====:  192:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  192-block  0
+        -:  193:        }
+        -:  194:    } else {
+    #####:  195:        std::cout << "Invalid arguments.\n";
+    %%%%%:  195-block  0
+        -:  196:    }
+    #####:  197:}
+    %%%%%:  197-block  0
+        -:  198:
+    #####:  199:void UI::save_ui(const std::vector<std::string> &command) {
+    #####:  200:    if (command.size() == SAVE_COMMAND_SIZE) {
+    %%%%%:  200-block  0
+        -:  201:        try {
+    #####:  202:            service_.save(command.at(POWER_WORD_NAME_INDEX));
+    %%%%%:  202-block  0
+    %%%%%:  202-block  1
+    =====:  203:        } catch (ServiceException &service_exception) {
+    $$$$$:  203-block  0
+    $$$$$:  203-block  1
+    $$$$$:  203-block  2
+    =====:  204:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  204-block  0
+        -:  205:        }
+    =====:  206:        catch (RepositoryException& repository_exception) {
+    $$$$$:  206-block  0
+    $$$$$:  206-block  1
+    $$$$$:  206-block  2
+    =====:  207:            std::cout << repository_exception.what() << std::endl;
+    $$$$$:  207-block  0
+        -:  208:        }
+        -:  209:    } else {
+    #####:  210:        std::cout << "Invalid arguments.\n";
+    %%%%%:  210-block  0
+        -:  211:    }
+    #####:  212:}
+    %%%%%:  212-block  0
+        -:  213:
+    #####:  214:void UI::next_ui(const std::vector<std::string> &command) {
+    #####:  215:    if (command.size() == NEXT_COMMAND_SIZE) {
+    %%%%%:  215-block  0
+        -:  216:        try {
+    #####:  217:            std::cout << service_.next() << std::endl;
+    %%%%%:  217-block  0
+    %%%%%:  217-block  1
+    %%%%%:  217-block  2
+    %%%%%:  217-block  3
+    $$$$$:  217-block  4
+    $$$$$:  217-block  5
+    =====:  218:        } catch (ServiceException &service_exception) {
+    $$$$$:  218-block  0
+    $$$$$:  218-block  1
+    $$$$$:  218-block  2
+    =====:  219:            std::cout << service_exception.what() << std::endl;
+    $$$$$:  219-block  0
+        -:  220:        }
+        -:  221:    } else {
+    #####:  222:        std::cout << "Invalid arguments.\n";
+    %%%%%:  222-block  0
+        -:  223:    }
+    #####:  224:}
+    %%%%%:  224-block  0

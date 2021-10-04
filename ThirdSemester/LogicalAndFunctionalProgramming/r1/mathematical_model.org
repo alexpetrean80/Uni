@@ -1,0 +1,21 @@
+compareRec(l1..ln, l'1l'2..l'm) = 
+* false, if n == 0 and m != 0
+* false, if n != 0 and m == 0
+* true, if n == n == 0
+* compareRec(l2..ln, l'2..lm), if l1 == l'1
+* false, otherwise
+
+isElemInListRec(e, l1..ln) = 
+* false, if n == 0
+* isElemInList(e, l2..ln), if e != l1
+* true, otherwise
+
+addTwoListsRec(l1..ln, l'1..l'm) = 
+* l1 U addTwoListsRec(l2..ln, l'1..l'm), if n != 0
+* l'1 U addTwoListsRec(null, l'2..l'm), if m != 0
+* (), otherwise
+
+getSetRec(l1..ln) =
+ * (), if n == 0
+ * getSetRec(l2..ln) if isElemInListRec(l1, l2..ln)
+ * l1 U getSetRec(l2..ln), otherwise

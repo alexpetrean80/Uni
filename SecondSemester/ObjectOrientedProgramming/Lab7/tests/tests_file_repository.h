@@ -1,0 +1,19 @@
+#ifndef LAB7_TESTS_FILE_REPOSITORY_H
+#define LAB7_TESTS_FILE_REPOSITORY_H
+
+#include "../repository/file_repository.h"
+
+#include <cassert>
+
+void test__add_guardian_statue_file__guardian_statue_does_not_exist__guardian_statue_added();
+void test__add_guardian_statue_file__guardian_statue_exists__exception_is_thrown();
+void test__delete_guardian_statue_file__guardian_statue_exists__guardian_statue_removed();
+void test__delete_guardian_statue_file__guardian_statue_does_not_exist__exception_is_thrown();
+void test__update_guardian_statue_file__guardian_statue_exists__guardian_statue_updated();
+void test__update_guardian_statue_file__guardian_statue_does_not_exist__exception_is_thrown();
+void test__set_file_name__valid_name__file_name_updated();
+void test__next__first_guardian_statue__first_guardian_statue_is_returned();
+void test__next__last_guardian_statue__first_guardian_statue_is_returned();
+void test__save__repository_not_empty__guardian_statue_is_saved();
+void test__save__repository_empty__exception_is_thrown();
+#endif//LAB7_TESTS_FILE_REPOSITORY_H

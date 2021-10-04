@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data>
+    <droid>
+        <id>99827</id>
+        <powerUsage>12.0</powerUsage>
+        <price>13.0</price>
+        <batteryTime>14</batteryTime>
+        <model>hu768</model>
+        <driver>true</driver>
+    </droid>
+</data>
