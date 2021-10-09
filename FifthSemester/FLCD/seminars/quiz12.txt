@@ -1,0 +1,5 @@
+1. The BNF definition covers all unsigned integers composed only from digits 1 and 2
+2. No, because then numbers would be able to start with digit 0.
+3. 10 tokens.
+4. The output of scanning is the list of tokens.
+5. Yes, because keywords are recognized during scanning.
