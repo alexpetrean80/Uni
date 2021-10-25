@@ -1,0 +1,122 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md2">
+## a. Write a predicate to substitute in a list a value with all the elements of another list. 
+</div>
+
+<div class="nb-cell markdown" name="md3">
+### Mathematical model for concat
+#### concat(l1..ln, L1..Lm) =
+- L1..Lm, if l = nil
+- l1 U concatenate_lists(l2..ln, L1..Lm), otherwise
+
+### Flow model for concat
+`(i,i,o)` `(i,i,i)`
+
+### Parameters for concat
+`concat(L1, L2, R)`
+- L1 -&gt; list
+- L2 -&gt; list
+- R -&gt; list
+</div>
+
+<div class="nb-cell program" name="p1">
+concat([H], L, [H|L]).
+
+concat([H|T], L, [H|R]) :-
+    concat(T,L,R).
+</div>
+
+<div class="nb-cell query" name="q1">
+concat([1,2,3],[4,5,6],R).
+</div>
+
+<div class="nb-cell query" name="q5">
+concat([1,2,3],[4,5,6],[1,2,3,4,5,6]).
+</div>
+
+<div class="nb-cell markdown" name="md4">
+### Mathematical model for substitute
+#### substitute(l1..ln, elem, L1..Lm) = 
+- [], if l = []
+- l1 + substitute(l2..ln, elem, L1..Lm), if l1 != elem
+- L1..Lm + substitute(l2..ln, elem, L1..Lm), otherwise
+
+### Flow model for substitute
+`(i,i,i,o)` `(i,i,i,i)`
+
+### Parameters for substitute
+`substitute(L1, Elem, L2, R)`
+- L1 -&gt; list
+- Elem -&gt; atom
+- L2 -&gt; list
+- R -&gt; List
+</div>
+
+<div class="nb-cell program" name="p3">
+concat([H], L, [H|L]).
+
+concat([H|T], L, [H|R]) :-
+    concat(T,L,R).
+
+
+substitute([], _, _, []).
+
+substitute([H|T], E, L, R) :-
+    H \= E,
+    concat([H], R1, R),
+    substitute(T, E, L, R1). 
+
+substitute([E|T], E, L, R) :-
+    concat(L, R1, R),
+    substitute(T, E, L, R1).
+</div>
+
+<div class="nb-cell query" name="q2">
+substitute([1, 2, 3, 2], 2, [4, 5, 6], R).
+</div>
+
+<div class="nb-cell query" name="q6">
+substitute([1, 2, 3, 2], 2, [4, 5, 6], [1, 4, 5, 6, 3, 4, 5, 6]).
+</div>
+
+<div class="nb-cell markdown" name="md1">
+## b. Write a predicate to select the n-th element of a given list. 
+
+### Mathematical model
+#### select(l1..ln, pos) =
+- nil, if l = []
+- select(l2..ln, pos - 1), if pos != 0
+- l1, otherwise
+
+### Flow model
+``(i,i,o)``
+``(i,i,i)``
+
+### Parameters
+`select(L, Pos, R)`
+- L -&gt; list
+- Pos -&gt; atom (integer)
+- R -&gt; atom
+</div>
+
+<div class="nb-cell program" name="p2">
+select([], _, nil).
+select([_ | T], Pos, R) :-
+    Pos \= 0,
+    NewPos is Pos - 1,
+    select(T, NewPos, R).
+
+select([H|_], 0, R) :-
+       R is H.
+</div>
+
+<div class="nb-cell query" name="q3">
+select([1,2,3], 1, R).
+</div>
+
+<div class="nb-cell query" name="q4">
+select([1,2,3], 1, 2).
+</div>
+
+</div>

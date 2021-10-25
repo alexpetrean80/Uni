@@ -1,0 +1,3 @@
+[submodule "Sem5/CP/brainstorm-frontend"]
+	path = Sem5/CP/brainstorm-frontend
+	url = https://github.com/Brainstorm-Inc/brainstorm-frontend.git
