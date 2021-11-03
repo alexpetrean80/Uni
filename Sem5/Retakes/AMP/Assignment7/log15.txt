@@ -1,0 +1,672 @@
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; (v = 3; (do (print(abc); v = v - 1) while (v > 0)))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (v = 3; (do (print(abc); v = v - 1) while (v > 0))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (v = 3; (do (print(abc); v = v - 1) while (v > 0))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 3; (do (print(abc); v = v - 1) while (v > 0))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 3; (do (print(abc); v = v - 1) while (v > 0))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 3 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 3 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1) | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1 | (do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->1}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 0)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1)
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1)
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1)
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1)
+Heap{}
+SymbolTable
+{ v->0}
+Output
+[abc,abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{}
+SymbolTable
+{ v->-1}
+Output
+[abc,abc,abc,abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; (v = 3; (do (print(abc); v = v - 1) while (v > 3)))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (v = 3; (do (print(abc); v = v - 1) while (v > 3))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (v = 3; (do (print(abc); v = v - 1) while (v > 3))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 3; (do (print(abc); v = v - 1) while (v > 3))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 3; (do (print(abc); v = v - 1) while (v > 3))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 3 | (do (print(abc); v = v - 1) while (v > 3)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 3 | (do (print(abc); v = v - 1) while (v > 3)))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 3)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((do (print(abc); v = v - 1) while (v > 3)))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(abc); v = v - 1))
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1)
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(abc) | v = v - 1)
+Heap{}
+SymbolTable
+{ v->3}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1)
+Heap{}
+SymbolTable
+{ v->3}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = v - 1)
+Heap{}
+SymbolTable
+{ v->3}
+Output
+[abc]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[abc]
+FileTable
+{}
+------------

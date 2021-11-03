@@ -37,7 +37,6 @@
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Debug/net5.0/SupermarketInventory.dll
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Debug/net5.0/ref/SupermarketInventory.dll
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Debug/net5.0/SupermarketInventory.pdb
-/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.csprojAssemblyReference.cache
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.GeneratedMSBuildEditorConfig.editorconfig
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.AssemblyInfoInputs.cache
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.AssemblyInfo.cs
@@ -46,3 +45,4 @@
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/ref/SupermarketInventory.dll
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.pdb
 /home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.genruntimeconfig.cache
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Debug/net5.0/SupermarketInventory.csproj.AssemblyReference.cache

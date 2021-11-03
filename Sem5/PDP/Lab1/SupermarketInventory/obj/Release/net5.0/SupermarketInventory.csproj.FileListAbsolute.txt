@@ -1,0 +1,16 @@
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory.deps.json
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory.runtimeconfig.json
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory.runtimeconfig.dev.json
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory.dll
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/ref/SupermarketInventory.dll
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/bin/Release/net5.0/SupermarketInventory.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.csproj.AssemblyReference.cache
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.GeneratedMSBuildEditorConfig.editorconfig
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.AssemblyInfoInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.AssemblyInfo.cs
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.csproj.CoreCompileInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.dll
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/ref/SupermarketInventory.dll
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/obj/Release/net5.0/SupermarketInventory.genruntimeconfig.cache

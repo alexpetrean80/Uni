@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yYwZqLRMW7Iy/8DD7j1A3faLCKC2hBASvzHnQf9syVcAtbxaSrURfBgFTqg5n6ocGEen9zgj0e8mJSP5YrBxMA==",
+  "success": true,
+  "projectFilePath": "/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/Lab2.csproj",
+  "expectedPackageFiles": [
+    "/home/padfoot/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -2,23 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using SupermarketInventory.Domain;
 
 namespace SupermarketInventory {
     public class SupermarketService {
         private static double _money;
-        private readonly Mutex _moneyMutex = new();
+        private readonly Mutex _mtx = new();
 
-        private static uint _billCount;
-        private readonly Mutex _billCountMutex = new();
+        private readonly Dictionary<uint, ulong> _initialStock;
 
-        private readonly Dictionary<uint, uint> _initialStock;
-
-        private readonly Mutex _productsMutex = new();
         private readonly List<Product> _products;
 
         private readonly List<Bill> _bills = new();
-        private readonly Mutex _billMutex = new();
 
         public SupermarketService(List<Product> products) {
             _products = products;
@@ -26,45 +20,48 @@ namespace SupermarketInventory {
         }
 
         public void MakeSale(Dictionary<uint, uint> productQuantities) {
+            _mtx.WaitOne();
+
             var totalPrice = 0d;
             foreach (var (productId, quantity) in productQuantities) {
-                totalPrice += SellProduct(productId, quantity);
+                var p = _products.FirstOrDefault(p => p.Id == productId) ??
+                        throw new Exception($"Product with ID {productId} does not exist.");
+
+                if (p.Quantity == 0 || p.Quantity < quantity) {
+                    throw new Exception($"Product with ID {p.Id} does not exist.");
+                }
+
+                p.Quantity -= quantity;
+                var cost = quantity * p.Price;
+                _money += cost;
+
+                totalPrice += cost;
             }
 
-            _billMutex.WaitOne();
             _bills.Add(new Bill {
-                Id = _billCount,
+                Id = (uint) _bills.Count,
                 TotalPrice = totalPrice,
                 ProductQuantity = productQuantities
             });
-            _billMutex.ReleaseMutex();
 
-            _billCountMutex.WaitOne();
-            _billCount++;
-            _billCountMutex.ReleaseMutex();
+            _mtx.ReleaseMutex();
         }
 
         public bool CheckInventory() {
-            return CheckFinance() && CheckStock();
+            _mtx.WaitOne();
+            var res = CheckFinance() && CheckStock();
+            _mtx.ReleaseMutex();
+            return res;
         }
 
         private bool CheckFinance() {
             var totalFromBills = _bills.Aggregate(0d, (total, b) => total + b.TotalPrice);
-            return Math.Abs(totalFromBills - _money) == 0;
+            return Math.Abs(totalFromBills - _money) == 0d;
         }
 
         private bool CheckStock() {
-            Dictionary<uint, uint> currentStock = null;
-            Dictionary<uint, uint> spentStock = null;
-
-            var currentStockTh = new Thread(() => { currentStock = ComputeCurrentStock(); });
-            var spentStockTh = new Thread(() => { spentStock = ComputeSpentStock(); });
-
-            currentStockTh.Start();
-            spentStockTh.Start();
-
-            currentStockTh.Join();
-            spentStockTh.Join();
+            var currentStock = ComputeCurrentStock();
+            var spentStock = ComputeSpentStock();
 
             foreach (var (productId, initialQuantity) in _initialStock) {
                 if (spentStock[productId] + currentStock[productId] != initialQuantity) {
@@ -75,14 +72,14 @@ namespace SupermarketInventory {
             return true;
         }
 
-        private Dictionary<uint, uint> ComputeCurrentStock() {
-            var currentStock = new Dictionary<uint, uint>();
+        private Dictionary<uint, ulong> ComputeCurrentStock() {
+            var currentStock = new Dictionary<uint, ulong>();
             _products.ForEach(p => { currentStock.Add(p.Id, p.Quantity); });
             return currentStock;
         }
 
-        private Dictionary<uint, uint> ComputeSpentStock() {
-            var spentStock = new Dictionary<uint, uint>();
+        private Dictionary<uint, ulong> ComputeSpentStock() {
+            var spentStock = new Dictionary<uint, ulong>();
             _bills.ForEach(b => {
                 foreach (var (productId, quantity) in b.ProductQuantity) {
                     if (spentStock.ContainsKey(productId)) {
@@ -93,35 +90,8 @@ namespace SupermarketInventory {
                     spentStock.Add(productId, quantity);
                 }
             });
+
             return spentStock;
-        }
-
-
-        private double SellProduct(uint productId, uint quantity) {
-            var p = FindProduct(productId);
-
-            if (p.Quantity == 0 || p.Quantity < quantity) {
-                throw new Exception($"Product with ID {p.Id} does not exist.");
-            }
-
-            _productsMutex.WaitOne();
-            p.Quantity -= quantity;
-            _productsMutex.ReleaseMutex();
-
-            var totalPrice = quantity * p.Price;
-
-            _moneyMutex.WaitOne();
-            _money += totalPrice;
-            _moneyMutex.ReleaseMutex();
-
-            return totalPrice;
-        }
-
-        private Product FindProduct(uint productId) {
-            var p = _products.FirstOrDefault(p => p.Id == productId) ??
-                    throw new Exception($"Product with ID {productId} does not exist.");
-
-            return p;
         }
     }
 }

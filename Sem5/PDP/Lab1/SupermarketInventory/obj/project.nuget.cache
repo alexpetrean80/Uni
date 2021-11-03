@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AiGm269eXY5SqpRqicOQBGbl2Ra4hTNUgOaXq/+nwztgADpYmi69BZ2cIthSqvLy2IT2vqZF+U91CjZyB5ggIw==",
+  "dgSpecHash": "cdwvwUdBT0jD5SsFDJdzWR4plE5DnaqQzaeBpJlrJjmJ3xUoz497n2K+woAI28ElcM/sNeLsCx6TQ2LFfFkCww==",
   "success": true,
   "projectFilePath": "/home/padfoot/Uni/Sem5/PDP/Lab1/SupermarketInventory/SupermarketInventory.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/padfoot/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

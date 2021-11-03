@@ -1,0 +1,216 @@
+Current thread id: 1
+Thread id: 1
+Stack
+((int a; (int b; (a = 2 + 3 * 5; (b = a + 1; print(b))))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int a | (int b; (a = 2 + 3 * 5; (b = a + 1; print(b)))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int a | (int b; (a = 2 + 3 * 5; (b = a + 1; print(b)))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int b; (a = 2 + 3 * 5; (b = a + 1; print(b)))))
+Heap{}
+SymbolTable
+{ a->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int b; (a = 2 + 3 * 5; (b = a + 1; print(b)))))
+Heap{}
+SymbolTable
+{ a->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int b | (a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap{}
+SymbolTable
+{ a->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int b | (a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap{}
+SymbolTable
+{ a->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap{}
+SymbolTable
+{ a->0,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap{}
+SymbolTable
+{ a->0,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(a = 2 + 3 * 5 | (b = a + 1; print(b)))
+Heap{}
+SymbolTable
+{ a->0,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(a = 2 + 3 * 5 | (b = a + 1; print(b)))
+Heap{}
+SymbolTable
+{ a->0,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((b = a + 1; print(b)))
+Heap{}
+SymbolTable
+{ a->17,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((b = a + 1; print(b)))
+Heap{}
+SymbolTable
+{ a->17,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(b = a + 1 | print(b))
+Heap{}
+SymbolTable
+{ a->17,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(b = a + 1 | print(b))
+Heap{}
+SymbolTable
+{ a->17,b->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(b))
+Heap{}
+SymbolTable
+{ a->17,b->18}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(b))
+Heap{}
+SymbolTable
+{ a->17,b->18}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{}
+SymbolTable
+{ a->17,b->18}
+Output
+[18]
+FileTable
+{}
+------------

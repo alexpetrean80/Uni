@@ -1,0 +1,240 @@
+Current thread id: 1
+Thread id: 1
+Stack
+(((int v; v = 2); print(v)))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; v = 2) | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; v = 2) | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | v = 2 | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | v = 2 | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 2 | print(v))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 2 | print(v))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[2]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(((int v; v = 2); print(v)))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; v = 2) | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; v = 2) | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | v = 2 | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | v = 2 | print(v))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 2 | print(v))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 2 | print(v))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v))
+Heap{}
+SymbolTable
+{ v->2}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{}
+SymbolTable
+{ v->2}
+Output
+[2]
+FileTable
+{}
+------------

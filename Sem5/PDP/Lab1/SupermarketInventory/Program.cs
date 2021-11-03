@@ -1,99 +1,132 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using SupermarketInventory.Domain;
 
 namespace SupermarketInventory {
     internal static class Program {
         private static Random _rnd = new Random();
+        private static bool _ok = true;
 
-        static int GetRandomId() {
+        private static int GetRandomId() {
             return _rnd.Next(10);
         }
 
-        static int GetRandomQuantity() {
+        private static int GetRandomQuantity() {
             return _rnd.Next(100);
         }
 
         private static void Main() {
+            const int nrThreads = 5000;
+            const int nrTrans = 100000;
             var initialProducts = new List<Product> {
                 new() {
                     Id = 0,
                     Price = 5,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 1,
                     Price = 20,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 2,
                     Price = 2,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 3,
                     Price = 8,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 4,
                     Price = 21,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 5,
                     Price = 120,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 6,
                     Price = 80,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 7,
                     Price = 54,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 8,
                     Price = 41,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 9,
                     Price = 99,
-                    Quantity = 10000
+                    Quantity = ulong.MaxValue
                 },
                 new() {
                     Id = 10,
-                    Price = 0,
-                    Quantity = 10000
+                    Price = 20,
+                    Quantity = ulong.MaxValue
                 }
             };
 
             var service = new SupermarketService(initialProducts);
 
-            var view = new SupermarketView(service);
 
-            var viewThread = new Thread(() => { view.Run(); });
+            var threads = new Thread[nrThreads];
+            for (var i = 0; i < nrThreads; i++) {
+                var i1 = i;
+                threads[i] = new Thread(() => {
+                    for (var j = 0; j < (nrTrans / nrThreads); j++) {
+                        var pq = new Dictionary<uint, uint>();
+                        for (var k = 0; k < _rnd.Next(11); k++) {
+                            var key = (uint) _rnd.Next(11);
+                            while (pq.ContainsKey(key)) {
+                                key = (uint) _rnd.Next(11);
+                            }
+
+                            pq.Add(key, (uint) _rnd.Next(20));
+                        }
+
+                        service.MakeSale(pq);
+                    }
+                });
+            }
+
+            var startTime = DateTime.Now;
+            
+            foreach (var thread in threads) {
+                thread.Start();
+            }
 
             var statisticsThread = new Thread(() => {
-                while (true) {
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
-                    Console.WriteLine("Periodic inventory check:" + (service.CheckInventory()
-                        ? "Inventory is ok!"
-                        : "There is an issue with inventory!"));
-                }
+                do {
+                    Thread.Sleep(TimeSpan.FromSeconds(.1));
+                    if (!service.CheckInventory()) {
+                        Console.WriteLine("There is an issue with inventory!");
+                    }
+                } while (_ok);
             });
 
-            viewThread.Start();
             statisticsThread.Start();
 
-            viewThread.Join();
+            foreach (var thread in threads) {
+                thread.Join();
+            }
+
+            _ok = false;
             statisticsThread.Join();
+
+            var spentTime = DateTime.Now - startTime;
+
+            Console.WriteLine(
+                $"{nrTrans} transactions on {nrThreads} threads done in {spentTime.Milliseconds} ms.");
         }
     }
 }

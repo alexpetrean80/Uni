@@ -1,0 +1,177 @@
+Stack
+((bool a; (int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(bool a | (int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+((int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))))
+SymbolTable
+{ a->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int v | (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))
+SymbolTable
+{ a->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+((a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))
+SymbolTable
+{ a->false,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(a = true | ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))
+SymbolTable
+{ a->false,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+((IF(a) THEN(v = 2) ELSE (v = 3) | print(v))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(v = 2 | print(v))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(print(v))
+SymbolTable
+{ a->true,v->2}
+Output
+[]
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ a->true,v->2}
+Output
+[2]
+FileTable
+{}
+------------Stack
+((bool a; (int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(bool a | (int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+((int v; (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))))
+SymbolTable
+{ a->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int v | (a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))
+SymbolTable
+{ a->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+((a = true; ((IF(a) THEN(v = 2) ELSE (v = 3); print(v))))
+SymbolTable
+{ a->false,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(a = true | ((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))
+SymbolTable
+{ a->false,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(((IF(a) THEN(v = 2) ELSE (v = 3); print(v)))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+((IF(a) THEN(v = 2) ELSE (v = 3) | print(v))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(v = 2 | print(v))
+SymbolTable
+{ a->true,v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(print(v))
+SymbolTable
+{ a->true,v->2}
+Output
+[]
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ a->true,v->2}
+Output
+[2]
+FileTable
+{}
+------------

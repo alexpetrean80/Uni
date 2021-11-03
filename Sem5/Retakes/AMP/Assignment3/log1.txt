@@ -1,0 +1,97 @@
+Stack
+(((int v; v = 2); print(v)))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+((int v; v = 2) | print(v))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int v | v = 2 | print(v))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(v = 2 | print(v))
+SymbolTable
+{ v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(print(v))
+SymbolTable
+{ v->2}
+Output
+[]
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ v->2}
+Output
+[2]
+FileTable
+{}
+------------Stack
+(((int v; v = 2); print(v)))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+((int v; v = 2) | print(v))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int v | v = 2 | print(v))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(v = 2 | print(v))
+SymbolTable
+{ v->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(print(v))
+SymbolTable
+{ v->2}
+Output
+[]
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ v->2}
+Output
+[2]
+FileTable
+{}
+------------

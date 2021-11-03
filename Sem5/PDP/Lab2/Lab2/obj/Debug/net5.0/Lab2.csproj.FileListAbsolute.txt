@@ -1,0 +1,16 @@
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2.deps.json
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2.runtimeconfig.json
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2.runtimeconfig.dev.json
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2.dll
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/ref/Lab2.dll
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/bin/Debug/net5.0/Lab2.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.csproj.AssemblyReference.cache
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.GeneratedMSBuildEditorConfig.editorconfig
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.AssemblyInfoInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.AssemblyInfo.cs
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.csproj.CoreCompileInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.dll
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/ref/Lab2.dll
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab2/Lab2/obj/Debug/net5.0/Lab2.genruntimeconfig.cache

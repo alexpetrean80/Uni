@@ -1,0 +1,36 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:5.0
+    steps:
+      - checkout
+      - run:
+          command: pwd
+      - run:
+          working_directory: ~/project/Brainstorm
+          name: Run tests
+          command: dotnet test
+  build:
+    docker:
+      - image: cimg/base:2020.04
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: Login to docker service
+          command: echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
+      - run:
+          working_directory: ~/project/Brainstorm
+          name: Build docker image
+          command: docker build -t alexpetrean80/brainstorm-backend:$CIRCLE_BRANCH -f ~/project/Brainstorm/Brainstorm.API/Dockerfile .
+      - run: docker push alexpetrean80/brainstorm-backend:$CIRCLE_BRANCH
+
+
+workflows:
+  publish:
+    jobs:
+      - test
+      - build

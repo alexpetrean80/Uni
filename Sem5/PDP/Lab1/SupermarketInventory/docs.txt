@@ -1,0 +1,16 @@
+CPU: Intel Core I7 9850H, 6 cores with 2 threads per core, base clock 2.6GHz, turbo clock up to 4.6GHz, TDP 45W
+RAM: 32GB
+
+Time calculated by running the command "time dotnet run" on each number of threads
+
+100000 transactions on 10 threads done in 3.79s.
+100000 transactions on 100 threads done in 3.59s.
+100000 transactions on 1000 threads done in 4.25s.
+
+100000 transactions on 50 threads done in 3.62s.
+100000 transactions on 500 threads done in 2.71s.
+100000 transactions on 5000 threads done in 3.35s.
+
+100000 transactions on 20 threads done in 3.43s.
+100000 transactions on 200 threads done in 2.22s.
+100000 transactions on 2000 threads done in 2.65s.
