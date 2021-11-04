@@ -8,7 +8,6 @@
 - active people(thumbnails)
 
 # iteration
-- has a title
 - has a goal
 - has comments
 - has a description
@@ -34,6 +33,7 @@
 - can contain other comments
 
 # project
+- name
 - many topics
 
 # user

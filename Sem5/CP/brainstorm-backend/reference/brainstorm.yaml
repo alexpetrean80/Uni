@@ -8,8 +8,8 @@ info:
     email: alex.petrean@stud.ubbcluj.ro
   description: Rest API
 servers:
-  - url: 'http://localhost:5000'
-  - url: 'http://localhost:5001'
+  - url: 'http://localhost:5000/api'
+  - url: 'http://localhost:5001/api'
     description: ''
 paths:
   /AppVersion/version:
@@ -25,6 +25,316 @@ paths:
                 $ref: '#/components/schemas/VersionCode'
       operationId: get-AppVersion-version
       description: Retrieves the version of the app
+  /Auth/login:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-auth-login
+      responses:
+        '200':
+          description: OK
+      description: ''
+      requestBody:
+        $ref: '#/components/requestBodies/Login'
+  /Auth/signup:
+    post:
+      summary: ''
+      operationId: post-auth-signup
+      responses:
+        '200':
+          description: OK
+      description: ''
+      security: []
+      requestBody:
+        $ref: '#/components/requestBodies/Signup'
+    parameters: []
+  '/User/{userId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      operationId: get-user
+      parameters: []
+    put:
+      summary: ''
+      operationId: put-user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      parameters:
+        - schema:
+            type: string
+          in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+  /Org:
+    post:
+      summary: ''
+      operationId: post-org
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+      requestBody:
+        $ref: '#/components/requestBodies/Organization'
+    parameters: []
+  '/Org/{orgId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+      operationId: get-org
+    put:
+      summary: ''
+      operationId: put-org
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+      requestBody:
+        $ref: '#/components/requestBodies/Organization'
+    delete:
+      summary: ''
+      operationId: delete-org
+      responses:
+        '202':
+          description: Accepted
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+  '/Org/{orgId}/users':
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-org-orgId-users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+  '/Org/{orgId}/user/{userId}':
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '204':
+          description: No Content
+      operationId: get-org-orgId-user-userId
+    post:
+      summary: ''
+      operationId: post-org-orgId-user-userId
+      responses:
+        '201':
+          description: Created
+    delete:
+      summary: ''
+      operationId: delete-org-orgId-user-userId
+      responses:
+        '202':
+          description: Accepted
+  '/Org/{orgId}/project':
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-org-orgId-project
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+  '/Org/{orgId}/projects':
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectId'
+      operationId: get-org-orgId-projects
+  '/Org/{orgId}/project/{projectId}':
+    parameters:
+      - schema:
+          type: string
+        name: orgId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: projectId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '204':
+          description: No Content
+      operationId: get-Org-orgId-project-projectId
+  '/Project/{projectId}':
+    parameters:
+      - schema:
+          type: string
+        name: projectId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+      operationId: get-org-orgId-project-projectId
+    put:
+      summary: ''
+      operationId: put-Org-orgId-project-projectId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+      requestBody:
+        $ref: '#/components/requestBodies/Project'
+    delete:
+      summary: ''
+      operationId: delete-Org-orgId-project-projectId
+      responses:
+        '202':
+          description: Accepted
+  '/Project/{projectId}/topics':
+    parameters:
+      - schema:
+          type: string
+        name: projectId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopicSummary'
+      operationId: get-Project-projectId-topics
+  '/Project/{projectId}/topic':
+    parameters:
+      - schema:
+          type: string
+        name: projectId
+        in: path
+        required: true
+    post:
+      summary: ''
+      operationId: post-Project-projectId-topic
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+      requestBody:
+        $ref: '#/components/requestBodies/Topic'
+  '/Topic/{topicId}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-Topic-topicId
+    parameters:
+      - schema:
+          type: string
+        name: topicId
+        in: path
+        required: true
 components:
   schemas:
     VersionCode:
@@ -40,3 +350,228 @@ components:
           readOnly: true
       required:
         - version
+      x-internal: false
+    UserId:
+      type: string
+      title: UserId
+      readOnly: true
+    User:
+      title: User
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          readOnly: true
+        profilePic:
+          oneOf:
+            - type: string
+              properties: {}
+            - type: 'null'
+              properties: {}
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - profilePic
+    OrgId:
+      type: string
+      title: OrgId
+      readOnly: true
+    Organization:
+      title: Organization
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/OrgId'
+        name:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserId'
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectId'
+        logo:
+          oneOf:
+            - type: string
+              properties: {}
+            - properties: {}
+              type: 'null'
+      required:
+        - id
+        - name
+        - users
+        - projects
+    ProjectId:
+      type: string
+      title: ProjectId
+      readOnly: true
+    ProjectSummary:
+      title: ProjectSummary
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/ProjectId'
+        name:
+          type: string
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicSummary'
+          readOnly: true
+    Project:
+      title: Project
+      allOf:
+        - $ref: '#/components/schemas/ProjectSummary'
+        - type: object
+    TopicId:
+      type: string
+      title: TopicId
+      readOnly: true
+    TopicSummary:
+      title: TopicSummary
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/TopicId'
+        summary:
+          type: string
+        proposer:
+          $ref: '#/components/schemas/UserId'
+    Topic:
+      title: Topic
+      allOf:
+        - $ref: '#/components/schemas/TopicSummary'
+        - type: object
+          properties:
+            '':
+              type: string
+    IterationId:
+      title: IterationId
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+      required:
+        - id
+    Iteration:
+      title: Iteration
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/IterationId'
+        goal:
+          type: string
+        description:
+          type: string
+        files:
+          type: array
+          items:
+            type: string
+        comments:
+          $ref: '#/components/schemas/CommentSectionId'
+        deadline:
+          type: string
+          format: date-time
+        timeline:
+          $ref: '#/components/schemas/Timeline'
+    CommentSectionId:
+      title: Comment
+      type: object
+      properties:
+        id:
+          type: string
+    Timeline:
+      title: Proposal
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/Proposal'
+              - $ref: '#/components/schemas/Event'
+    Proposal:
+      title: Proposal
+      type: object
+      properties:
+        id:
+          type: string
+    Event:
+      title: Event
+      type: object
+      properties:
+        id:
+          type: string
+  securitySchemes:
+    simpleauth:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+  requestBodies:
+    Signup:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+            required:
+              - firstName
+              - lastName
+              - email
+              - password
+          examples: {}
+    Login:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+    Organization:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Organization'
+    UserId:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserId'
+    Project:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Project'
+    Topic:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Topic'
+security:
+  - simpleauth: []
