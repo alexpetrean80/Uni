@@ -1,0 +1,16 @@
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.exe
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.deps.json
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.runtimeconfig.json
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.runtimeconfig.dev.json
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.dll
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ref\ThreadPool1.dll
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\bin\Debug\net5.0\ThreadPool1.pdb
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.csproj.AssemblyReference.cache
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.AssemblyInfoInputs.cache
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.AssemblyInfo.cs
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.dll
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ref\ThreadPool1.dll
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.pdb
+C:\Users\Alex\Uni\Sem5\PDP\Lab3\Lab3\ThreadPool1\obj\Debug\net5.0\ThreadPool1.genruntimeconfig.cache

@@ -1,8 +1,8 @@
 package exception;
 
-public class UnknownKeyException extends MyException{
+public class UnknownKeyException extends CustomException {
 
     public UnknownKeyException(){
-        super("Unkown key.");
+        super("Unknown key.");
     }
 }

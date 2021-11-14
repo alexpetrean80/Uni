@@ -1,6 +1,5 @@
 package model.expression;
 
-import exception.DivisionByZeroException;
 import exception.UnknownOperatorException;
 import model.adt.IDictionary;
 import model.value.Value;

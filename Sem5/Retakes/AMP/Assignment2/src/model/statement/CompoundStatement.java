@@ -28,7 +28,7 @@ public class CompoundStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        var executionStack = programState.getExecutionStack();
 
         executionStack.push(this.rightStatement);
         executionStack.push(this.leftStatement);

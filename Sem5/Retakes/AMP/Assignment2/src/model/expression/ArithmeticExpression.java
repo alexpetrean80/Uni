@@ -38,8 +38,8 @@ public class ArithmeticExpression implements Expression{
                         Value.toInteger(this.rightExpression.evaluate(symbolTable)));
             }
             case '/' -> {
-                int leftNumber = Value.toInteger(this.leftExpression.evaluate(symbolTable));
-                int rightNumber = Value.toInteger(this.rightExpression.evaluate(symbolTable));
+                var leftNumber = Value.toInteger(this.leftExpression.evaluate(symbolTable));
+                var rightNumber = Value.toInteger(this.rightExpression.evaluate(symbolTable));
                 if (rightNumber == 0){
                     throw new DivisionByZeroException();
                 }

@@ -1,6 +1,6 @@
 package exception;
 
-public class DivisionByZeroException extends MyException{
+public class DivisionByZeroException extends CustomException {
 
     public DivisionByZeroException() {
         super("Division by zero!");

@@ -24,12 +24,12 @@ public class TextMenu {
     }
 
     public void show(){
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
         while(true){
             printMenu();
             System.out.println("Choose an option");
-            String key = scanner.nextLine();
-            Command command = commandsMap.get(key);
+            var key = scanner.nextLine();
+            var command = commandsMap.get(key);
             if (command == null){
                 System.out.println("Invalid option!");
                 continue;

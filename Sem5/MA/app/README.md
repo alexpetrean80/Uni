@@ -1,9 +1,3 @@
-# Note taking app
-1. Create a note
-2. Update a note
-3. Delete a note
-4. Show all notes
-5. Fetch all notes from repo
 Change log
 
 01 Create project

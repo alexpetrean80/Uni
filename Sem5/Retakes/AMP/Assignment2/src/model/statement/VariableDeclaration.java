@@ -1,14 +1,8 @@
 package model.statement;
 
 import exception.DefinedVariableException;
-import exception.MyException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.type.IntType;
 import model.type.Type;
-import model.value.BoolValue;
-import model.value.IntValue;
-import model.value.Value;
 
 public class VariableDeclaration implements Statement{
     private final String variableName;
@@ -29,7 +23,7 @@ public class VariableDeclaration implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable =  programState.getSymbolTable();
+        var symbolTable =  programState.getSymbolTable();
         if (symbolTable.containsKey(variableName)) {
             throw new DefinedVariableException(this.variableName);
         }

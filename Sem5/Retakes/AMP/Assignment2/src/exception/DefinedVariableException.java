@@ -1,8 +1,7 @@
 package exception;
 
-public class DefinedVariableException extends MyException{
-
-    public DefinedVariableException(String variableName){
-        super("Variable " + variableName + " is already declared");
-    }
+public class DefinedVariableException extends CustomException {
+	public DefinedVariableException(String variableName) {
+		super("Variable " + variableName + " already declared");
+	}
 }
