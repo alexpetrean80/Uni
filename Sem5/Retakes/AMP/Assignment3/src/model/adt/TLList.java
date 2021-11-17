@@ -1,15 +1,15 @@
 package model.adt;
 
-import exception.MyException;
+import exception.CustomException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyList<T> implements IList<T> {
+public class TLList<T> implements IList<T> {
 
     private final List<T> list;
 
-    public MyList(){
+    public TLList(){
         this.list = new ArrayList<T>();
     }
 
@@ -25,8 +25,13 @@ public class MyList<T> implements IList<T> {
 
     public T get(int index){
         if (this.list.isEmpty())
-            throw new MyException("The list is empty!");
+            throw new CustomException("The list is empty!");
         return this.list.get(index);
+    }
+
+    @Override
+    public int length() {
+        return list.size();
     }
 
     public String toString(){

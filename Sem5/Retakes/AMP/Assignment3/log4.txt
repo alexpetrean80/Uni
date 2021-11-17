@@ -1,5 +1,5 @@
 Stack
-(((int a; (int b; (int c; (bool d; (a = 6; (b = 0; (c = 9; d = false))))))); (IF(d) THEN(print(a / b)) ELSE (print(c / b))))
+(((IF(b > a) THEN(print(a / b)) ELSE (print(c / b)) | d = false | c = 9 | b = 3 | a = 6 | bool d | int c | int b | int a))
 SymbolTable
 {}
 Output
@@ -7,7 +7,7 @@ Output
 FileTable
 {}
 ------------Stack
-((int a; (int b; (int c; (bool d; (a = 6; (b = 0; (c = 9; d = false))))))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(int a | int b | int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 {}
 Output
@@ -15,15 +15,7 @@ Output
 FileTable
 {}
 ------------Stack
-(int a | (int b; (int c; (bool d; (a = 6; (b = 0; (c = 9; d = false)))))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{}
-Output
-[]
-FileTable
-{}
-------------Stack
-((int b; (int c; (bool d; (a = 6; (b = 0; (c = 9; d = false)))))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(int b | int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 { a->0}
 Output
@@ -31,15 +23,7 @@ Output
 FileTable
 {}
 ------------Stack
-(int b | (int c; (bool d; (a = 6; (b = 0; (c = 9; d = false))))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->0}
-Output
-[]
-FileTable
-{}
-------------Stack
-((int c; (bool d; (a = 6; (b = 0; (c = 9; d = false))))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 { a->0,b->0}
 Output
@@ -47,15 +31,7 @@ Output
 FileTable
 {}
 ------------Stack
-(int c | (bool d; (a = 6; (b = 0; (c = 9; d = false)))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->0,b->0}
-Output
-[]
-FileTable
-{}
-------------Stack
-((bool d; (a = 6; (b = 0; (c = 9; d = false)))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 { a->0,b->0,c->0}
 Output
@@ -63,15 +39,7 @@ Output
 FileTable
 {}
 ------------Stack
-(bool d | (a = 6; (b = 0; (c = 9; d = false))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->0,b->0,c->0}
-Output
-[]
-FileTable
-{}
-------------Stack
-((a = 6; (b = 0; (c = 9; d = false))) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 { a->0,b->0,c->0,d->false}
 Output
@@ -79,15 +47,7 @@ Output
 FileTable
 {}
 ------------Stack
-(a = 6 | (b = 0; (c = 9; d = false)) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->0,b->0,c->0,d->false}
-Output
-[]
-FileTable
-{}
-------------Stack
-((b = 0; (c = 9; d = false)) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
 { a->6,b->0,c->0,d->false}
 Output
@@ -95,41 +55,25 @@ Output
 FileTable
 {}
 ------------Stack
-(b = 0 | (c = 9; d = false) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
-{ a->6,b->0,c->0,d->false}
+{ a->6,b->3,c->0,d->false}
 Output
 []
 FileTable
 {}
 ------------Stack
-((c = 9; d = false) | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+(d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
-{ a->6,b->0,c->0,d->false}
+{ a->6,b->3,c->9,d->false}
 Output
 []
 FileTable
 {}
 ------------Stack
-(c = 9 | d = false | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
+((IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
 SymbolTable
-{ a->6,b->0,c->0,d->false}
-Output
-[]
-FileTable
-{}
-------------Stack
-(d = false | (IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->6,b->0,c->9,d->false}
-Output
-[]
-FileTable
-{}
-------------Stack
-((IF(d) THEN(print(a / b)) ELSE (print(c / b)))
-SymbolTable
-{ a->6,b->0,c->9,d->false}
+{ a->6,b->3,c->9,d->false}
 Output
 []
 FileTable
@@ -137,9 +81,113 @@ FileTable
 ------------Stack
 (print(c / b))
 SymbolTable
-{ a->6,b->0,c->9,d->false}
+{ a->6,b->3,c->9,d->false}
 Output
 []
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ a->6,b->3,c->9,d->false}
+Output
+[3]
+FileTable
+{}
+------------Stack
+(((IF(b > a) THEN(print(a / b)) ELSE (print(c / b)) | d = false | c = 9 | b = 3 | a = 6 | bool d | int c | int b | int a))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int a | int b | int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int b | int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int c | bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->0,b->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(bool d | a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->0,b->0,c->0}
+Output
+[]
+FileTable
+{}
+------------Stack
+(a = 6 | b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->0,b->0,c->0,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(b = 3 | c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->6,b->0,c->0,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(c = 9 | d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->6,b->3,c->0,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(d = false | (IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->6,b->3,c->9,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+((IF(b > a) THEN(print(a / b)) ELSE (print(c / b)))
+SymbolTable
+{ a->6,b->3,c->9,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+(print(c / b))
+SymbolTable
+{ a->6,b->3,c->9,d->false}
+Output
+[]
+FileTable
+{}
+------------Stack
+()
+SymbolTable
+{ a->6,b->3,c->9,d->false}
+Output
+[3]
 FileTable
 {}
 ------------

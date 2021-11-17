@@ -41,8 +41,8 @@ public class IfStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> stack = programState.getExecutionStack();
-        Value condition = this.expression.evaluate(programState.getSymbolTable());
+        var stack = programState.getExecutionStack();
+        var condition = this.expression.evaluate(programState.getSymbolTable());
         if (!(condition.getType() instanceof BoolType))
             throw new NotBooleanException();
         if (toBoolean(condition))

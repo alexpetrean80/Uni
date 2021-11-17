@@ -19,8 +19,8 @@ public class PrintStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IList<Value> output = programState.getOutput();
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
+        var output = programState.getOutput();
+        var symbolTable = programState.getSymbolTable();
 
         output.addToEnd(this.expression.evaluate(symbolTable));
 

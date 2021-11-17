@@ -5,4 +5,6 @@ public interface IStack<T> {
     void push(T element);
     T top();
     boolean isEmpty();
+
+    IStack<T> deepCopy();
 }

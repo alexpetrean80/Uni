@@ -6,15 +6,15 @@ import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Deque;
 
-public class MyStack<T> implements IStack<T> {
+public class TLStack<T> implements IStack<T> {
 
     private final Deque<T> stack;
 
-    public MyStack(Collection<T> initStack){
+    public TLStack(Collection<T> initStack) {
         this.stack = new ArrayDeque<T>(initStack);
     }
 
-    public MyStack(){
+    public TLStack() {
         this.stack = new ArrayDeque<>();
     }
 
@@ -38,18 +38,25 @@ public class MyStack<T> implements IStack<T> {
     }
 
     @Override
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.stack.isEmpty();
     }
 
     @Override
-    public String toString(){
-       StringBuilder output = new StringBuilder();
+    public IStack<T> deepCopy() {
+        var s = new TLStack<T>();
+        stack.stream().forEach(e -> s.push(e));
+        return s;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
 
         output.append("(");
         for (T elem : this.stack) {
             output.append(elem.toString());
-            if(!(elem.equals(this.stack.getLast())))
+            if (!(elem.equals(this.stack.getLast())))
                 output.append(" | ");
         }
         output.append(")");

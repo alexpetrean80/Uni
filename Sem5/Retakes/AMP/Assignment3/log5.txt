@@ -1,0 +1,89 @@
+Stack
+((close varf | print(varc) | read form varf into varc) | print(varc) | read form varf into varc) | int varc | open ( varf ) | varf = test.in | string varf))
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(string varf | varf = test.in | open ( varf ) | int varc | read form varf into varc) | print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{}
+Output
+[]
+FileTable
+{}
+------------Stack
+(varf = test.in | open ( varf ) | int varc | read form varf into varc) | print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->}
+Output
+[]
+FileTable
+{}
+------------Stack
+(open ( varf ) | int varc | read form varf into varc) | print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->test.in}
+Output
+[]
+FileTable
+{}
+------------Stack
+(int varc | read form varf into varc) | print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->test.in}
+Output
+[]
+FileTable
+{ test.in}
+------------Stack
+(read form varf into varc) | print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->test.in,varc->0}
+Output
+[]
+FileTable
+{ test.in}
+------------Stack
+(print(varc) | read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->test.in,varc->1}
+Output
+[]
+FileTable
+{ test.in}
+------------Stack
+(read form varf into varc) | print(varc) | close varf)
+SymbolTable
+{ varf->test.in,varc->1}
+Output
+[1]
+FileTable
+{ test.in}
+------------Stack
+(print(varc) | close varf)
+SymbolTable
+{ varf->test.in,varc->2}
+Output
+[1]
+FileTable
+{ test.in}
+------------Stack
+(close varf)
+SymbolTable
+{ varf->test.in,varc->2}
+Output
+[1,2]
+FileTable
+{ test.in}
+------------Stack
+()
+SymbolTable
+{ varf->test.in,varc->2}
+Output
+[1,2]
+FileTable
+{}
+------------

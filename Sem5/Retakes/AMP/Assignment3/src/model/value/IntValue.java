@@ -29,12 +29,12 @@ public class IntValue extends Value {
         return String.valueOf(this.value);
     }
 
-    public boolean equals(Object otherObject){
-        if (this == otherObject)
+    public boolean equals(Object other){
+        if (this == other)
             return true;
-        if (otherObject == null || getClass() != otherObject.getClass())
+        if (other == null || getClass() != other.getClass())
             return false;
-        IntValue that = (IntValue)otherObject;
+        var that = (IntValue)other;
         return value == that.value;
     }
 }

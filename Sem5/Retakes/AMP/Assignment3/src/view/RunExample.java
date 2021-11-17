@@ -1,7 +1,7 @@
 package view;
 
 import controller.Controller;
-import exception.MyException;
+import exception.CustomException;
 
 public class RunExample extends Command{
 
@@ -18,7 +18,7 @@ public class RunExample extends Command{
         try{
             this.controller.allStepsExecution();
         }
-        catch (MyException exception){
+        catch (CustomException exception){
             System.out.println(exception.getMessage());
         }
     }

@@ -1,16 +1,16 @@
 package model.adt;
 
-import exception.MyException;
+import exception.CustomException;
 import exception.UnknownKeyException;
 
 import java.io.BufferedReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyDictionary<K, V> implements IDictionary<K, V> {
+public class TLDict<K, V> implements IDictionary<K, V> {
     private final Map<K, V> map;
 
-    public MyDictionary(){
+    public TLDict(){
         this.map = new HashMap<K, V>();
     }
 
@@ -48,7 +48,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     @Override
     public void remove(K key){
         if (!(this.containsKey(key))){
-            throw new MyException("The key is not in the dictionary,");
+            throw new CustomException("The key is not in the dictionary,");
         }
         this.map.remove(key);
     }

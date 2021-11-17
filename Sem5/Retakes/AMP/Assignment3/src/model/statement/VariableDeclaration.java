@@ -25,7 +25,7 @@ public class VariableDeclaration implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable =  programState.getSymbolTable();
+        var symbolTable =  programState.getSymbolTable();
         if (symbolTable.containsKey(variableName)) {
             throw new DefinedVariableException(this.variableName);
         }

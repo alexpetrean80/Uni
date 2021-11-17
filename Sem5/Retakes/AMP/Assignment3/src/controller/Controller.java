@@ -14,16 +14,16 @@ public class Controller {
     }
 
     public ProgramState oneStepExecution(ProgramState programState){
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        var executionStack = programState.getExecutionStack();
         if (executionStack.isEmpty()){
             throw new EmptyStackException("The execution stack is empty");
         }
-        Statement currentStatement = executionStack.pop();
+        var currentStatement = executionStack.pop();
         return currentStatement.execute(programState);
     }
 
     public void allStepsExecution(){
-        ProgramState programState = this.repository.getCurrentProgramState();
+        var programState = this.repository.getCurrentProgramState();
         this.repository.logProgramStateExecution();
 
         while(!programState.getExecutionStack().isEmpty()){

@@ -3,7 +3,7 @@ package model;
 import model.adt.IDictionary;
 import model.adt.IList;
 import model.adt.IStack;
-import model.adt.MyDictionary;
+import model.adt.TLDict;
 import model.statement.Statement;
 import model.value.StringValue;
 import model.value.Value;
@@ -19,7 +19,7 @@ public class ProgramState {
     private final IDictionary<StringValue, BufferedReader> fileTable;
 
     public ProgramState(IStack<Statement> executionStack, IDictionary<String, Value> symbolTable, IList<Value> output,
-                        Statement originalProgram, MyDictionary<StringValue, BufferedReader> fileTable){
+                        Statement originalProgram, TLDict<StringValue, BufferedReader> fileTable){
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
         this.output = output;

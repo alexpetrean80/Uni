@@ -34,14 +34,14 @@ public class AssignmentStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> stack = programState.getExecutionStack();
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
+        var stack = programState.getExecutionStack();
+        var symbolTable = programState.getSymbolTable();
 
         if (!(symbolTable.containsKey(this.variableName)))
             throw new VariableUndefinedException(this.variableName);
 
-        Type variableType = symbolTable.lookUp(this.variableName).getType();
-        Value value = this.expression.evaluate(symbolTable);
+        var variableType = symbolTable.lookUp(this.variableName).getType();
+        var value = this.expression.evaluate(symbolTable);
 
         if (!(value.getType().equals(variableType)))
             throw new WrongTypeException("The type for" + this.variableName + " is not ok.");

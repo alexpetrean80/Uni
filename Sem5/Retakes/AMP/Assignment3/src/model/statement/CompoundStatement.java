@@ -5,39 +5,31 @@ import model.adt.IStack;
 
 public class CompoundStatement implements Statement {
 
-    private final Statement leftStatement;
-    private final Statement rightStatement;
+    private final IStack<Statement> statements;
 
-    public CompoundStatement(Statement leftStatement, Statement rightStatement){
-        this.leftStatement = leftStatement;
-        this.rightStatement = rightStatement;
-    }
-
-    public Statement getLeftStatement() {
-        return leftStatement;
-    }
-
-    public Statement getRightStatement() {
-        return rightStatement;
-    }
-
-    @Override
-    public String toString(){
-        return "(" + this.leftStatement.toString() + "; " + this.rightStatement.toString() + ')';
+    public CompoundStatement(IStack<Statement> statements) {
+        this.statements = statements;
     }
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        var executionStack = programState.getExecutionStack();
 
-        executionStack.push(this.rightStatement);
-        executionStack.push(this.leftStatement);
+        while (!statements.isEmpty()) {
+            executionStack.push(statements.pop());
+        }
 
         return programState;
     }
 
     @Override
     public Statement deepCopy() {
-        return new CompoundStatement(this.leftStatement.deepCopy(), this.rightStatement.deepCopy());
+        return new CompoundStatement(statements.deepCopy());
     }
+
+    @Override
+    public String toString() {
+        return this.statements.toString();
+    }
+
 }

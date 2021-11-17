@@ -31,12 +31,12 @@ public class BoolValue extends Value {
     }
 
     @Override
-    public boolean equals(Object otherObject){
-        if (this == otherObject)
+    public boolean equals(Object other){
+        if (this == other)
             return true;
-        if (otherObject == null || getClass() != otherObject.getClass())
+        if (other == null || getClass() != other.getClass())
             return false;
-        BoolValue that = (BoolValue)otherObject;
+        var that = (BoolValue)other;
         return Objects.equals(value, that.value);
     }
 }

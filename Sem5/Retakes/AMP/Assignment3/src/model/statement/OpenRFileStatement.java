@@ -1,6 +1,6 @@
 package model.statement;
 
-import exception.MyException;
+import exception.CustomException;
 import exception.WrongTypeException;
 import model.ProgramState;
 import model.adt.IDictionary;
@@ -12,12 +12,13 @@ import model.value.Value;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
-public class OpenRFileStatement implements Statement{
+public class OpenRFileStatement implements Statement {
 
     private final Expression expression;
 
-    public OpenRFileStatement(Expression expression){
+    public OpenRFileStatement(Expression expression) {
         this.expression = expression;
     }
 
@@ -27,27 +28,26 @@ public class OpenRFileStatement implements Statement{
 
 
     @Override
-    public ProgramState execute(ProgramState programState){
-        IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
+    public ProgramState execute(ProgramState programState) {
+        var fileTable = programState.getFileTable();
+        var symbolTable = programState.getSymbolTable();
 
-        Value valueOfExpression = this.expression.evaluate(symbolTable);
+        var valueOfExpression = this.expression.evaluate(symbolTable);
 
-        if (!(valueOfExpression.getType().equals(new StringType ()))){
-            throw  new WrongTypeException("This expression is not a string type.");
+        if (!(valueOfExpression.getType().equals(new StringType()))) {
+            throw new WrongTypeException("This expression is not a string type.");
         }
 
-        StringValue stringValueOfExpression = (StringValue)valueOfExpression;
-        if (fileTable.containsKey(stringValueOfExpression)){
-            throw new MyException("File is already opened.");
+        var stringValueOfExpression = (StringValue) valueOfExpression;
+        if (fileTable.containsKey(stringValueOfExpression)) {
+            throw new CustomException("File is already opened.");
         }
 
-        try{
-            BufferedReader myReader = new BufferedReader(new FileReader(stringValueOfExpression.getValue()));
+        try {
+            var myReader = new BufferedReader(new FileReader(stringValueOfExpression.getValue()));
             fileTable.update(stringValueOfExpression, myReader);
-        }
-        catch (FileNotFoundException exception){
-            throw new MyException("File not found!");
+        } catch (FileNotFoundException exception) {
+            throw new CustomException("File not found!");
         }
 
         return programState;
@@ -59,7 +59,7 @@ public class OpenRFileStatement implements Statement{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "open ( " + this.expression + " )";
     }
 }

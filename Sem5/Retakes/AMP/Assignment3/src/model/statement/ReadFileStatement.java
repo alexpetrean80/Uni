@@ -1,6 +1,6 @@
 package model.statement;
 
-import exception.MyException;
+import exception.CustomException;
 import exception.UndefinedVariableException;
 import exception.WrongTypeException;
 import model.ProgramState;
@@ -15,51 +15,49 @@ import model.value.Value;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ReadFileStatement implements Statement{
+public class ReadFileStatement implements Statement {
 
     private final Expression expression;
     private final String variableName;
 
-    public ReadFileStatement(Expression expression, String variableName){
+    public ReadFileStatement(Expression expression, String variableName) {
         this.expression = expression;
         this.variableName = variableName;
     }
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
+        var symbolTable = programState.getSymbolTable();
 
-        if (!(symbolTable.containsKey(this.variableName))){
+        if (!(symbolTable.containsKey(this.variableName))) {
             throw new UndefinedVariableException("Variable name is not defined.");
         }
 
-        if (!(symbolTable.lookUp(this.variableName).getType().equals(new IntType()))){
+        if (!(symbolTable.lookUp(this.variableName).getType().equals(new IntType()))) {
             throw new WrongTypeException("Variable it doesn't have int type.");
         }
 
-        Value value = this.expression.evaluate(symbolTable);
-        if (!(value.getType().equals(new StringType()))){
+        var value = this.expression.evaluate(symbolTable);
+        if (!(value.getType().equals(new StringType()))) {
             throw new WrongTypeException("Variable is not a string type.");
         }
 
-        StringValue stringValue = (StringValue)value;
+        var stringValue = (StringValue) value;
 
-        IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
-        if (!(fileTable.containsKey(stringValue))){
+        var fileTable = programState.getFileTable();
+        if (!(fileTable.containsKey(stringValue))) {
             throw new UndefinedVariableException("The string value is not in the file table.");
         }
-
+        var bufferedReader = fileTable.lookUp(stringValue);
         try {
-            BufferedReader bufferedReader = fileTable.lookUp(stringValue);
-            String line = bufferedReader.readLine();
-            IntValue readValue = new IntValue(0);
-            if (!(line == null)){
+            var line = bufferedReader.readLine();
+            var readValue = new IntValue(0);
+            if (!(line == null)) {
                 readValue = new IntValue(Integer.parseInt(line));
             }
             symbolTable.update(this.variableName, readValue);
-        }
-        catch (IOException except){
-            throw new MyException(except.getMessage());
+        } catch (IOException except) {
+            throw new CustomException(except.getMessage());
         }
         return programState;
     }
@@ -70,7 +68,7 @@ public class ReadFileStatement implements Statement{
     }
 
     @Override
-    public String toString(){
-        return "read form " + this.expression.toString() + " into " + this.variableName +  ")";
+    public String toString() {
+        return "read form " + this.expression.toString() + " into " + this.variableName + ")";
     }
 }

@@ -18,7 +18,7 @@ public class VariableExpression implements Expression{
 
     @Override
     public Value evaluate(IDictionary<String, Value> symbolTable) {
-        Value value = symbolTable.lookUp(this.variableName);
+        var value = symbolTable.lookUp(this.variableName);
         if (value == null)
             throw new VariableUndefinedException(this.variableName);
         return value;

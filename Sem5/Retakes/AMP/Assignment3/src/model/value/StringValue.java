@@ -31,12 +31,12 @@ public class StringValue extends Value{
         return this.value;
     }
 
-    public boolean equals(Object otherObject){
-        if (this == otherObject)
+    public boolean equals(Object other){
+        if (this == other)
             return true;
-        if (otherObject == null || getClass() != otherObject.getClass())
+        if (other == null || getClass() != other.getClass())
             return false;
-        StringValue stringValue = (StringValue)otherObject;
+        var stringValue = (StringValue)other;
         return Objects.equals(this.value, stringValue.value);
     }
 }
