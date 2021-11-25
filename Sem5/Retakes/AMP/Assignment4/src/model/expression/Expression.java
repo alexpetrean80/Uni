@@ -6,5 +6,6 @@ import model.value.Value;
 
 public interface Expression {
     Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap);
+
     Expression deepCopy();
 }

@@ -10,7 +10,7 @@ import model.value.Value;
 public class PrintStatement implements Statement {
     private final Expression expression;
 
-    public PrintStatement(Expression expression){
+    public PrintStatement(Expression expression) {
         this.expression = expression;
     }
 
@@ -35,7 +35,7 @@ public class PrintStatement implements Statement {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "print(" + this.expression.toString() + ")";
     }
 

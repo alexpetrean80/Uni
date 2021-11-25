@@ -10,13 +10,12 @@ import model.value.StringValue;
 import model.value.Value;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class CloseRFileStatement implements Statement{
+public class CloseRFileStatement implements Statement {
     private final Expression expression;
 
-    public CloseRFileStatement(Expression expression){
+    public CloseRFileStatement(Expression expression) {
         this.expression = expression;
     }
 
@@ -26,22 +25,21 @@ public class CloseRFileStatement implements Statement{
         IHeap<Value> heap = programState.getHeap();
 
         Value expressionValue = this.expression.evaluate(symbolTable, heap);
-        if (!(expressionValue.getType().equals(new StringType()))){
+        if (!(expressionValue.getType().equals(new StringType()))) {
             throw new MyException("The value is not a string type");
         }
         IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
-        StringValue stringValue = (StringValue)expressionValue;
+        StringValue stringValue = (StringValue) expressionValue;
 
-        if (!(fileTable.containsKey(stringValue))){
+        if (!(fileTable.containsKey(stringValue))) {
             throw new MyException("The value is not in the file table.");
         }
 
         BufferedReader bufferedReader = fileTable.lookUp(stringValue);
-        try{
+        try {
             bufferedReader.close();
             fileTable.remove(stringValue);
-        }
-        catch (IOException exept){
+        } catch (IOException exept) {
             throw new MyException(exept.getMessage());
         }
 
@@ -55,7 +53,7 @@ public class CloseRFileStatement implements Statement{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "close " + this.expression.toString();
     }
 }

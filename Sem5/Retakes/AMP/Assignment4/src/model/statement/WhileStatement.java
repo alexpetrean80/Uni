@@ -2,14 +2,11 @@ package model.statement;
 
 import exception.NotBooleanException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IStack;
 import model.expression.Expression;
 import model.value.BoolValue;
 import model.value.Value;
 
-public class WhileStatement implements Statement{
+public class WhileStatement implements Statement {
 
     private final Expression expression;
     private final Statement statement;
@@ -23,25 +20,25 @@ public class WhileStatement implements Statement{
         return expression;
     }
 
-    public Statement getStatement(){
+    public Statement getStatement() {
         return this.statement;
     }
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        var symbolTable = programState.getSymbolTable();
+        var heap = programState.getHeap();
+        var executionStack = programState.getExecutionStack();
 
-        Value expressionValue = this.expression.evaluate(symbolTable, heap);
+        var expressionValue = this.expression.evaluate(symbolTable, heap);
 
-        if (!(expressionValue instanceof BoolValue)){
+        if (!(expressionValue instanceof BoolValue)) {
             throw new NotBooleanException();
         }
 
-        if (Value.toBoolean(expressionValue)){
+        if (Value.toBoolean(expressionValue)) {
             executionStack.push(this);
-            executionStack.push(this.statement);
+            executionStack.push(this.statement.deepCopy()); // DO NOT REMOVE DEEPCOPY
         }
         return null;
     }
@@ -53,6 +50,6 @@ public class WhileStatement implements Statement{
 
     @Override
     public String toString() {
-        return "(while (" +  this.expression + ")" + this.statement + ")";
+        return "(while (" + this.expression + ")" + this.statement + ")";
     }
 }

@@ -3,11 +3,11 @@ package view;
 import controller.Controller;
 import exception.MyException;
 
-public class RunExample extends Command{
+public class RunExample extends Command {
 
     private final Controller controller;
 
-    public RunExample(String key, String description, Controller controller){
+    public RunExample(String key, String description, Controller controller) {
         super(key, description);
         this.controller = controller;
     }
@@ -15,10 +15,9 @@ public class RunExample extends Command{
 
     @Override
     public void execute() {
-        try{
+        try {
             this.controller.allStepsExecution();
-        }
-        catch (MyException exception){
+        } catch (MyException exception) {
             System.out.println(exception.getMessage());
         }
     }

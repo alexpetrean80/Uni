@@ -11,7 +11,7 @@ import model.type.RefType;
 import model.value.RefValue;
 import model.value.Value;
 
-public class HeapWritingStatement implements Statement{
+public class HeapWritingStatement implements Statement {
 
     private final String variableName;
     private final Expression expression;
@@ -34,23 +34,23 @@ public class HeapWritingStatement implements Statement{
         IDictionary<String, Value> symbolTable = programState.getSymbolTable();
         IHeap<Value> heap = programState.getHeap();
 
-        if (!(symbolTable.containsKey(this.variableName))){
+        if (!(symbolTable.containsKey(this.variableName))) {
             throw new VariableUndefinedException(this.variableName);
         }
 
         Value heapAddress = symbolTable.lookUp(this.variableName);
 
-        if (!(heapAddress.getType() instanceof RefType)){
+        if (!(heapAddress.getType() instanceof RefType)) {
             throw new WrongTypeException("Variable should have RefType.");
         }
 
-        if (!(heap.containsKey(((RefValue) heapAddress).getAddress()))){
+        if (!(heap.containsKey(((RefValue) heapAddress).getAddress()))) {
             throw new AddressUndefinedException("Address is not in the heap.");
         }
 
         Value expressionValue = this.expression.evaluate(symbolTable, heap);
 
-        if (!(expressionValue.getType().equals(((RefValue) heapAddress).getLocationType()))){
+        if (!(expressionValue.getType().equals(((RefValue) heapAddress).getLocationType()))) {
             throw new WrongTypeException("The expression doesn't have the good type.");
         }
 

@@ -6,9 +6,9 @@ import model.adt.IHeap;
 import model.value.RefValue;
 import model.value.Value;
 
-public class HeapReadingExpression implements Expression{
+public class HeapReadingExpression implements Expression {
 
-      private final Expression expression;
+    private final Expression expression;
 
     public HeapReadingExpression(Expression expression) {
         this.expression = expression;
@@ -23,7 +23,7 @@ public class HeapReadingExpression implements Expression{
 
         Value expressionValue = this.expression.evaluate(symbolTable, heap);
 
-        if (!(expressionValue instanceof RefValue)){
+        if (!(expressionValue instanceof RefValue)) {
             throw new MyException("The expression value is not RefValue.");
         }
 

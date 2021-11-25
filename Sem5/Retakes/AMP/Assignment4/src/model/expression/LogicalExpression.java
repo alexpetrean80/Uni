@@ -13,27 +13,31 @@ public class LogicalExpression implements Expression {
     private final Expression rightExpr;
     private final String logicalOperator;
 
-    public LogicalExpression(String logicalOperator, Expression leftExpr, Expression rightExpr){
+    public LogicalExpression(String logicalOperator, Expression leftExpr, Expression rightExpr) {
         this.leftExpr = leftExpr;
         this.rightExpr = rightExpr;
         this.logicalOperator = logicalOperator;
     }
 
-    public Expression getLeftExpr() { return this.leftExpr; }
+    public Expression getLeftExpr() {
+        return this.leftExpr;
+    }
 
-    public Expression getRightExpr() { return this.rightExpr; }
+    public Expression getRightExpr() {
+        return this.rightExpr;
+    }
 
-    public String getLogicalOperator() { return this.logicalOperator; }
+    public String getLogicalOperator() {
+        return this.logicalOperator;
+    }
 
     @Override
     public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
-        if (logicalOperator.equals("and")){
+        if (logicalOperator.equals("and")) {
             return fromBoolean(toBoolean(leftExpr.evaluate(symbolTable, heap)) && toBoolean(rightExpr.evaluate(symbolTable, heap)));
-        }
-        else if (logicalOperator.equals("or")){
+        } else if (logicalOperator.equals("or")) {
             return fromBoolean(toBoolean(leftExpr.evaluate(symbolTable, heap)) || toBoolean(rightExpr.evaluate(symbolTable, heap)));
-        }
-        else
+        } else
             throw new UnknownOperatorException("Logical operator unknown.");
     }
 
@@ -44,5 +48,6 @@ public class LogicalExpression implements Expression {
 
     @Override
     public String toString() {
-        return this.leftExpr.toString() + " " + this.logicalOperator + " " + this.rightExpr.toString();}
+        return this.leftExpr.toString() + " " + this.logicalOperator + " " + this.rightExpr.toString();
+    }
 }

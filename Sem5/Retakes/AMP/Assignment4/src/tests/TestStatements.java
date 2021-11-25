@@ -1,24 +1,8 @@
 package tests;
 
-import model.ProgramState;
-import model.adt.*;
-import model.expression.*;
-import model.statement.*;
-import model.type.BoolType;
-import model.type.IntType;
-import model.value.BoolValue;
-import model.value.IntValue;
-import model.value.Value;
-import org.junit.Test;
-
-import java.util.Collections;
-
-import static model.value.Value.*;
-import static org.junit.Assert.*;
-
 public class TestStatements {
 
-   // @Test
+    // @Test
 //    public void testCompoundStatement(){
 //        IStack<Statement> stack = new MyStack<Statement>(Collections.emptyList());
 //        IDictionary<String, Value> dict = new MyDictionary<String, Value>();

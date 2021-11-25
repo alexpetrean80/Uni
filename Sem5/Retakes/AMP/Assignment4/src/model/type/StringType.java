@@ -3,15 +3,15 @@ package model.type;
 import model.value.StringValue;
 import model.value.Value;
 
-public class StringType implements Type{
+public class StringType implements Type {
 
     @Override
-    public boolean equals(Object otherObject){
+    public boolean equals(Object otherObject) {
         return otherObject instanceof StringType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "string";
     }
 

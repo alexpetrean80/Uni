@@ -5,12 +5,12 @@ import model.value.Value;
 
 public class BoolType implements Type {
     @Override
-    public boolean equals(Object other){
+    public boolean equals(Object other) {
         return other instanceof BoolType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "bool";
     }
 
@@ -20,7 +20,7 @@ public class BoolType implements Type {
     }
 
     @Override
-    public Value defaultValue(){
+    public Value defaultValue() {
         return new BoolValue(false);
     }
 }

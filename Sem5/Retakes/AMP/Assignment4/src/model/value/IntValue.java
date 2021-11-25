@@ -3,40 +3,38 @@ package model.value;
 import model.type.IntType;
 import model.type.Type;
 
-import java.util.Objects;
-
 public class IntValue extends Value {
     private final int value;
 
-    public IntValue(int value){
+    public IntValue(int value) {
         this.value = value;
     }
 
-    public int getValue(){
+    public int getValue() {
         return this.value;
     }
 
     @Override
-   public Type getType(){
+    public Type getType() {
         return new IntType();
-   }
-
-   @Override
-    public Value deepCopy() {
-        return  new IntValue(this.value);
     }
 
     @Override
-    public String toString(){
+    public Value deepCopy() {
+        return new IntValue(this.value);
+    }
+
+    @Override
+    public String toString() {
         return String.valueOf(this.value);
     }
 
-    public boolean equals(Object otherObject){
+    public boolean equals(Object otherObject) {
         if (this == otherObject)
             return true;
         if (otherObject == null || getClass() != otherObject.getClass())
             return false;
-        IntValue that = (IntValue)otherObject;
+        IntValue that = (IntValue) otherObject;
         return value == that.value;
     }
 }

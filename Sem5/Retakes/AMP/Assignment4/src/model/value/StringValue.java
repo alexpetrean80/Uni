@@ -5,14 +5,14 @@ import model.type.Type;
 
 import java.util.Objects;
 
-public class StringValue extends Value{
+public class StringValue extends Value {
     private final String value;
 
-    public StringValue(String value){
+    public StringValue(String value) {
         this.value = value;
     }
 
-    public String getValue(){
+    public String getValue() {
         return this.value;
     }
 
@@ -27,16 +27,16 @@ public class StringValue extends Value{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.value;
     }
 
-    public boolean equals(Object otherObject){
+    public boolean equals(Object otherObject) {
         if (this == otherObject)
             return true;
         if (otherObject == null || getClass() != otherObject.getClass())
             return false;
-        StringValue that = (StringValue)otherObject;
+        StringValue that = (StringValue) otherObject;
         return Objects.equals(value, that.value);
     }
 }

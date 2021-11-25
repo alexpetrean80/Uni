@@ -6,21 +6,22 @@ import model.value.Value;
 public class IntType implements Type {
 
     @Override
-    public boolean equals(Object otherObject){
+    public boolean equals(Object otherObject) {
         return otherObject instanceof IntType;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "int";
     }
+
     @Override
-    public Type deepCopy(){
+    public Type deepCopy() {
         return new IntType();
     }
 
     @Override
-    public Value defaultValue(){
+    public Value defaultValue() {
         return new IntValue(0);
     }
 }

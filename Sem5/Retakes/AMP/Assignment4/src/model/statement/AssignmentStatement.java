@@ -10,12 +10,12 @@ import model.expression.Expression;
 import model.type.Type;
 import model.value.Value;
 
-public class AssignmentStatement implements Statement{
+public class AssignmentStatement implements Statement {
 
     private final String variableName;
     private final Expression expression;
 
-    public AssignmentStatement(String variableName, Expression expression){
+    public AssignmentStatement(String variableName, Expression expression) {
         this.variableName = variableName;
         this.expression = expression;
     }

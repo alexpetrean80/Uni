@@ -5,15 +5,15 @@ import model.adt.IDictionary;
 import model.adt.IHeap;
 import model.value.Value;
 
-public class VariableExpression implements Expression{
+public class VariableExpression implements Expression {
 
     private final String variableName;
 
-    public VariableExpression(String variableName){
+    public VariableExpression(String variableName) {
         this.variableName = variableName;
     }
 
-    public String getVariableName(){
+    public String getVariableName() {
         return this.variableName;
     }
 
@@ -31,5 +31,7 @@ public class VariableExpression implements Expression{
     }
 
     @Override
-    public String toString(){ return this.getVariableName();}
+    public String toString() {
+        return this.getVariableName();
+    }
 }

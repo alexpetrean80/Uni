@@ -14,12 +14,12 @@ import model.value.Value;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ReadFileStatement implements Statement{
+public class ReadFileStatement implements Statement {
 
     private final Expression expression;
     private final String variableName;
 
-    public ReadFileStatement(Expression expression, String variableName){
+    public ReadFileStatement(Expression expression, String variableName) {
         this.expression = expression;
         this.variableName = variableName;
     }
@@ -29,23 +29,23 @@ public class ReadFileStatement implements Statement{
         IDictionary<String, Value> symbolTable = programState.getSymbolTable();
         IHeap<Value> heap = programState.getHeap();
 
-        if (!(symbolTable.containsKey(this.variableName))){
+        if (!(symbolTable.containsKey(this.variableName))) {
             throw new MyException("Variable name is not defined.");
         }
 
-        if (!(symbolTable.lookUp(this.variableName).getType().equals(new IntType()))){
+        if (!(symbolTable.lookUp(this.variableName).getType().equals(new IntType()))) {
             throw new MyException("Variable it doesn't have int type.");
         }
 
         Value value = this.expression.evaluate(symbolTable, heap);
-        if (!(value.getType().equals(new StringType()))){
+        if (!(value.getType().equals(new StringType()))) {
             throw new MyException("Variable is not a string type.");
         }
 
-        StringValue stringValue = (StringValue)value;
+        StringValue stringValue = (StringValue) value;
 
         IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
-        if (!(fileTable.containsKey(stringValue))){
+        if (!(fileTable.containsKey(stringValue))) {
             throw new MyException("The string value is not in the file table.");
         }
 
@@ -53,12 +53,11 @@ public class ReadFileStatement implements Statement{
             BufferedReader bufferedReader = fileTable.lookUp(stringValue);
             String line = bufferedReader.readLine();
             IntValue readValue = new IntValue(0);
-            if (!(line == null)){
+            if (!(line == null)) {
                 readValue = new IntValue(Integer.parseInt(line));
             }
             symbolTable.update(this.variableName, readValue);
-        }
-        catch (IOException except){
+        } catch (IOException except) {
             throw new MyException(except.getMessage());
         }
         return programState;
@@ -70,7 +69,7 @@ public class ReadFileStatement implements Statement{
     }
 
     @Override
-    public String toString(){
-        return "read form " + this.expression.toString() + " into " + this.variableName +  ")";
+    public String toString() {
+        return "read form " + this.expression.toString() + " into " + this.variableName + ")";
     }
 }

@@ -10,23 +10,23 @@ import model.value.Value;
 
 import static model.value.Value.toBoolean;
 
-public class IfStatement implements Statement{
+public class IfStatement implements Statement {
 
     private final Statement thenStatement;
     private final Statement elseStatement;
-    private final  Expression expression;
+    private final Expression expression;
 
-    public IfStatement(Expression expression, Statement thenStatement, Statement elseStatement){
+    public IfStatement(Expression expression, Statement thenStatement, Statement elseStatement) {
         this.thenStatement = thenStatement;
         this.elseStatement = elseStatement;
         this.expression = expression;
     }
 
-    public Statement getThenStatement(){
+    public Statement getThenStatement() {
         return this.thenStatement;
     }
 
-    public Statement getElseStatement(){
+    public Statement getElseStatement() {
         return this.elseStatement;
     }
 

@@ -2,7 +2,7 @@ package model.statement;
 
 import model.ProgramState;
 
-public class NOPStatement implements Statement{
+public class NOPStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState programState) {
@@ -10,7 +10,7 @@ public class NOPStatement implements Statement{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "";
     }
 

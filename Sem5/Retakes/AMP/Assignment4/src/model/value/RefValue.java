@@ -3,7 +3,7 @@ package model.value;
 import model.type.RefType;
 import model.type.Type;
 
-public class RefValue extends Value{
+public class RefValue extends Value {
     private final Integer address;
     private final Type locationType;
 
@@ -22,6 +22,9 @@ public class RefValue extends Value{
 
     @Override
     public String toString() {
+        if (this.address == 0) {
+            return "(NULL," + this.locationType.toString() + ")";
+        }
         return "(" + this.address.toString() + ", " + this.locationType.toString() + ")";
     }
 

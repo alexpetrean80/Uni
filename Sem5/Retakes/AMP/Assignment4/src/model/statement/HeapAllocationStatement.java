@@ -12,7 +12,7 @@ import model.type.Type;
 import model.value.RefValue;
 import model.value.Value;
 
-public class HeapAllocationStatement implements Statement{
+public class HeapAllocationStatement implements Statement {
     private final String variableName;
     private final Expression expression;
 
@@ -27,20 +27,20 @@ public class HeapAllocationStatement implements Statement{
         IDictionary<String, Value> symbolTable = programState.getSymbolTable();
         IHeap<Value> heap = programState.getHeap();
 
-        if (!(symbolTable.containsKey(this.variableName))){
+        if (!(symbolTable.containsKey(this.variableName))) {
             throw new VariableUndefinedException(this.variableName);
         }
 
         Type variableType = symbolTable.lookUp(this.variableName).getType();
 
-        if (!(variableType instanceof RefType)){
+        if (!(variableType instanceof RefType)) {
             throw new WrongTypeAssignedException(this.variableName);
         }
 
         Value valueExpression = this.expression.evaluate(symbolTable, heap);
 
-        if (!(valueExpression.getType().equals(((RefType) variableType).getInner()))){
-            throw  new MyException("The expression is not a RefType");
+        if (!(valueExpression.getType().equals(((RefType) variableType).getInner()))) {
+            throw new MyException("The expression is not a RefType");
         }
 
         int address = heap.allocate(valueExpression);
@@ -56,6 +56,6 @@ public class HeapAllocationStatement implements Statement{
 
     @Override
     public String toString() {
-        return "new(" + this.variableName + ", " + this.expression.toString() + ")" ;
+        return "new(" + this.variableName + ", " + this.expression.toString() + ")";
     }
 }

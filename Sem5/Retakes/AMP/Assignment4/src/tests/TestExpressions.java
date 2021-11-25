@@ -1,14 +1,4 @@
 package tests;
-import model.adt.MyDictionary;
-import model.expression.*;
-import model.value.BoolValue;
-import model.value.IntValue;
-import model.value.Value;
-import org.junit.Test;
-
-import static model.value.Value.*;
-import static org.junit.Assert.*;
-
 
 public class TestExpressions {
 

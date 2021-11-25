@@ -4,9 +4,10 @@ import model.adt.IDictionary;
 import model.adt.IHeap;
 import model.value.Value;
 
-public class ValueExpression implements Expression{
+public class ValueExpression implements Expression {
 
     Value value;
+
     public ValueExpression(Value value) {
         this.value = value;
     }
@@ -22,5 +23,7 @@ public class ValueExpression implements Expression{
     }
 
     @Override
-    public String toString(){return this.value.toString();}
+    public String toString() {
+        return this.value.toString();
+    }
 }
