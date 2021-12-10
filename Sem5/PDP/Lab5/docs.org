@@ -1,0 +1,170 @@
+* Contents:
+1. [[Algorithms]]
+   a. Regular Sequential
+   b. Regular Parallel
+   c. Karatsuba Sequential
+   d. Karatsuba Parallel
+2. [[Performance Measurements]]
+
+* Algorithms
+** Regular Sequential
+#+BEGIN_SRC csharp
+Polynomial MulRegSeq(Polynomial poly1, Polynomial poly2)
+{
+    var res = new Polynomial { Coefficients = new() };
+
+    for (int i = 0; i < poly1.Coefficients!.Count; i++)
+    {
+        for (int i1 = 0; i1 < poly2.Coefficients!.Count; i1++)
+        {
+            var ir = i + i1;
+            var cr = poly1.Coefficients[i] * poly2.Coefficients[i1];
+            while (res.Coefficients.Count <= ir)
+            {
+                res.Coefficients.Add(0);
+            }
+            res.Coefficients[ir] += cr;
+        }
+    }
+
+    return res;
+}
+#+END_SRC
+For each coefficient of the first polynomial, it iterates through all coefficients of the second polynomial, at each step computing the sum of the indexes corresponding to the power of x, and the product of the coefficients. It then adds zeros to the list of coefficients for the result, and finally adds the product to the sum of indexes.
+** Regular Parallel
+#+BEGIN_SRC csharp
+Polynomial MulRegPar(Polynomial poly1, Polynomial poly2)
+{
+    var res = new Polynomial { Coefficients = new() };
+    var mtx = new Mutex();
+
+    Parallel.For(0, poly1.Coefficients!.Count, (int i) =>
+    {
+        Parallel.For(0, poly2.Coefficients!.Count, (int i1) =>
+        {
+            int ir = i;
+            Interlocked.Add(ref ir, i1);
+
+            int cr = 0;
+            Interlocked.Exchange(ref cr, poly1.Coefficients[i] * poly2.Coefficients[i1]);
+
+
+            mtx.WaitOne();
+            while (res.Coefficients.Count <= ir)
+            {
+                res.Coefficients.Add(0);
+            }
+            mtx.ReleaseMutex();
+
+            mtx.WaitOne();
+            res.Coefficients[ir] += cr;
+            mtx.ReleaseMutex();
+        });
+    });
+
+    mtx.Dispose();
+
+    return res;
+}
+#+END_SRC
+It works on the same principle as the sequential algorithm, but utilizes a parallel for loop which runs every iteration on a different thread, the Interlocked package for atomic operations and a mutex for operations on the coefficients list.
+** Karatsuba Sequential
+#+BEGIN_SRC csharp
+Polynomial MulKarSeq(Polynomial poly1, Polynomial poly2)
+{
+    var p1h = poly1.GetHalve();
+    var p2h = poly2.GetHalve();
+
+    var prf = MulRegSeq(p1h.Item1, p2h.Item1);
+    var prs = MulRegSeq(p1h.Item2, p2h.Item2);
+
+    var p1s = p1h.Item1 + p1h.Item2;
+
+    var p2s = p2h.Item1 + p2h.Item2;
+
+    var ps = MulRegSeq(p1s, p2s) - prf - prs;
+
+    var res = prf * (poly1.Coefficients!.Count - 1) + ps * ((poly1.Coefficients.Count - 1) / 2) + prs;
+
+    return res;
+}
+#+END_SRC
+The algorithm begins by splitting both polynomials in halves. It then proceeds to multiply, using the regular algorithm, the first halves of the polynomials and the second halves of the polynomials. Next, addition between the halves of the first and second polynomials and then multiply them, subtracting prf and prs from the result. The final result is then computed.
+** Karatsuba Parallel
+#+begin_src csharp
+Polynomial MulKarPar(Polynomial poly1, Polynomial poly2)
+{
+    var p1h = Tuple.Create(new Polynomial(), new Polynomial());
+    var p2h = Tuple.Create(new Polynomial(), new Polynomial());
+
+    var p1ht = new Task(() => p1h = poly1.GetHalve());
+    var p2ht = new Task(() => p2h = poly2.GetHalve());
+
+    p1ht.Start();
+    p2ht.Start();
+
+    Task.WaitAll(new Task[] { p1ht, p2ht });
+
+
+    var prf = new Polynomial();
+    var prft = new Task(() => prf = MulRegPar(p1h.Item1, p2h.Item1));
+    prft.Start();
+
+    var prs = new Polynomial();
+    var prst = new Task(() => prs = MulRegPar(p1h.Item2, p2h.Item2));
+    prst.Start();
+
+    var p1s = new Polynomial();
+    var p1st = new Task(() => p1s = p1h.Item1 + p1h.Item2);
+    p1st.Start();
+
+    var p2s = new Polynomial();
+    var p2st = new Task(() => p2s = p2h.Item1 + p2h.Item2);
+    p2st.Start();
+
+    Task.WaitAll(new Task[] { prft, prst, p1st, p2st });
+
+
+    var ps = MulRegPar(p1s, p2s) - prf - prs;
+
+    var res = prf * (poly1.Coefficients!.Count - 1) + ps * ((poly1.Coefficients.Count - 1) / 2) + prs;
+
+    return res;
+
+}
+#+END_SRC
+This algorithm functions in the same way as the sequential one, wrapping each operation that can be executed in parallel into a task, and waiting for them when they are needed.
+
+* Performance Measurements:
+** small polynomials:
+poly1=(1x^2) + (2x^1) + (3)
+poly2=(5x^2) + (6x^1) + (7)
+
+Regular Sequential:
+timeRegSeq=00:00:00.0092460
+
+Regular Parallel:
+timeRegPar=00:00:00.0126530
+
+Karatsuba Sequential:
+timeRegPar=00:00:00.0033867
+
+Karatsuba Parallel:
+timeRegPar=00:00:00.0009275
+** large polynomials:
+
+Randomly generated polynomials with 1000 degrees
+
+Regular Sequential:
+timeRegSeq=00:00:00.0355472
+
+Regular Parallel:
+timeRegPar=00:00:07.5307336
+
+Karatsuba Sequential:
+timeRegPar=00:00:00.0233668
+
+Karatsuba Parallel:
+timeRegPar=00:00:00.0143662
+
+On large polynomials, I modified Karatsuba parallel to use the sequential regular algorithm, because regular parallel behaves badly when large numbers are used, since Parallel.For creates 1000^2 threads.

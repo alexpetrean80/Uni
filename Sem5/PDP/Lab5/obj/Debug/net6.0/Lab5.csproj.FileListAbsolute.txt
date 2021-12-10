@@ -1,0 +1,15 @@
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/Lab5
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/Lab5.deps.json
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/Lab5.runtimeconfig.json
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/Lab5.dll
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/ref/Lab5.dll
+/home/padfoot/Uni/Sem5/PDP/Lab5/bin/Debug/net6.0/Lab5.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.csproj.AssemblyReference.cache
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.GeneratedMSBuildEditorConfig.editorconfig
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.AssemblyInfoInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.AssemblyInfo.cs
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.csproj.CoreCompileInputs.cache
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.dll
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/ref/Lab5.dll
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.pdb
+/home/padfoot/Uni/Sem5/PDP/Lab5/obj/Debug/net6.0/Lab5.genruntimeconfig.cache
