@@ -1,8 +1,8 @@
 package model.expression;
 
 import exception.VariableUndefinedException;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.Type;
 import model.value.Value;
 
@@ -19,8 +19,8 @@ public class VariableExpression implements Expression{
     }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
-        Value value = symbolTable.lookUp(this.variableName);
+    public Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap) {
+        var value = symbolTable.lookup(this.variableName);
 
         if (value == null)
             throw new VariableUndefinedException(this.variableName);
@@ -34,8 +34,8 @@ public class VariableExpression implements Expression{
     }
 
     @Override
-    public Type typeCheck(IDictionary<String, Type> typeEnvironment) {
-        return typeEnvironment.lookUp(variableName);
+    public Type typeCheck(Dict<String, Type> typeEnvironment) {
+        return typeEnvironment.lookup(variableName);
     }
 
     @Override

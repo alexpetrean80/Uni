@@ -1,9 +1,9 @@
 package model.statement;
 
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IList;
+import model.adt.Dict;
+import model.adt.Heap;
+import model.adt.List;
 import model.expression.Expression;
 import model.type.Type;
 import model.value.Value;
@@ -21,9 +21,9 @@ public class PrintStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IList<Value> output = programState.getOutput();
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
+        List<Value> output = programState.getOutput();
+        Dict<String, Value> symbolTable = programState.getSymbolTable();
+        Heap<Value> heap = programState.getHeap();
 
         synchronized (programState.getOutput()) {
             output.addToEnd(this.expression.evaluate(symbolTable, heap));
@@ -37,7 +37,7 @@ public class PrintStatement implements Statement {
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         this.expression.typeCheck(typeEnvironment);
 
         return typeEnvironment;

@@ -2,16 +2,16 @@ package model.expression;
 
 import exception.MyException;
 import exception.TypeCheckException;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.RefType;
 import model.type.Type;
 import model.value.RefValue;
 import model.value.Value;
 
-public class HeapReadingExpression implements Expression{
+public class HeapReadingExpression implements Expression {
 
-      private final Expression expression;
+    private final Expression expression;
 
     public HeapReadingExpression(Expression expression) {
         this.expression = expression;
@@ -22,15 +22,15 @@ public class HeapReadingExpression implements Expression{
     }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
+    public Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap) {
 
-        Value expressionValue = this.expression.evaluate(symbolTable, heap);
+        var expressionValue = this.expression.evaluate(symbolTable, heap);
 
-        if (!(expressionValue instanceof RefValue)){
+        if (!(expressionValue instanceof RefValue)) {
             throw new MyException("The expression value is not RefValue.");
         }
 
-        int address = ((RefValue) expressionValue).getAddress();
+        var address = ((RefValue) expressionValue).getAddress();
 
         return heap.lookup(address);
     }
@@ -41,14 +41,14 @@ public class HeapReadingExpression implements Expression{
     }
 
     @Override
-    public Type typeCheck(IDictionary<String, Type> typeEnvironment) {
-        Type expressionType = this.expression.typeCheck(typeEnvironment);
+    public Type typeCheck(Dict<String, Type> typeEnvironment) {
+        var expressionType = this.expression.typeCheck(typeEnvironment);
 
-        if (!(expressionType instanceof RefType)){
+        if (!(expressionType instanceof RefType)) {
             throw new TypeCheckException("The rH argument is not a RefType!");
         }
 
-        RefType  refTypeExpression = (RefType) expressionType;
+        var refTypeExpression = (RefType) expressionType;
 
         return refTypeExpression.getInner();
     }

@@ -4,13 +4,12 @@ import exception.MyException;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-public class MyList<T> implements IList<T> {
+public class TLList<T> implements List<T> {
 
-    private final List<T> list;
+    private final java.util.List<T> list;
 
-    public MyList(){
+    public TLList(){
         this.list = Collections.synchronizedList(new ArrayList<T>());
     }
 

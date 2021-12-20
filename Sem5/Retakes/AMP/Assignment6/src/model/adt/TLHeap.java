@@ -6,11 +6,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class MyHeap<V> implements IHeap<V>{
+public class TLHeap<V> implements Heap<V> {
     private Map<Integer, V> heap;
     private AtomicInteger nextFreeLocation;
 
-    public MyHeap(){
+    public TLHeap(){
         this.heap = new ConcurrentHashMap<Integer, V>();
         this.nextFreeLocation = new AtomicInteger(0);
         }

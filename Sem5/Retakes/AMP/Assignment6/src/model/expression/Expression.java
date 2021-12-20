@@ -1,13 +1,12 @@
 package model.expression;
 
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.MyDictionary;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.Type;
 import model.value.Value;
 
 public interface Expression {
-    Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap);
+    Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap);
     Expression deepCopy();
-    Type typeCheck(IDictionary<String, Type> typeEnvironment);
+    Type typeCheck(Dict<String, Type> typeEnvironment);
 }

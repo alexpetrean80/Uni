@@ -8,14 +8,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MyDictionary<K, V> implements IDictionary<K, V> {
+public class TLDict<K, V> implements Dict<K, V> {
     private Map<K, V> map;
 
-    public MyDictionary(){
+    public TLDict(){
         this.map = new ConcurrentHashMap<K, V>();
     }
 
-    public MyDictionary(Map<K,V> otherDictionary){
+    public TLDict(Map<K,V> otherDictionary){
         this.map = new HashMap<K,V>(otherDictionary);
     }
 
@@ -43,8 +43,8 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     }
 
     @Override
-    public V lookUp(K key) {
-        V value = this.map.get(key);
+    public V lookup(K key) {
+        var value = this.map.get(key);
         if(value == null) {
             System.out.println("key: " + key);
             throw new UnknownKeyException();
@@ -86,7 +86,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     public String toString(){
         StringBuilder str = new StringBuilder();
         str.append("{ ");
-        for (K key: this.map.keySet() ){
+        for (var key: this.map.keySet() ){
             if (this.map.get(key) instanceof BufferedReader) {
                 str.append(key.toString());
                 str.append(",");
@@ -98,7 +98,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
                 str.append(",");
             }
         }
-        str = str.replace(str.length()-1, str.length(), "}");
+        str.replace(str.length() - 1, str.length(), "}");
         return str.toString();
     }
 }

@@ -3,10 +3,10 @@ package model.statement;
 import exception.NotBooleanException;
 import exception.TypeCheckException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IStack;
-import model.adt.MyDictionary;
+import model.adt.Dict;
+import model.adt.Heap;
+import model.adt.Stack;
+import model.adt.TLDict;
 import model.expression.Expression;
 import model.type.BoolType;
 import model.type.Type;
@@ -33,9 +33,9 @@ public class WhileStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        Dict<String, Value> symbolTable = programState.getSymbolTable();
+        Heap<Value> heap = programState.getHeap();
+        Stack<Statement> executionStack = programState.getExecutionStack();
 
         Value expressionValue = this.expression.evaluate(symbolTable, heap);
 
@@ -56,13 +56,13 @@ public class WhileStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
 
         if (!(this.expression.typeCheck(typeEnvironment).equals(new BoolType()))){
             throw new TypeCheckException("The condition of the while is not boolean.");
         }
 
-        this.statement.typeCheck(new MyDictionary<String, Type>(typeEnvironment.getContent()));
+        this.statement.typeCheck(new TLDict<String, Type>(typeEnvironment.getContent()));
 
         return typeEnvironment;
     }

@@ -3,18 +3,13 @@ package model.adt;
 import exception.EmptyStackException;
 
 import java.util.ArrayDeque;
-import java.util.Collection;
 import java.util.Deque;
 
-public class MyStack<T> implements IStack<T> {
+public class TLStack<T> implements Stack<T> {
 
     private final Deque<T> stack;
 
-    public MyStack(Collection<T> initStack){
-        this.stack = new ArrayDeque<T>(initStack);
-    }
-
-    public MyStack(){
+    public TLStack(){
         this.stack = new ArrayDeque<>();
     }
 
@@ -44,10 +39,10 @@ public class MyStack<T> implements IStack<T> {
 
     @Override
     public String toString(){
-       StringBuilder output = new StringBuilder();
+       var output = new StringBuilder();
 
         output.append("(");
-        for (T elem : this.stack) {
+        for (var elem : this.stack) {
             output.append(elem.toString());
             if(!(elem.equals(this.stack.getLast())))
                 output.append(" | ");

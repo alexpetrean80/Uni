@@ -3,10 +3,9 @@ package model.statement;
 import exception.MyException;
 import exception.TypeCheckException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.expression.Expression;
-import model.type.BoolType;
 import model.type.StringType;
 import model.type.Type;
 import model.value.StringValue;
@@ -24,8 +23,8 @@ public class CloseRFileStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
+        Dict<String, Value> symbolTable = programState.getSymbolTable();
+        Heap<Value> heap = programState.getHeap();
 
         Value expressionValue = this.expression.evaluate(symbolTable, heap);
         if (!(expressionValue.getType().equals(new StringType()))){
@@ -34,13 +33,13 @@ public class CloseRFileStatement implements Statement{
         StringValue stringValue = (StringValue) expressionValue;
 
         synchronized (programState.getFileTable()) {
-            IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
+            Dict<StringValue, BufferedReader> fileTable = programState.getFileTable();
 
             if (!(fileTable.containsKey(stringValue))) {
                 throw new MyException("The value is not in the file table.");
             }
 
-            BufferedReader bufferedReader = fileTable.lookUp(stringValue);
+            BufferedReader bufferedReader = fileTable.lookup(stringValue);
             try {
                 bufferedReader.close();
                 fileTable.remove(stringValue);
@@ -57,7 +56,7 @@ public class CloseRFileStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         if (!(this.expression.typeCheck(typeEnvironment).equals(new StringType()))){
             throw new TypeCheckException("Expression doesn't have string type.");
         }

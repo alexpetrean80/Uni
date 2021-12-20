@@ -4,9 +4,9 @@ import exception.TypeCheckException;
 import exception.VariableUndefinedException;
 import exception.WrongTypeAssignedException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IStack;
+import model.adt.Dict;
+import model.adt.Heap;
+import model.adt.Stack;
 import model.expression.Expression;
 import model.type.Type;
 import model.value.Value;
@@ -36,15 +36,14 @@ public class AssignmentStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> stack = programState.getExecutionStack();
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
+        var symbolTable = programState.getSymbolTable();
+        var heap = programState.getHeap();
 
         if (!(symbolTable.containsKey(this.variableName)))
             throw new VariableUndefinedException(this.variableName);
 
-        Type variableType = symbolTable.lookUp(this.variableName).getType();
-        Value value = this.expression.evaluate(symbolTable, heap);
+        var variableType = symbolTable.lookup(this.variableName).getType();
+        var value = this.expression.evaluate(symbolTable, heap);
 
         if (!(value.getType().equals(variableType)))
             throw new WrongTypeAssignedException(this.variableName);
@@ -59,9 +58,8 @@ public class AssignmentStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
-
-        if (!(typeEnvironment.lookUp(this.variableName).equals(this.expression.typeCheck(typeEnvironment)))){
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
+        if (!(typeEnvironment.lookup(this.variableName).equals(this.expression.typeCheck(typeEnvironment)))){
             throw new TypeCheckException("Left hand side and right hand side have different types.");
         }
 

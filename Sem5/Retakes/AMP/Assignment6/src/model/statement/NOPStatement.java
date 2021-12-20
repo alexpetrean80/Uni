@@ -1,7 +1,7 @@
 package model.statement;
 
 import model.ProgramState;
-import model.adt.IDictionary;
+import model.adt.Dict;
 import model.type.Type;
 
 public class NOPStatement implements Statement{
@@ -22,7 +22,7 @@ public class NOPStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         return typeEnvironment;
     }
 }

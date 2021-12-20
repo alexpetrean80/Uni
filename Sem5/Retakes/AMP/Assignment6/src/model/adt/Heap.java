@@ -2,7 +2,7 @@ package model.adt;
 
 import java.util.Map;
 
-public interface IHeap<V> {
+public interface Heap<V> {
     int allocate(V value);
     V lookup(int address);
     boolean containsKey(int address);

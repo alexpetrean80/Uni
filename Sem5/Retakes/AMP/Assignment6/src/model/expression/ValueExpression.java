@@ -1,7 +1,7 @@
 package model.expression;
 
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.Type;
 import model.value.Value;
 
@@ -13,7 +13,7 @@ public class ValueExpression implements Expression{
     }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
+    public Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap) {
         return this.value;
     }
 
@@ -23,7 +23,7 @@ public class ValueExpression implements Expression{
     }
 
     @Override
-    public Type typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Type typeCheck(Dict<String, Type> typeEnvironment) {
         return value.getType();
     }
 

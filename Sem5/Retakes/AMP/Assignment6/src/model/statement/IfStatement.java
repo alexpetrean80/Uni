@@ -3,17 +3,14 @@ package model.statement;
 import exception.NotBooleanException;
 import exception.TypeCheckException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IStack;
-import model.adt.MyDictionary;
+import model.adt.Dict;
+import model.adt.Heap;
+import model.adt.Stack;
+import model.adt.TLDict;
 import model.expression.Expression;
 import model.type.BoolType;
 import model.type.Type;
 import model.value.Value;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import static model.value.Value.toBoolean;
 
@@ -49,8 +46,8 @@ public class IfStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> stack = programState.getExecutionStack();
-        IHeap<Value> heap = programState.getHeap();
+        Stack<Statement> stack = programState.getExecutionStack();
+        Heap<Value> heap = programState.getHeap();
 
         Value condition = this.expression.evaluate(programState.getSymbolTable(), heap);
         if (!(condition.getType() instanceof BoolType))
@@ -70,13 +67,13 @@ public class IfStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         if (!(this.expression.typeCheck(typeEnvironment).equals(new BoolType()))){
             throw new TypeCheckException("The condition of IF is not a boolean.");
         }
 
-        this.thenStatement.typeCheck(new MyDictionary<String, Type>(typeEnvironment.getContent()));
-        this.elseStatement.typeCheck(new MyDictionary<String, Type>(typeEnvironment.getContent()));
+        this.thenStatement.typeCheck(new TLDict<String, Type>(typeEnvironment.getContent()));
+        this.elseStatement.typeCheck(new TLDict<String, Type>(typeEnvironment.getContent()));
 
          return typeEnvironment;
     }

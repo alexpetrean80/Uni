@@ -2,8 +2,8 @@ package model.expression;
 
 import exception.TypeCheckException;
 import exception.UnknownOperatorException;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.BoolType;
 import model.type.Type;
 import model.value.Value;
@@ -29,7 +29,7 @@ public class LogicalExpression implements Expression {
     public String getLogicalOperator() { return this.logicalOperator; }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
+    public Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap) {
         if (logicalOperator.equals("and")){
             return fromBoolean(toBoolean(leftExpr.evaluate(symbolTable, heap)) && toBoolean(rightExpr.evaluate(symbolTable, heap)));
         }
@@ -46,7 +46,7 @@ public class LogicalExpression implements Expression {
     }
 
     @Override
-    public Type typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Type typeCheck(Dict<String, Type> typeEnvironment) {
         if (!(this.leftExpr.typeCheck(typeEnvironment).equals(new BoolType()))){
             throw new TypeCheckException("The left expression is not a boolean");
         }

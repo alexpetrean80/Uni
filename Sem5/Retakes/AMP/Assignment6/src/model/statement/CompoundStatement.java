@@ -1,8 +1,8 @@
 package model.statement;
 
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IStack;
+import model.adt.Dict;
+import model.adt.Stack;
 import model.type.Type;
 
 public class CompoundStatement implements Statement {
@@ -30,7 +30,7 @@ public class CompoundStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IStack<Statement> executionStack = programState.getExecutionStack();
+        Stack<Statement> executionStack = programState.getExecutionStack();
 
         executionStack.push(this.rightStatement);
         executionStack.push(this.leftStatement);
@@ -44,7 +44,7 @@ public class CompoundStatement implements Statement {
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         return this.rightStatement.typeCheck(this.leftStatement.typeCheck(typeEnvironment));
     }
 }

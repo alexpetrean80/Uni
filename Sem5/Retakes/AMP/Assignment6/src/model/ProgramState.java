@@ -1,10 +1,10 @@
 package model;
 
 import exception.EmptyStackException;
-import model.adt.IDictionary;
-import model.adt.IHeap;
-import model.adt.IList;
-import model.adt.IStack;
+import model.adt.Dict;
+import model.adt.Heap;
+import model.adt.List;
+import model.adt.Stack;
 import model.statement.Statement;
 import model.value.StringValue;
 import model.value.Value;
@@ -14,19 +14,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProgramState {
 
-    private IStack<Statement> executionStack;
-    private IDictionary<String, Value> symbolTable;
-    private IList<Value> output;
+    private Stack<Statement> executionStack;
+    private Dict<String, Value> symbolTable;
+    private List<Value> output;
     private Statement originalProgram;
-    private final IDictionary<StringValue, BufferedReader> fileTable;
-    private final IHeap<Value> heap;
+    private final Dict<StringValue, BufferedReader> fileTable;
+    private final Heap<Value> heap;
 
     private final int id;
 
     private static AtomicInteger lastId = new AtomicInteger(0);
 
-    public ProgramState(IStack<Statement> executionStack, IDictionary<String, Value> symbolTable, IList<Value> output,
-                        Statement originalProgram, IDictionary<StringValue, BufferedReader> fileTable, IHeap<Value> heap){
+    public ProgramState(Stack<Statement> executionStack, Dict<String, Value> symbolTable, List<Value> output,
+                        Statement originalProgram, Dict<StringValue, BufferedReader> fileTable, Heap<Value> heap){
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
         this.output = output;
@@ -40,19 +40,19 @@ public class ProgramState {
         return id;
     }
 
-    public IDictionary<StringValue, BufferedReader> getFileTable() {
+    public Dict<StringValue, BufferedReader> getFileTable() {
         return fileTable;
     }
 
-    public IStack<Statement> getExecutionStack() {
+    public Stack<Statement> getExecutionStack() {
         return executionStack;
     }
 
-    public IDictionary<String, Value> getSymbolTable() {
+    public Dict<String, Value> getSymbolTable() {
         return symbolTable;
     }
 
-    public IList<Value> getOutput() {
+    public List<Value> getOutput() {
         return output;
     }
 
@@ -60,19 +60,19 @@ public class ProgramState {
         return originalProgram;
     }
 
-    public IHeap<Value> getHeap() {
+    public Heap<Value> getHeap() {
         return heap;
     }
 
-    public void setExecutionStack(IStack<Statement> newExecutionStack){
+    public void setExecutionStack(Stack<Statement> newExecutionStack){
         this.executionStack = newExecutionStack;
     }
 
-    public void setSymbolTable(IDictionary<String, Value> newSymbolTable){
+    public void setSymbolTable(Dict<String, Value> newSymbolTable){
         this.symbolTable = newSymbolTable;
     }
 
-    public void setOutput(IList<Value> newOutput){
+    public void setOutput(List<Value> newOutput){
         this.output = newOutput;
     }
 
@@ -81,7 +81,7 @@ public class ProgramState {
     }
 
     public ProgramState oneStepExecution(){
-        IStack<Statement> executionStack = this.executionStack;
+        Stack<Statement> executionStack = this.executionStack;
         if (executionStack.isEmpty()){
             throw new EmptyStackException("The execution stack is empty");
         }

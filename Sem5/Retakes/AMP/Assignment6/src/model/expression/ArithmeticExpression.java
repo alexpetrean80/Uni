@@ -3,8 +3,8 @@ package model.expression;
 import exception.DivisionByZeroException;
 import exception.TypeCheckException;
 import exception.UnknownOperatorException;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.type.IntType;
 import model.type.Type;
 import model.value.Value;
@@ -27,7 +27,7 @@ public class ArithmeticExpression implements Expression{
     public Expression getRightExpression() { return this.rightExpression; }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> symbolTable, IHeap<Value> heap) {
+    public Value evaluate(Dict<String, Value> symbolTable, Heap<Value> heap) {
         switch (arithmeticOperator){
             case '+' -> {
                 return Value.fromInteger(Value.toInteger(this.leftExpression.evaluate(symbolTable, heap)) +
@@ -49,7 +49,7 @@ public class ArithmeticExpression implements Expression{
                 }
                 return Value.fromInteger(leftNumber / rightNumber);
             }
-            default -> {throw new UnknownOperatorException("Arithmetic operator unknown.");}
+            default -> throw new UnknownOperatorException("Arithmetic operator unknown.");
         }
     }
 
@@ -60,7 +60,7 @@ public class ArithmeticExpression implements Expression{
     }
 
     @Override
-    public Type typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Type typeCheck(Dict<String, Type> typeEnvironment) {
         if (!(leftExpression.typeCheck(typeEnvironment).equals(new IntType()))){
             throw new TypeCheckException("The left operand is not an integer");
         }

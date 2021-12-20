@@ -3,8 +3,8 @@ package model.statement;
 import exception.MyException;
 import exception.TypeCheckException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.expression.Expression;
 import model.type.IntType;
 import model.type.StringType;
@@ -28,14 +28,14 @@ public class ReadFileStatement implements Statement{
 
     @Override
     public synchronized ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
+        Dict<String, Value> symbolTable = programState.getSymbolTable();
+        Heap<Value> heap = programState.getHeap();
 
         if (!(symbolTable.containsKey(this.variableName))){
             throw new MyException("Variable name is not defined.");
         }
 
-        if (!(symbolTable.lookUp(this.variableName).getType().equals(new IntType()))){
+        if (!(symbolTable.lookup(this.variableName).getType().equals(new IntType()))){
             throw new MyException("Variable it doesn't have int type.");
         }
 
@@ -47,13 +47,13 @@ public class ReadFileStatement implements Statement{
         StringValue stringValue = (StringValue)value;
 
         synchronized (programState.getFileTable()) {
-            IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
+            Dict<StringValue, BufferedReader> fileTable = programState.getFileTable();
             if (!(fileTable.containsKey(stringValue))) {
                 throw new MyException("The string value is not in the file table.");
             }
 
             try {
-                BufferedReader bufferedReader = fileTable.lookUp(stringValue);
+                BufferedReader bufferedReader = fileTable.lookup(stringValue);
                 String line = bufferedReader.readLine();
                 IntValue readValue = new IntValue(0);
                 if (!(line == null)) {
@@ -73,12 +73,12 @@ public class ReadFileStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         if (!(this.expression.typeCheck(typeEnvironment).equals(new StringType()))){
             throw new TypeCheckException("readFile statement: Expression is not a string!");
         }
 
-        if (!(typeEnvironment.lookUp(this.variableName).equals(new IntType()))){
+        if (!(typeEnvironment.lookup(this.variableName).equals(new IntType()))){
             throw new TypeCheckException("readFile statement: The variable is not an integer!");
         }
 

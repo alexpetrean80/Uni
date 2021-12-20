@@ -5,8 +5,8 @@ import exception.TypeCheckException;
 import exception.VariableUndefinedException;
 import exception.WrongTypeAssignedException;
 import model.ProgramState;
-import model.adt.IDictionary;
-import model.adt.IHeap;
+import model.adt.Dict;
+import model.adt.Heap;
 import model.expression.Expression;
 import model.type.RefType;
 import model.type.Type;
@@ -25,14 +25,14 @@ public class HeapAllocationStatement implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable = programState.getSymbolTable();
-        IHeap<Value> heap = programState.getHeap();
+        Dict<String, Value> symbolTable = programState.getSymbolTable();
+        Heap<Value> heap = programState.getHeap();
 
         if (!(symbolTable.containsKey(this.variableName))){
             throw new VariableUndefinedException(this.variableName);
         }
 
-        Type variableType = symbolTable.lookUp(this.variableName).getType();
+        Type variableType = symbolTable.lookup(this.variableName).getType();
 
         if (!(variableType instanceof RefType)){
             throw new WrongTypeAssignedException(this.variableName);
@@ -57,9 +57,9 @@ public class HeapAllocationStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         Type expressionType = this.expression.typeCheck(typeEnvironment);
-        Type variableType = typeEnvironment.lookUp(this.variableName);
+        Type variableType = typeEnvironment.lookup(this.variableName);
 
         if (!(variableType.equals(new RefType(expressionType)))){
             throw new TypeCheckException("NEW statement: right hand side and left hand side have different types");

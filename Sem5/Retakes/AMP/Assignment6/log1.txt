@@ -1,0 +1,492 @@
+Current thread id: 1
+Thread id: 1
+Stack
+((int v; (Ref int  a; (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (Ref int  a; (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(int v | (Ref int  a; (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))))
+Heap{}
+SymbolTable
+{}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((Ref int  a; (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((Ref int  a; (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(Ref int  a | (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(Ref int  a | (v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))))
+Heap{}
+SymbolTable
+{ v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((v = 10; (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 10 | (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(v = 10 | (new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->0}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((new(a, 22); (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a))))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(new(a, 22) | (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(new(a, 22) | (fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))
+Heap{}
+SymbolTable
+{ a->(0, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))); (print(v); print(rH(a)))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))) | (print(v); print(rH(a))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(fork((wH(a, 30); (v = 32; (print(v); print(rH(a)))))) | (print(v); print(rH(a))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(v); print(rH(a))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((wH(a, 30); (v = 32; (print(v); print(rH(a))))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+((print(v); print(rH(a))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((wH(a, 30); (v = 32; (print(v); print(rH(a))))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v) | print(rH(a)))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(wH(a, 30) | (v = 32; (print(v); print(rH(a)))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(v) | print(rH(a)))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(wH(a, 30) | (v = 32; (print(v); print(rH(a)))))
+Heap{ 1->22}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((v = 32; (print(v); print(rH(a)))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+(print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((v = 32; (print(v); print(rH(a)))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10]
+FileTable
+{}
+------------
+Current thread id: 1
+Thread id: 1
+Stack
+()
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(v = 32 | (print(v); print(rH(a))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(v = 32 | (print(v); print(rH(a))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->10}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((print(v); print(rH(a))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+((print(v); print(rH(a))))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(print(v) | print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(print(v) | print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30,32]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+(print(rH(a)))
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30,32]
+FileTable
+{}
+------------
+Current thread id: 4
+Thread id: 4
+Stack
+()
+Heap{ 1->30}
+SymbolTable
+{ a->(1, int),v->32}
+Output
+[10,30,32,30]
+FileTable
+{}
+------------

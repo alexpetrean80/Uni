@@ -3,7 +3,7 @@ package model.statement;
 import exception.DefinedVariableException;
 import exception.TypeCheckException;
 import model.ProgramState;
-import model.adt.IDictionary;
+import model.adt.Dict;
 import model.type.Type;
 import model.value.Value;
 
@@ -26,7 +26,7 @@ public class VariableDeclaration implements Statement{
 
     @Override
     public ProgramState execute(ProgramState programState) {
-        IDictionary<String, Value> symbolTable =  programState.getSymbolTable();
+        Dict<String, Value> symbolTable =  programState.getSymbolTable();
 
         if (symbolTable.containsKey(variableName)) {
             throw new DefinedVariableException(this.variableName);
@@ -42,7 +42,7 @@ public class VariableDeclaration implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         if (typeEnvironment.containsKey(this.variableName)){
             throw new TypeCheckException("Variable already exists");
         }

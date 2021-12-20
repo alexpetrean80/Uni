@@ -7,8 +7,6 @@ import model.value.StringValue;
 import model.value.Value;
 
 import java.io.BufferedReader;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ForkStatement implements Statement{
 
@@ -25,17 +23,17 @@ public class ForkStatement implements Statement{
     @Override
     public ProgramState execute(ProgramState programState) {
 
-        IStack<Statement> executionStack = new MyStack<>();
-        IDictionary<String, Value> newSymbolTable = new MyDictionary<String, Value>();
+        var executionStack = new TLStack<Statement>();
+        var newSymbolTable = new TLDict<String, Value>();
         programState.getSymbolTable().getContent()
                 .forEach((key, value) -> newSymbolTable.update(key, value.deepCopy()));
 
         synchronized (programState.getFileTable()) {
             synchronized (programState.getHeap()) {
                 synchronized (programState.getOutput()) {
-                    IDictionary<StringValue, BufferedReader> fileTable = programState.getFileTable();
-                    IHeap<Value> heap = programState.getHeap();
-                    IList<Value> output = programState.getOutput();
+                    Dict<StringValue, BufferedReader> fileTable = programState.getFileTable();
+                    Heap<Value> heap = programState.getHeap();
+                    List<Value> output = programState.getOutput();
 
                     return new ProgramState(executionStack, newSymbolTable, output, this.statement, fileTable, heap);
                 }
@@ -49,10 +47,10 @@ public class ForkStatement implements Statement{
     }
 
     @Override
-    public IDictionary<String, Type> typeCheck(IDictionary<String, Type> typeEnvironment) {
+    public Dict<String, Type> typeCheck(Dict<String, Type> typeEnvironment) {
         // type doesn't need deepcopy and string neither
 
-        this.statement.typeCheck(new MyDictionary<>(typeEnvironment.getContent()));
+        this.statement.typeCheck(new TLDict<>(typeEnvironment.getContent()));
 
         return typeEnvironment;
     }
